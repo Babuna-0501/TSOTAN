@@ -2,17 +2,7 @@
   #style.css
 \*-----------------------------------*/
 
-/**
- * copyright 2022 @codewithsadee 
- */
 
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
@@ -111,7 +101,9 @@ input {
 
 input::placeholder { font: inherit; }
 
-body { background: var(--white); }
+body { 
+  background-color: #F6E5D7;
+}
 
 /**
  * scrollbar style
