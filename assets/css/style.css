@@ -6298,3 +6298,76 @@ body.offcanvas-open {
 .page-pagination li a:hover {
   color: #ff7004;
 }
+
+
+
+/* product page css */
+.products {
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product {
+  background: #f9f8fc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product-content {
+  padding: 1rem 2rem;
+}
+
+.product .product-title {
+  font-size: 1rem;
+}
+
+.product-description {
+  text-align: justify;
+}
+
+.product-title,
+.product-price-container,
+.product-description,
+.product-category {
+  padding: 0.5rem 0;
+}
+
+.product-price-container {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-to-cart {
+  background: rgb(16, 8, 69);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: white;
+  border-radius: 1rem;
+}
+
+.add-to-cart ion-icon {
+  font-size: 3rem;
+}
+
+.loader {
+  display: inline-flex;
+  width: 100%;
+  height: 20rem;
+  align-items: flex-end;
+  justify-content: center;
+}
