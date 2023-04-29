@@ -34,11 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                    }" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a>
                 </span>
                 </div>
-
-
             </div>
-      
-          
             </div>
             `;
                 }
@@ -61,3 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+// category & product id section
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id');
+
+console.log(id);
