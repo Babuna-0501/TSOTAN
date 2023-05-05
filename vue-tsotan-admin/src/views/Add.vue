@@ -46,10 +46,12 @@
                   
                   <select class="form-control mt-4" v-model="selectedSubcategory" :disabled="!selectedCategory">
                     <option value="">-- Select a Subcategory --</option>
-                    <option v-for="subcategory in subcategories" :key="subcategory">{{ subcategory }}</option>
+                    <option v-for="subcategory in subcategories" :key="subcategory.name">{{ subcategory.name }}</option>
                   </select>
                 </div>
                 <label for="file">Зураг</label>
+
+
                 <form action="/file-upload" class="form-control dropzone" id="dropzone">
                     <div class="fallback">
                         <input name="file" type="file" multiple />
@@ -78,6 +80,8 @@
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 
+import categoryList from "@/assets/category.json";
+
 const body = document.getElementsByTagName("body")[0];
 
 
@@ -103,29 +107,16 @@ export default {
   },
   data() {
     return {
-      categories: [
-        { name: 'Даавуу', subcategories: ['Хээтэй - Дээлний', 'Хээтэй - Цамц, даашинз, костюм, пальто', "Хээтэй - Хүүхдийн хувцасны", "Хээтэй - Гэр ахуйн барааны", 'Хээгүй - Дээлний', 'Хээгүй - Цамц, даашинз, костюм, пальто', "Хээгүй - Хүүхдийн хувцасны", "Хээгүй - Гэр ахуйн барааны" ] },
-        { name: 'Футболк', subcategories: ['DTG - Эрэгтэй', 'DTG - Эмэгтэй', 'DTG - Хүүхдийн', 'DTF - Эрэгтэй', 'DTF - Эмэгтэй', 'DTF - Хүүхдийн'] },
-        { name: 'Бүс', subcategories: ['Дээлний - Эрэгтэй', 'Дээлний - Эмэгтэй', 'Дээлний - Хүүхдийн', 'Дээлний - Загварын' , 'Бусад - Эрэгтэй', 'Бусад - Эмэгтэй', 'Бусад - Хүүхдийн', 'Бусад - Загварын'] },
-        { name: 'Ширээний бүтээлэг', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Ширээний гол, тавгийн суурь', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Амны алчуур', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Цүнх Богц', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Уут', subcategories: ['Эко', 'Аяганы', 'Виноны', 'Хувцасны', 'Чемоданы'] },
-        { name: 'Аравч', subcategories: ['Морин хуурын', 'Буйдангийн'] },
-        { name: 'Буйдангийн суудал', subcategories: [''] },
-        { name: 'Дэрний уут', subcategories: ['Гоёлын', 'Бусад'] },
-        { name: 'Зураг', subcategories: [''] },
-        { name: 'Хормогч', subcategories: [''] },
-        { name: 'Бэлэн хувцас', subcategories: ['Монгол', 'Европ']},
-        { name: 'Бусад', subcategories: [''] },
-      ],
+      categories: [],
       selectedCategory: '',
       subcategories: [],
       selectedSubcategory: '',
     };
   },
   methods: {
+      mounted() {
+          this.categories = categoryList.categories;
+      },
     updateSubcategories() {
       const category = this.categories.find(c => c.name === this.selectedCategory);
       
