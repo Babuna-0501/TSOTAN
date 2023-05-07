@@ -1,8 +1,8 @@
 <template>
   <div class="py-4 container-fluid">
     <div class=" row">
-      <div class="col-4">
-        <List/>
+      <div class="col">
+        <List style="list-style-type: none;"/>
       </div>
     </div>
   </div>
