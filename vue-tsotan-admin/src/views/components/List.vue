@@ -26,6 +26,7 @@
                       <img :src="product.image"  class="w-20"/>
                     </div>
                   </div>
+                  
                 </td>
                 <td class="text-sm font-weight-bold mb-0">
                   {{product.title}}
@@ -42,11 +43,6 @@
                   >Edit</a>
                 </td>
               </li>
-              <!-- <li v-for="product in filteredProducts" :key="product.id">
-                {{product.title}}
-                {{product.price}}
-                <img :src="product.image"  class="w-20"/>
-              </li> -->
             </tr>
           </tbody>
           <div v-if="loading">Loading...</div>
