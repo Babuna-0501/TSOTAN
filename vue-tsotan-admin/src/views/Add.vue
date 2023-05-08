@@ -57,13 +57,14 @@
                 </form>
 
                 <div class="text-center">
-                  <argon-button
+                  <argon-button    
                     fullWidth
                     color="dark"
                     variant="gradient"
                     class="my-4 mb-2"
-                    >Бараа нэмэх</argon-button
-                  >
+                    click="login"
+                    >Бараа нэмэх
+                  </argon-button>
                 </div>
               </form>
             </div>
@@ -138,7 +139,11 @@ export default {
       this.selectedSubcategory = '';
     },
   },
+  login() {
+      // perform login validation
+      // redirect to dashboard on success
+    }
 };
- 
+
  
 </script>
