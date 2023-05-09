@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
-    let url = `https://api.escuelajs.co/api/v1/products?offset=0&limit=10`;
+    let url = `http://localhost:10001/product/list`;
     let opset = 0;
     async function fetchProducts(url) {
         try {
@@ -9,16 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.ok) {
                 let response = await data.json();
 
+                console.log("response len:" + response.length);
+
                 for (let i = 0; i < response.length; i++) {
-                    let description = response[i].description;
-                    let title = response[i].title;
+                    let description = response[i].name;
+                     
+
+                    console.log("desc: " + description)
+// s
+
+                    let title = response[i].name;
                     products.innerHTML += `
             <div class="product col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
                 <div class="thumb">
                     <a class="image"> 
-                        <img class="image" src="${response[i].images[1]}" alt="${
-                         response[i].category.name
-                        }" class="product-img">
+                        <img class="image" src="data:image/png;base64, ${response[i].imgUrl}" alt="" class="product-img">
                     </a>
                     
            
@@ -26,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h5 class="title">${
                     title.length > 18 ? title.substring(0, 18).concat(' ...') : title
                 }</h5>
-                <h5 class="product-category">${response[i].category.name}</h5>
+                <h5 class="product-category">${response[i].categoryId}</h5>
                 <span class="price">
                    <span class="new">$${response[i].price}</span>
                    <a href="#!" data-productId="${
-                     response[i].id
+                     response[i].name
                    }" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a>
                 </span>
                 </div>
@@ -50,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (scrollTop + clientHeight >= scrollHeight - 3 / 4) {
             setTimeout(() => {
                 fetchProducts(
-                    `https://api.escuelajs.co/api/v1/products?offset=${opset}&limit=10`
+                    `url`,
                 );
             }, 1000);
         }

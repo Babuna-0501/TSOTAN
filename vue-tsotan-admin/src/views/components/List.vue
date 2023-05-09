@@ -49,7 +49,7 @@
               </li> -->
             </tr>
           </tbody>
-          <div v-if="loading">Loading...</div>
+          <div> v-if="loading">Loading...</div>
           <ul v-else>
       
         </ul>
