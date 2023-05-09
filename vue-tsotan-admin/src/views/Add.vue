@@ -17,54 +17,71 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-          <div class="card z-index-0">
-            <div class="card-header text-center pt-4">
-              <h5>Бараа нэмэх</h5>
-            </div>
-            <div class="row px-xl-5 px-sm-4 px-3"></div>
-            <div class="card-body">
-              <form role="form">
-                <argon-input
-                  type="text"
-                  placeholder="Барааны нэр"
-                  aria-label="Name"
-                />
-                <argon-input
-                  type="number"
-                  placeholder="Үнэ"
-                  aria-label="number"
-                />
-                <div class="form-group">
-                  <label for="Category">Category</label>
-                  <select class="form-control" v-model="selectedCategory" @change="updateSubcategories">
-                    <option value="">-- Select a Category --</option>
-                    <option v-for="category in categories" :key="category.name">{{ category.name }}</option>
-                  </select>
-                  
-                  <select class="form-control mt-4" v-model="selectedSubcategory" :disabled="!selectedCategory">
-                    <option value="">-- Select a Subcategory --</option>
-                    <option v-for="subcategory in subcategories" :key="subcategory">{{ subcategory }}</option>
-                  </select>
-                </div>
-                <label for="file">Зураг</label>
-                <form action="/file-upload" class="form-control dropzone" id="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file" multiple />
-                    </div>
-                </form>
+      <div class="container">
+                    <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+                        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+                            <div class="card z-index-0">
+                                <div class="card-header text-center pt-4">
+                                    <h5>Бараа нэмэх</h5>
+                                </div>
+                                <div class="row px-xl-5 px-sm-4 px-3"></div>
+                                <div class="card-body">
+                                    <form role="form">
+                                        <argon-input
+                                            type="text"
+                                            placeholder="Барааны нэр"
+                                            aria-label="Name"
+                                        />
+                                        <argon-input
+                                            type="number"
+                                            placeholder="Үнэ"
+                                            aria-label="number"
+                                        />
+                                        <div class="form-group">
+                                            <label for="Category">Category</label>
+                                            <select class="form-control" v-model="selectedCategory"
+                                                    @change="updateSubcategories">
+                                                <option value="">-- Select a Category --</option>
+                                                <option v-for="category in categories" :key="category.name">{{
+                                                        category.name
+                                                    }}
+                                                </option>
+                                            </select>
 
-                <div class="text-center">
-                  <argon-button    
-                    fullWidth
-                    color="dark"
-                    variant="gradient"
-                    class="my-4 mb-2"
-                    click="login"
-                    >Бараа нэмэх
-                  </argon-button>
+                                            <select class="form-control mt-4" v-model="selectedSubcategory"
+                                                    :disabled="!selectedCategory">
+                                                <option value="">-- Select a Subcategory --</option>
+                                                <option v-for="subcategory in subcategories" :key="subcategory.name">
+                                                    {{ subcategory.name }}
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <label for="file">Зураг</label>
+
+
+
+
+                                        <div>
+                                            <input id="image" type="file" ref="image" @change="onImageChange"/>
+                                        </div>
+
+
+                                        <!--                                                <form action="/file-upload" class="form-control dropzone" id="dropzone">-->
+                                        <!--                                                    <div class="fallback">-->
+                                        <!--                                                        <input name="file" type="file" multiple />-->
+                                        <!--                                                    </div>-->
+                                        <!--                                                </form>-->
+
+                                        <div class="text-center">
+                                            <argon-button
+                                                @click = "submitForm"
+                                                fullWidth
+                                                color="dark"
+                                                variant="gradient"
+                                                class="my-4 mb-2"
+                                            >Бараа нэмэх
+                                            </argon-button>
                 </div>
               </form>
             </div>
@@ -79,6 +96,8 @@
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 
+import axios from "axios";
+import categoryList from "@/assets/category.json";
 const body = document.getElementsByTagName("body")[0];
 
 
@@ -102,25 +121,12 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+    mounted() {
+      this.categories = categoryList.categories;
+    },
   data() {
     return {
-      categories: [
-        { name: 'Даавуу', subcategories: ['Хээтэй - Дээлний', 'Хээтэй - Цамц, даашинз, костюм, пальто', "Хээтэй - Хүүхдийн хувцасны", "Хээтэй - Гэр ахуйн барааны", 'Хээгүй - Дээлний', 'Хээгүй - Цамц, даашинз, костюм, пальто', "Хээгүй - Хүүхдийн хувцасны", "Хээгүй - Гэр ахуйн барааны" ] },
-        { name: 'Футболк', subcategories: ['DTG - Эрэгтэй', 'DTG - Эмэгтэй', 'DTG - Хүүхдийн', 'DTF - Эрэгтэй', 'DTF - Эмэгтэй', 'DTF - Хүүхдийн'] },
-        { name: 'Бүс', subcategories: ['Дээлний - Эрэгтэй', 'Дээлний - Эмэгтэй', 'Дээлний - Хүүхдийн', 'Дээлний - Загварын' , 'Бусад - Эрэгтэй', 'Бусад - Эмэгтэй', 'Бусад - Хүүхдийн', 'Бусад - Загварын'] },
-        { name: 'Ширээний бүтээлэг', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Ширээний гол, тавгийн суурь', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Амны алчуур', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Цүнх Богц', subcategories: ['Монгол хээтэй', 'Бусад'] },
-        { name: 'Уут', subcategories: ['Эко', 'Аяганы', 'Виноны', 'Хувцасны', 'Чемоданы'] },
-        { name: 'Аравч', subcategories: ['Морин хуурын', 'Буйдангийн'] },
-        { name: 'Буйдангийн суудал', subcategories: [''] },
-        { name: 'Дэрний уут', subcategories: ['Гоёлын', 'Бусад'] },
-        { name: 'Зураг', subcategories: [''] },
-        { name: 'Хормогч', subcategories: [''] },
-        { name: 'Бэлэн хувцас', subcategories: ['Монгол', 'Европ']},
-        { name: 'Бусад', subcategories: [''] },
-      ],
+      categories: [],
       selectedCategory: '',
       subcategories: [],
       selectedSubcategory: '',
@@ -128,22 +134,38 @@ export default {
   },
   methods: {
     updateSubcategories() {
-      const category = this.categories.find(c => c.name === this.selectedCategory);
-      
-      if (category) {
-        this.subcategories = category.subcategories;
-      } else {
-        this.subcategories = [];
-      }
-      
-      this.selectedSubcategory = '';
+        const category = this.categories.find(c => c.name === this.selectedCategory);
+        if (category) {
+            this.subcategories = category.subcategories;
+        } else {
+            this.subcategories = [];
+        }
+        this.selectedSubcategory = '';
     },
+
+      onImageChange(event) {
+          this.image = event.target.files[0];
+      },
+      async submitForm() {
+          const formData = new FormData();
+          formData.append('file', this.image);
+          formData.append('name', this.name);
+          formData.append('price', '100');
+          formData.append('categoryId', '1000');
+          axios.post('http://localhost:10001/product/create-with-img', formData, {
+              headers: {
+                  'Content-Type': 'multipart/form-data'
+              }
+          }).then(response => {
+              console.log(response.data)
+          }).catch(error => {
+              console.log(error)
+          });
+      },
+
   },
-  login() {
-      // perform login validation
-      // redirect to dashboard on success
-    }
+
 };
 
- 
+
 </script>
