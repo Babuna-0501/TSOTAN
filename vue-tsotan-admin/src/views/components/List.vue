@@ -5,7 +5,7 @@
         <table class="table align-items-center mb-0">
           <select v-model="selectedCategory" class="my-2 text-sm font-weight-bold mb-0">
             <option value="">All Categories</option>
-            <option v-for="category in categories" :key="category">{{category}}</option>
+            <option v-for="category in categories" :key="category.name">{{category.name}}</option>
           </select>
           <thead>
             <tr>
@@ -19,17 +19,17 @@
           </thead>
           <tbody>
             <tr>
-              <li v-for="product in filteredProducts" :key="product.id" class="d-flex" style="align-items: center; gap: 20px;"> 
+              <li v-for="product in products" :key="product.id" class="d-flex" style="align-items: center; gap: 20px;">
                 <td>
                   <div class="d-flex px-2 py-1">
                     <div>
-                      <img :src="product.image"  class="w-20"/>
+                      <img :src=getImg(product.imgUrl)  class="w-20"/>
                     </div>
                   </div>
-                  
+
                 </td>
                 <td class="text-sm font-weight-bold mb-0">
-                  {{product.title}}
+                  {{product.name}}
                 </td>
                 <td class="align-middle text-center text-sm">
                   {{product.price}} ₮
@@ -58,7 +58,7 @@
   
   <script>
   import axios from 'axios';
-  
+  import categoryList from "../../../../category.json";
   export default {
     data() {
       return {
@@ -68,33 +68,42 @@
       }
     },
     computed: {
-      categories() {
-        const categories = new Set();
-        this.products.forEach(product => {
-          categories.add(product.category);
-        });
-        return Array.from(categories);
-      },
-      filteredProducts() {
-        if (this.selectedCategory === '') {
-          return this.products;
-        } else {
-          return this.products.filter(product => {
-            return product.category === this.selectedCategory;
-          });
-        }
-      }
+      // categories() {
+      //   const categories = new Set();
+      //   this.products.forEach(product => {
+      //     categories.add(product.category);
+      //   });
+      //   return Array.from(categories);
+      // },
+      // filteredProducts() {
+      //   if (this.selectedCategory === '') {
+      //     return this.products;
+      //   } else {
+      //     return this.products.filter(product => {
+      //       return product.category === this.selectedCategory;
+      //     });
+      //   }
+      // }
     },
-    mounted() {
-      axios.get('https://fakestoreapi.com/products')
-        .then(response => {
-          this.products = response.data;
-          this.loading = false;
-        })
-        .catch(error => {
-          console.log(error);
-          this.loading = false;
-        });
+      mounted() {
+        this.categories = categoryList.categories;
+        this.fetchData();
+    },
+    methods: {
+        async fetchData() {
+            axios.get('http://localhost:10001/product/list')
+                .then(response => {
+                    this.products = response.data;
+                    this.loading = false;
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.loading = false;
+                });
+        },
+        getImg(imgUrl) {
+            return "data:image/png;base64," + imgUrl;
+        }
     }
   }
   </script>

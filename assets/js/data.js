@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
-    let url = `localhost:10001/product/l`;
+    let url = `http://localhost:10001/product/list`;
     let opset = 0;
     async function fetchProducts(url) {
         try {
