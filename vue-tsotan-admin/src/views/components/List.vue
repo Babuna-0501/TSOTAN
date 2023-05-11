@@ -37,7 +37,7 @@
                             </td>
                             <td class="align-middle">
                                 <a
-                                        href="../edit"
+                                        :href=getEditUrl(product.id)
                                         class="text-secondary font-weight-bold text-xs"
                                         data-toggle="tooltip"
                                         data-original-title="Edit user"
@@ -87,6 +87,9 @@ export default {
         },
         getImg(imgUrl) {
             return "data:image/png;base64," + imgUrl;
+        },
+        getEditUrl(id) {
+            return "../edit/" + id;
         }
     }
 }
