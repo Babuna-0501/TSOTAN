@@ -169,6 +169,7 @@ export default {
 
         async submitForm() {
             const formData = new FormData();
+            console.log(this.product.name);
             formData.append('file', this.product.image);
             formData.append('name', this.product.name);
             formData.append('price', this.product.price);

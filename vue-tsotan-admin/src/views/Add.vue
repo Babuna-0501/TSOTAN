@@ -32,14 +32,12 @@
                                     v-model="product.name"
                                         type="text"
                                         placeholder="Барааны нэр"
-                                        aria-label="Name"
-                                />
+                                        aria-label="Name"/>
                                 <argon-input
                                     v-model="product.price"
                                         type="number"
                                         placeholder="Үнэ"
-                                        aria-label="number"
-                                />
+                                        aria-label="number"/>
                                 <div class="form-group">
                                     <label for="Category">Category</label>
                                     <select class="form-control" v-model="selectedCategory"
@@ -150,8 +148,16 @@ export default {
         onImageChange(event) {
             this.product.image = event.target.files[0];
         },
+        // onNameChange(event) {
+        //   this.product.name = event.target.value;
+        // },
+        // onPriceChange(event) {
+        //     this.product.price = event.target.value;
+        // },
         async submitForm() {
             const formData = new FormData();
+            console.log(this.product.price);
+            console.log("name:" + this.product.name);
             formData.append('file', this.product.image);
             formData.append('name', this.product.name);
             formData.append('price', this.product.price);

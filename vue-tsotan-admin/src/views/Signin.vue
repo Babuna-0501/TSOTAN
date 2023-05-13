@@ -29,6 +29,7 @@
                         color="success"
                         fullWidth
                         size="lg"
+                        @click="login"
                       >Нэвтрэх</argon-button>
                     </div>
                   </form>
@@ -70,30 +71,75 @@
 
 <script>
 import ArgonInput from "@/components/ArgonInput.vue";
-// import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+
 const body = document.getElementsByTagName("body")[0];
 
+
 export default {
-  name: "signin",
-  components: {
-    ArgonInput,
-    // ArgonSwitch,
-    ArgonButton,
-  },
-  created() {
-    this.$store.state.hideConfigButton = true;
-    this.$store.state.showNavbar = false;
-    this.$store.state.showSidenav = false;
-    this.$store.state.showFooter = false;
-    body.classList.remove("bg-gray-100");
-  },
-  beforeUnmount() {
-    this.$store.state.hideConfigButton = false;
-    this.$store.state.showNavbar = true;
-    this.$store.state.showSidenav = true;
-    this.$store.state.showFooter = true;
-    body.classList.add("bg-gray-100");
-  },
+    name: "signin",
+    components: {
+        ArgonInput,
+        ArgonButton,
+    },
+    created() {
+        this.$store.state.hideConfigButton = true;
+        this.$store.state.showNavbar = false;
+        this.$store.state.showSidenav = false;
+        this.$store.state.showFooter = false;
+        body.classList.remove("bg-gray-100");
+    },
+    beforeUnmount() {
+        this.$store.state.hideConfigButton = false;
+        this.$store.state.showNavbar = true;
+        this.$store.state.showSidenav = true;
+        this.$store.state.showFooter = true;
+        body.classList.add("bg-gray-100");
+    },
+
+    data() {
+        return {
+            username: '',
+            password: '',
+            loading: true,
+            token: ''
+        }
+    },
+    mounted() {
+    },
+    methods: {
+        async login() {
+            console.log("login");
+            // const loginRequest;
+            // loginRequest.append('username', this.username);
+            // loginRequest.append('password', this.password);
+            // console.log(loginRequest);
+
+
+            // auth: {
+            //     username: 'my-trusted-client',
+            //         password: 'secret'
+            // }
+
+
+            // axios.post(`http://localhost:10000/token`,  {
+            //     headers: {
+            //             "Content-Type": "application/json"
+            //         },
+            //     // auth: {
+            //     //     username: 'my-trusted-client',
+            //     //         password: 'secret'
+            //     // }
+            // })
+            //     .then(response => {
+            //         console.log(response)
+            //         this.loading = false;
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //         this.loading = false;
+            //     });
+        }
+    }
 };
 </script>

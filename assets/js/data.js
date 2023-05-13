@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
     let url = `http://localhost:10001/product/list`;
     let opset = 0;
+    //
+    // const headers = new Headers();
+    // headers.append('Authorization', 'eyJraWQiOiJhNWRmN2Q2Mi05MWU3LTQ3YzMtOGI0ZS01MTEyZmY0MjhjM2QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidHNvdGFuQGdtYWlsLmNvbSIsImV4cCI6MTY4Mzk2NzM0NSwiaWF0IjoxNjgzOTY3Mjg1LCJzY29wZSI6InJlYWQifQ.k78VFe0Id_qLssul4sYHZHXad88cn8ydavy-oKuunm77ypSp_pa_Y1N0Dxc4KfA-QZ0RKekEbLR98Z7c7uf_R2ViyBSs9jRvmcpF7MkeOnjV_rLFgKMCHq8_TAH-nqa3z7JEMhA30-rvfbLR1Nr-O0_JzTfuE_HJrOnneAKSl1tlNgStfboXbZl1DsYPHaNeqZd4XM_vTWPHCWb-atEEohFDiVdX1QUmS-0LSvHRUvEIaw2154CTLP-ChVBhfnzRNvzWCKQhsBNhYnnTMAo3Zs21SQNGPCcvlnquHnXiXfryNOtqoRDhnc7QgOGowkuvifK_niiAo357vhNca7kOKQ');
+
     async function fetchProducts(url) {
         try {
             let data = await fetch(url);
