@@ -31,7 +31,6 @@
     "chart.js": "3.6.0",
     "core-js": "3.6.5",
     "dropzone": "6.0.0-beta.1",
-    "fullcalendar": "^6.1.6",
     "jquery": "^3.6.4",
     "quill": "1.3.6",
     "vue": "3.2.0",
