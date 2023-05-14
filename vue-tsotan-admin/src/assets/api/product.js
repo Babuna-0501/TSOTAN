@@ -4,6 +4,9 @@ import axios from 'axios';
 const url = "http://localhost:10001";
 export default {
 
+
+    //  TODO : buh endpointoo endees avah
+
     async createProduct(productDto) {
         return axios.post(`${url}/product-type/list`, productDto);
     },
@@ -15,6 +18,10 @@ export default {
 
     async uploadImg(img) {
         return axios.post(`${url}/product/image`, img);
+    },
+
+    async login(data) {
+        return axios.post(`${url}/user/login`, data);
     }
 
 };

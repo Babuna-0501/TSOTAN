@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
-    let url = `http://localhost:10001/product/list`;
+    let url = `http://localhost:10001/product/list/${id}`;
     let opset = 0;
     //
     // const headers = new Headers();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     title.length > 18 ? title.substring(0, 18).concat(' ...') : title
                 }</h5>
 <!--                    TODO : name bolboh-->
-                <h5 class="product-category">${response[i].categoryId}</h5>
+                <h5 class="product-category">${response[i].category}</h5>
                 <span class="price">
                    <span class="new">$${response[i].price}</span>
                    <a href="#!" data-productId="${

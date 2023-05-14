@@ -15,10 +15,10 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="email" placeholder="Email" name="email" size="lg" />
+                      <argon-input v-model:value="username" type="text" placeholder="Email" name="email" size="lg" @change="onName" />
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" />
+                      <argon-input v-model:value="password" type="password" placeholder="Password" name="password" size="lg" @change="onPassword" />
                     </div>
                     <!-- <argon-switch id="rememberMe">Remember me</argon-switch> -->
 
@@ -72,7 +72,8 @@
 <script>
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
-
+// import api from "@/assets/api/product";
+import axios from "axios";
 const body = document.getElementsByTagName("body")[0];
 
 
@@ -99,47 +100,55 @@ export default {
 
     data() {
         return {
-            username: '',
+            username: 'test',
             password: '',
-            loading: true,
+            loading: false,
             token: ''
         }
     },
     mounted() {
     },
     methods: {
+        onName(event) {
+             this.username = event.target.value;
+        },
+        onPassword(event) {
+            this.password = event.target.value;
+        },
         async login() {
-            console.log("login");
-            // const loginRequest;
-            // loginRequest.append('username', this.username);
-            // loginRequest.append('password', this.password);
-            // console.log(loginRequest);
 
+            this.loading=true;
 
-            // auth: {
-            //     username: 'my-trusted-client',
-            //         password: 'secret'
+            // const headers = { 'Authorization': 'Bearer <token>', 'Content-Type': 'application/json' };
+            // const headers = { 'Content-Type': 'application/json' };
+
+            const data = { userName: this.username, password: this.password };
+
+            // try {
+            //    const res = await api.login(data);
+            //    console.log("res: " + res.data);
+            //    this.loading=false
+            // } catch (e) {
+            //     console.error(e);
+            //     this.loading=false
             // }
 
+            axios.post(`http://localhost:10001/user/login`,  data)
+                .then(response => {
+                    console.log("response: " + response.data)
 
-            // axios.post(`http://localhost:10000/token`,  {
-            //     headers: {
-            //             "Content-Type": "application/json"
-            //         },
-            //     // auth: {
-            //     //     username: 'my-trusted-client',
-            //     //         password: 'secret'
-            //     // }
-            // })
-            //     .then(response => {
-            //         console.log(response)
-            //         this.loading = false;
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //         this.loading = false;
-            //     });
-        }
+                    if (response.data === true ) {
+                        this.$router.push('/dashboard-default');
+                    }
+
+                    this.loading = false;
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.loading = false;
+                });
+        },
+
     }
 };
 </script>

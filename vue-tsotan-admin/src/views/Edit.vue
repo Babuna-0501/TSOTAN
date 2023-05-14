@@ -29,16 +29,18 @@
                             <form role="form">
                                 <argon-input
 
-                                        v-model="product.name"
+                                        v-model:value="product.name"
                                         type="text"
                                         :placeholder=product.name
                                         aria-label="Name"
+                                        @change="onNameChange"
                                 />
                                 <argon-input
-                                        v-model="product.price"
+                                        v-model:value="product.price"
                                         type="number"
                                         :placeholder=product.price
                                         aria-label="number"
+                                        @change="onPriceChange"
                                 />
                                 <div class="form-group">
                                     <label for="Category">Category</label>
@@ -152,6 +154,12 @@ export default {
         onImageChange(event) {
             this.product.image = event.target.files[0];
         },
+        onNameChange(event) {
+            this.product.name = event.target.value;
+        },
+        onPriceChange(event) {
+            this.product.price = event.target.value;
+        },
         async fetchData() {
             axios.get(`http://localhost:10001/product/view/${this.id}`)
                 .then(response => {
@@ -165,16 +173,14 @@ export default {
                 });
         },
 
-        // TODO : update zasah, category fill hiideg bolgoh
-
         async submitForm() {
             const formData = new FormData();
-            console.log(this.product.name);
+            console.log("start: " + this.product.name);
             formData.append('file', this.product.image);
-            formData.append('name', this.product.name);
+            formData.append('productName', this.product.name);
             formData.append('price', this.product.price);
             formData.append('categoryId', this.product.categoryId );
-            axios.post('http://localhost:10001/product/update', formData, {
+            axios.post(`http://localhost:10001/product/update/${this.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

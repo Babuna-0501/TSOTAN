@@ -29,15 +29,17 @@
                             <form role="form">
                                 <argon-input
 
-                                    v-model="product.name"
+                                    v-model:value="product.name"
                                         type="text"
-                                        placeholder="Барааны нэр"
-                                        aria-label="Name"/>
+                                        :placeholder=product.name
+                                        aria-label="Name"
+                                @change="onNameChange"/>
                                 <argon-input
-                                    v-model="product.price"
+                                    v-model:value="product.price"
                                         type="number"
-                                        placeholder="Үнэ"
-                                        aria-label="number"/>
+                                        :placeholder=product.price
+                                        aria-label="number"
+                                @change="onPriceChange"/>
                                 <div class="form-group">
                                     <label for="Category">Category</label>
                                     <select class="form-control" v-model="selectedCategory"
@@ -148,20 +150,24 @@ export default {
         onImageChange(event) {
             this.product.image = event.target.files[0];
         },
-        // onNameChange(event) {
-        //   this.product.name = event.target.value;
-        // },
-        // onPriceChange(event) {
-        //     this.product.price = event.target.value;
-        // },
+        onNameChange(event) {
+          this.product.name = event.target.value;
+        },
+        onPriceChange(event) {
+            this.product.price = event.target.value;
+        },
         async submitForm() {
             const formData = new FormData();
             console.log(this.product.price);
             console.log("name:" + this.product.name);
             formData.append('file', this.product.image);
-            formData.append('name', this.product.name);
+            formData.append('productName', this.product.name);
             formData.append('price', this.product.price);
             formData.append('categoryId', this.product.categoryId );
+
+            // const data = { file: this.product.file, productName: this.product.name, price: this.product.price, categoryId: this.product.categoryId };
+
+
             axios.post('http://localhost:10001/product/create-with-img', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
