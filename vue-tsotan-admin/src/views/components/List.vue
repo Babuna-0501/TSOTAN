@@ -115,7 +115,7 @@ export default {
             this.fetchData();
         },
         async fetchData() {
-            axios.get(`http://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/list/${this.categoryId}`)
+            axios.get(`https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/list/${this.categoryId}`)
                 .then(response => {
                     this.products = response.data;
                     this.loading = false;

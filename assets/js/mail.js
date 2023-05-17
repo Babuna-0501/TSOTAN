@@ -23,7 +23,7 @@ function submitForm() {
 
 
     fetch(
-        'http://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/mail/test', params
+        'https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/mail/test', params
     ).then(data => console.log(data))
      .catch(error => console.error(error));
 }
