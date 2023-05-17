@@ -168,7 +168,7 @@ export default {
             // const data = { file: this.product.file, productName: this.product.name, price: this.product.price, categoryId: this.product.categoryId };
 
 
-            axios.post('http://localhost:10001/product/create-with-img', formData, {
+            axios.post('http://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/create-with-img', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

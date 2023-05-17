@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
-    let url = `http://localhost:10001/product/list/${id}`;
+    let url = `http://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/list/${id}`;
     let opset = 0;
     //
     // const headers = new Headers();

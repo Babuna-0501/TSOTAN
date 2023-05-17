@@ -133,7 +133,7 @@ export default {
             //     this.loading=false
             // }
 
-            axios.post(`http://localhost:10001/user/login`,  data)
+            axios.post(`http://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/user/login`,  data)
                 .then(response => {
                     console.log("response: " + response.data)
 
