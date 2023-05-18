@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const gwUrl = `${process.env.VUE_APP_DEPOSIT_URL}`;
-const url = "https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080";
+const url = "https://api.tsotan.mn";
 export default {
 
 

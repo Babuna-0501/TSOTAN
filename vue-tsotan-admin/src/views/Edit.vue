@@ -161,7 +161,7 @@ export default {
             this.product.price = event.target.value;
         },
         async fetchData() {
-            axios.get(`https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/view/${this.id}`)
+            axios.get(`https://api.tsotan.mn/product/view/${this.id}`)
                 .then(response => {
                     this.product = response.data;
                     console.log(this.product);
@@ -180,7 +180,7 @@ export default {
             formData.append('productName', this.product.name);
             formData.append('price', this.product.price);
             formData.append('categoryId', this.product.categoryId );
-            axios.post(`https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/product/update/${this.id}`, formData, {
+            axios.post(`https://api.tsotan.mn/{this.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

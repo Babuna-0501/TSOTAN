@@ -133,7 +133,7 @@ export default {
             //     this.loading=false
             // }
 
-            axios.post(`https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/user/login`,  data)
+            axios.post(`https://api.tsotan.mn/user/login`,  data)
                 .then(response => {
                     console.log("response: " + response.data)
 

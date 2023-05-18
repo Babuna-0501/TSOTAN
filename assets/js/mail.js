@@ -23,7 +23,7 @@ function submitForm() {
 
 
     fetch(
-        'https://ec2-13-250-36-132.ap-southeast-1.compute.amazonaws.com:8080/mail/test', params
+        'https://api.tsotan.mn/mail/test', params
     ).then(data => console.log(data))
      .catch(error => console.error(error));
 }
