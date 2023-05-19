@@ -176,11 +176,12 @@ export default {
         async submitForm() {
             const formData = new FormData();
             console.log("start: " + this.product.name);
+          console.log("id" + this.id);
             formData.append('file', this.product.image);
             formData.append('productName', this.product.name);
             formData.append('price', this.product.price);
             formData.append('categoryId', this.product.categoryId );
-            axios.post(`https://api.tsotan.mn/update/{this.id}`, formData, {
+            axios.post(`https://api.tsotan.mn/product/update/${this.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
