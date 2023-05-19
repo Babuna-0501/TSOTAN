@@ -5,6 +5,7 @@ import dashboard from '../pages/master/dashboard'
 import home from '../pages/home'
 import add from '../pages/add'
 import list from '../pages/list'
+import edit from '../pages/edit'
 
   const routes = [
     {
@@ -27,7 +28,11 @@ import list from '../pages/list'
           path: '/list',
           component:list
         },
-       
+        {
+          name: 'edit',
+          path: '/edit/:id',
+          component:edit
+        },
       ]
     },
        
