@@ -86,8 +86,9 @@
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 
-import axios from "axios";
+// import axios from "axios";
 import categoryList from "../../../category.json";
+import axios from "axios";
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -157,28 +158,23 @@ export default {
             this.product.price = event.target.value;
         },
         async submitForm() {
-            const formData = new FormData();
-            console.log(this.product.price);
-            console.log("name:" + this.product.name);
-            formData.append('file', this.product.image);
-            formData.append('productName', this.product.name);
-            formData.append('price', this.product.price);
-            formData.append('categoryId', this.product.categoryId );
+          const formData = new FormData();
+          formData.append('file', this.product.image);
+          formData.append('productName', this.product.name);
+          formData.append('price', this.product.price);
+          formData.append('categoryId', this.product.categoryId);
 
-            // const data = { file: this.product.file, productName: this.product.name, price: this.product.price, categoryId: this.product.categoryId };
+          axios.post('https://api.tsotan.mn/product/create-with-img', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }).then(response => {
+            console.log(response.data)
+          }).catch(error => {
+            console.log(error)
+          });
 
-
-            axios.post('https://api.tsotan.mn/product/create-with-img', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }).then(response => {
-                console.log(response.data)
-            }).catch(error => {
-                console.log(error)
-            });
-        },
-
+        }
     },
 
 };

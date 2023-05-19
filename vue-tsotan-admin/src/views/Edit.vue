@@ -180,7 +180,7 @@ export default {
             formData.append('productName', this.product.name);
             formData.append('price', this.product.price);
             formData.append('categoryId', this.product.categoryId );
-            axios.post(`https://api.tsotan.mn/{this.id}`, formData, {
+            axios.post(`https://api.tsotan.mn/update/{this.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
