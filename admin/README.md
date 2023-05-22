@@ -1,4 +1,4 @@
-# vue-tailwind-dashboard
+# my-app
 
 ## Project setup
 ```
