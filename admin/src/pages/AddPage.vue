@@ -54,7 +54,8 @@
           </div>
             <button
               class="button"
-              @click="submitForm"
+              @click="goToDestinationPage"
+              @submit="submitForm"
               >Бараа нэмэх
             </button>
         </form>
@@ -140,7 +141,9 @@ export default {
               console.log(error);
             });
         },
-
+        goToDestinationPage() {
+        this.$router.push('/list');
+    }
     },
 
 };

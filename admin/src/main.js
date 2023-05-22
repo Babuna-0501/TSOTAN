@@ -10,8 +10,8 @@ import List from './pages/ListPage.vue'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: Home },
-    { path: '/add', component: Add },
+    { path: '/add', component: Home },
+    { path: '/', component: Add },
     { path: '/list', component: List }
   ]
 })
