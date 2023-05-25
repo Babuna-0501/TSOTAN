@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/signin",
+    redirect: "/dashboard-default",
   },
   {
     path: "/dashboard-default",
@@ -46,18 +46,18 @@ const routes = [
   },
   {
     path: "/add",
-    name: "Add_product",
+    name: "Add",
     component: Add,
   },
   {
     path: "/edit/:id",
-    name: "Edit_product",
+    name: "Edit",
     component: Edit,
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(''),
   routes,
   linkActiveClass: "active",
 });

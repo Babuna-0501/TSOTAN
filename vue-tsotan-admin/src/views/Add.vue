@@ -70,6 +70,7 @@
                                             color="dark"
                                             variant="gradient"
                                             class="my-4 mb-2"
+                                            type="submit"
                                     >Бараа нэмэх
                                     </argon-button>
                                 </div>
@@ -88,13 +89,13 @@ import ArgonButton from "@/components/ArgonButton.vue";
 
 // import axios from "axios";
 import categoryList from "../../../category.json";
-import axios from "axios";
+import api from "../assets/api/product"
 
 const body = document.getElementsByTagName("body")[0];
 
 
 export default {
-    name: "signin",
+    name: "Add",
     components: {
         ArgonInput,
         ArgonButton,
@@ -127,7 +128,8 @@ export default {
                 price: 0,
                 name: '',
                 image: ''
-            }
+            },
+          isLoading: false
         };
     },
     methods: {
@@ -158,21 +160,28 @@ export default {
             this.product.price = event.target.value;
         },
         async submitForm() {
-          const formData = new FormData();
-          formData.append('file', this.product.image);
-          formData.append('productName', this.product.name);
-          formData.append('price', this.product.price);
-          formData.append('categoryId', this.product.categoryId);
+          // const formData = new FormData();
+          // formData.append('file', this.product.image);
+          // formData.append('productName', this.product.name);
+          // formData.append('price', this.product.price);
+          // formData.append('categoryId', this.product.categoryId);
 
-          axios.post('https://api.tsotan.mn/product/create-with-img', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          }).then(response => {
-            console.log(response.data)
-          }).catch(error => {
+          const productDTO = {
+            'file': 'imgUrl',
+            'productName': this.product.name,
+            'price': this.product.price,
+            'categoryId': this.product.categoryId
+          }
+
+          console.log(productDTO.price + productDTO.productName);
+          try {
+            this.isLoading = true;
+            await api.createProduct(productDTO);
+          } catch (error) {
             console.log(error)
-          });
+          }
+          this.isLoading = false;
+
 
         }
     },
