@@ -136,7 +136,7 @@ export default {
     },
     async fetchData() {
       axios
-        .get(`https://api.tsotan.mn/product/list/${this.categoryId}`)
+        .get(`http://3.36.53.55/product/list/${this.categoryId}`)
         .then((response) => {
           this.products = response.data;
           this.loading = false;

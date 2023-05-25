@@ -129,7 +129,7 @@ export default {
           formData.append("price", this.product.price);
           formData.append("categoryId", this.product.categoryId);
           axios
-            .post(`https://api.tsotan.mn/product/create-with-img`, formData, {
+            .post(`http://3.36.53.55/product/create-with-img`, formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
