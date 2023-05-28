@@ -3,14 +3,12 @@ import axios from 'axios';
 const url = "https://rest.tsotan.mn";
 export default {
 
-
     async createProduct(data) {
-        return axios.post(`${url}/product/create-with-img`, data);
+        return axios.post(`${url}/product/create-with-img`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
     },
 
     async updateProduct(id, data) {
-        // return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
-        return axios.post(`${url}/product/update/${id}`, data);
+        return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
     },
 
     async getProductList(id) {

@@ -65,7 +65,7 @@
 
 <script>
 import Input from "@/components/Input.vue";
-import axios from "axios";
+import api from "../assets/api"
 import categoryList from "../../category.json";
 
 
@@ -88,8 +88,9 @@ export default {
                 categoryId: null,
                 price: 0,
                 name: '',
-                image: ''
-            }
+                image: '',
+            },
+            imgName:''
         };
     },
     methods: {
@@ -111,8 +112,24 @@ export default {
             console.log(this.product.categoryId)
         },
         onImageChange(event) {
-            this.product.image = event.target.files[0];
+          this.product.image = event.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.imgData = e.target.result;
+            console.log(e.target);
+
+            this.product.image = this.product.categoryId + ":" + this.product.name;
+
+            console.log("img64: " + this.product.image);
+            console.log("name: " + this.imgData);
+
+            localStorage.setItem(this.product.image, this.imgData.toString());
+          }
+          reader.readAsDataURL(this.product.image);
         },
+
+
+
         onNameChange(event) {
           this.product.name = event.target.value;
         },
@@ -129,23 +146,17 @@ export default {
           // formData.append("categoryId", this.product.categoryId);
 
           const productDTO = {
-            'file': 'imgUrl',
+            'img': this.product.image,
             'productName': this.product.name,
             'price': this.product.price,
             'categoryId': this.product.categoryId
           }
 
-          axios.post(`https://rest.tsotan.mn/product/create-with-img`, productDTO, {
-              // headers: {
-              //   "Content-Type": "multipart/form-data",
-              // },
-            })
-            .then((response) => {
-              console.log(response.data);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          try {
+            await api.createProduct(productDTO);
+          } catch (error) {
+            console.log(error);
+          }
         },
 
     },

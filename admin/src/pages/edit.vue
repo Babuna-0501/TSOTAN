@@ -58,7 +58,7 @@
 
 <script>
 import Input from "@/components/Input.vue";
-import axios from "axios";
+import api from "../assets/api"
 import categoryList from "../../category.json";
 
 export default {
@@ -116,39 +116,38 @@ export default {
       this.product.price = event.target.value;
     },
     async fetchData() {
-      axios
-        .get(`https://api.tsotan.mn/product/view/${this.id}`)
-        .then((response) => {
-          this.product = response.data;
-          console.log(this.product);
-          this.loading = false;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.loading = false;
-        });
+
+      try {
+        const response = await api.view(this.id);
+        this.product = response.data;
+      } catch(error) {
+        console.log(error);
+      }
+
     },
 
     async submitForm() {
-      const formData = new FormData();
-      console.log("start: " + this.product.name);
-      console.log("id" + this.id);
-      formData.append("file", this.product.image);
-      formData.append("productName", this.product.name);
-      formData.append("price", this.product.price);
-      formData.append("categoryId", this.product.categoryId);
-      axios
-        .post(`https://api.tsotan.mn/product/update/${this.id}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // const formData = new FormData();
+      // console.log("start: " + this.product.name);
+      // console.log("id" + this.id);
+      // formData.append("file", this.product.image);
+      // formData.append("productName", this.product.name);
+      // formData.append("price", this.product.price);
+      // formData.append("categoryId", this.product.categoryId);
+
+      const productDTO = {
+        'img': this.product.image,
+        'productName': this.product.name,
+        'price': this.product.price,
+        'categoryId': this.product.categoryId
+      }
+
+      try {
+        await api.updateProduct(this.id, productDTO);
+      } catch (error) {
+        console.log(error)
+      }
+
     },
   },
 };
