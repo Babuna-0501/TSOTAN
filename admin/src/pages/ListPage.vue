@@ -135,18 +135,6 @@ export default {
       this.fetchData();
     },
     async fetchData() {
-<<<<<<< HEAD
-      axios
-        .get(`https://rest.tsotan.mn/product/list/${this.categoryId}`)
-        .then((response) => {
-          this.products = response.data;
-          this.loading = false;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.loading = false;
-        });
-=======
       try {
         const response = await api.getProductList(this.categoryId);
         this.products = response.data;
@@ -154,7 +142,6 @@ export default {
       } catch (error) {
         console.log(error)
       }
->>>>>>> 77fb8e69e56ca3ec69f880ab54082c5dd1a18ea4
     },
     getImg(imgUrl) {
       return "data:image/png;base64," + imgUrl;

@@ -127,20 +127,6 @@ export default {
           formData.append("productName", this.product.name);
           formData.append("price", this.product.price);
           formData.append("categoryId", this.product.categoryId);
-<<<<<<< HEAD
-          axios
-            .post(`https://rest.tsotan.mn/product/create-with-img`, formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            })
-            .then((response) => {
-              console.log(response.data);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-=======
 
           try {
             await api.createProduct(formData);
@@ -149,7 +135,6 @@ export default {
           }
 
 
->>>>>>> 77fb8e69e56ca3ec69f880ab54082c5dd1a18ea4
         },
         goToDestinationPage() {
         this.$router.push('/list');
