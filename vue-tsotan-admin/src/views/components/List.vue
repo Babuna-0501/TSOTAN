@@ -129,9 +129,9 @@ export default {
 
     },
 
-    async deleteProduct() {
+    async deleteProduct(id) {
       try {
-        await api.deleteProduct(this.id);
+        await api.deleteProduct(id);
         await this.fetchData();
       } catch (error) {
         console.log(error)

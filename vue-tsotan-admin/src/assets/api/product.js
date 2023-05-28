@@ -25,7 +25,7 @@ export default {
     },
 
     async deleteProduct(id) {
-        return axios.get(`${url}/product/delete/${id}`);
+        return axios.delete(`${url}/product/delete/${id}`);
     }
 
 
