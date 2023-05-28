@@ -118,7 +118,7 @@ export default {
       loading: true,
       categories: [],
       subCategories: [],
-      categoryId: 1000,
+      categoryId: 100,
     };
   },
   mounted() {
@@ -147,7 +147,11 @@ export default {
         });
     },
     getImg(imgUrl) {
-      return "data:image/png;base64," + imgUrl;
+      // return "data:image/png;base64," + imgUrl;
+       const base64 = localStorage.getItem(imgUrl);
+       console.log(base64);
+      return "data:image/png;base64," + base64;
+
     },
     getEditUrl(id) {
       return "../edit/" + id;

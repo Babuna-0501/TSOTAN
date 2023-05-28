@@ -127,7 +127,8 @@ export default {
                 categoryId: null,
                 price: 0,
                 name: '',
-                image: ''
+                image: '',
+              imgUrl: ''
             },
           isLoading: false
         };
@@ -152,6 +153,27 @@ export default {
         },
         onImageChange(event) {
             this.product.image = event.target.files[0];
+          const reader = new FileReader();
+
+
+          // Define the event handler for when the FileReader has finished reading the file
+          reader.onload = (e) => {
+            // Retrieve the base64 encoded data URL of the image
+            const imageDataUrl = e.target.result;
+            console.log(e.target);
+
+            // Perform any necessary operations with the image data, such as displaying it or saving it locally
+
+            // Example: Display the image in an <img> element
+            // const imgElement = document.getElementById('previewImage');
+            // imgElement.src = imageDataUrl;
+
+            const imgName = this.product.categoryId + ":" + this.product.name;
+            // Example: Save the image locally using localStorage
+            localStorage.setItem(imgName, imageDataUrl.toString());
+            this.product.imgUrl = imgName;
+          }
+          reader.readAsDataURL(this.product.image);
         },
         onNameChange(event) {
           this.product.name = event.target.value;
@@ -167,7 +189,7 @@ export default {
           // formData.append('categoryId', this.product.categoryId);
 
           const productDTO = {
-            'file': 'imgUrl',
+            'file': this.product.imgUrl,
             'productName': this.product.name,
             'price': this.product.price,
             'categoryId': this.product.categoryId
@@ -183,7 +205,7 @@ export default {
           this.isLoading = false;
 
 
-        }
+      },
     },
 
 };

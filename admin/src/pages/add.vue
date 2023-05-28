@@ -120,18 +120,25 @@ export default {
             this.product.price = event.target.value;
         },
         async submitForm() {
-          const formData = new FormData();
-          console.log("start: " + this.product.name);
-          console.log("id" + this.id);
-          formData.append("file", this.product.image);
-          formData.append("productName", this.product.name);
-          formData.append("price", this.product.price);
-          formData.append("categoryId", this.product.categoryId);
-          axios
-            .post(`https://rest.tsotan.mn/product/create-with-img`, formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
+          // const formData = new FormData();
+          // console.log("start: " + this.product.name);
+          // console.log("id" + this.id);
+          // formData.append("file", this.product.image);
+          // formData.append("productName", this.product.name);
+          // formData.append("price", this.product.price);
+          // formData.append("categoryId", this.product.categoryId);
+
+          const productDTO = {
+            'file': 'imgUrl',
+            'productName': this.product.name,
+            'price': this.product.price,
+            'categoryId': this.product.categoryId
+          }
+
+          axios.post(`https://rest.tsotan.mn/product/create-with-img`, productDTO, {
+              // headers: {
+              //   "Content-Type": "multipart/form-data",
+              // },
             })
             .then((response) => {
               console.log(response.data);
