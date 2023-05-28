@@ -5,16 +5,14 @@ export default {
 
 
     async createProduct(data) {
-        return axios.post(`${url}/product/create-with-img`, data);
+        return axios.post(`${url}/product/create-with-img`, data,{headers: {'Content-Type': 'multipart/form-data'}});
     },
 
     async updateProduct(id, data) {
-        // return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
-        return axios.post(`${url}/product/update/${id}`, data);
+        return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
     },
 
     async getProductList(id) {
-        console.log("category list")
         return axios.get(`${url}/product/list/${id}`);
     },
 
@@ -24,6 +22,11 @@ export default {
 
     async view(id) {
         return axios.get(`${url}/product/view/${id}`);
+    },
+
+    async deleteProduct(id) {
+        return axios.get(`${url}/product/delete/${id}`);
     }
+
 
 };

@@ -167,40 +167,33 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      // await axios.get(`https://api.tsotan.mn/product/view/${this.id}`)
-      //       .then(response => {
-      //           this.product = response.data;
-      //           console.log(this.product);
-      //           this.loading = false;
-      //       })
-      //       .catch(error => {
-      //           console.log(error);
-      //           this.loading = false;
-      //       });
+
     },
 
     async submitForm() {
-      // const formData = new FormData();
-      // console.log("start: " + this.product.name);
-      // formData.append('file', this.product.image);
-      // formData.append('productName', this.product.name);
-      // formData.append('price', this.product.price);
-      // formData.append('categoryId', this.product.categoryId);
+      const formData = new FormData();
+      console.log("start: " + this.product.name);
+      formData.append('img', this.product.image);
+      formData.append('productName', this.product.name);
+      formData.append('price', this.product.price);
+      formData.append('categoryId', this.product.categoryId);
 
-      const productDTO = {
-        'file': 'imgUrl',
-        'productName': this.product.name,
-        'price': this.product.price,
-        'categoryId': this.product.categoryId
-      }
+      // const productDTO = {
+      //   'file': 'imgUrl',
+      //   'productName': this.product.name,
+      //   'price': this.product.price,
+      //   'categoryId': this.product.categoryId
+      // }
 
       try {
-        await api.updateProduct(this.id, productDTO);
+        await api.updateProduct(this.id, formData);
       } catch (error) {
         console.log(error)
       }
 
     },
+
+
   },
 
 };

@@ -50,7 +50,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img :src=getImg(product.imgUrl) class="w-20"/>
+                    <img :src=product.imgUrl class="w-20"/>
                   </div>
                 </div>
 
@@ -125,9 +125,19 @@ export default {
       this.loading = false;
 
     },
-    getImg(imgUrl) {
-      return "data:image/png;base64," + imgUrl;
+
+    async deleteProduct() {
+      try {
+        await api.deleteProduct(this.id);
+        await this.fetchData();
+      } catch (error) {
+        console.log(error)
+      }
     },
+
+    // getImg(imgUrl) {
+    //   return "data:image/png;base64," + imgUrl;
+    // },
     getEditUrl(id) {
       return "../edit/" + id;
     },

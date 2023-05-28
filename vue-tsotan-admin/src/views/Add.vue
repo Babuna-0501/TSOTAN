@@ -182,23 +182,22 @@ export default {
             this.product.price = event.target.value;
         },
         async submitForm() {
-          // const formData = new FormData();
-          // formData.append('file', this.product.image);
-          // formData.append('productName', this.product.name);
-          // formData.append('price', this.product.price);
-          // formData.append('categoryId', this.product.categoryId);
+          const formData = new FormData();
+          formData.append('img', this.product.image);
+          formData.append('productName', this.product.name);
+          formData.append('price', this.product.price);
+          formData.append('categoryId', this.product.categoryId);
 
-          const productDTO = {
-            'file': this.product.imgUrl,
-            'productName': this.product.name,
-            'price': this.product.price,
-            'categoryId': this.product.categoryId
-          }
+          // const productDTO = {
+          //   'img': this.product.imgUrl,
+          //   'productName': this.product.name,
+          //   'price': this.product.price,
+          //   'categoryId': this.product.categoryId
+          // }
 
-          console.log(productDTO.price + productDTO.productName);
           try {
             this.isLoading = true;
-            await api.createProduct(productDTO);
+            await api.createProduct(formData);
           } catch (error) {
             console.log(error)
           }
