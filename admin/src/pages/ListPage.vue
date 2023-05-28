@@ -106,7 +106,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import api from "../assets/product"
 import categoryList from "../../category.json";
 
 export default {
@@ -118,7 +118,7 @@ export default {
       loading: true,
       categories: [],
       subCategories: [],
-      categoryId: 1000,
+      categoryId: 100,
     };
   },
   mounted() {
@@ -135,16 +135,13 @@ export default {
       this.fetchData();
     },
     async fetchData() {
-      axios
-        .get(`http://3.36.53.55/product/list/${this.categoryId}`)
-        .then((response) => {
-          this.products = response.data;
-          this.loading = false;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.loading = false;
-        });
+      try {
+        const response = await api.getProductList(this.categoryId);
+        this.products = response.data;
+        this.loading = false;
+      } catch (error) {
+        console.log(error)
+      }
     },
     getImg(imgUrl) {
       return "data:image/png;base64," + imgUrl;

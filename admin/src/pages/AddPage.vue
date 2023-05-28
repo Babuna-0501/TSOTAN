@@ -54,8 +54,7 @@
           </div>
             <button
               class="button"
-              @click="goToDestinationPage"
-              @submit="submitForm"
+              @click="submitForm"
               >Бараа нэмэх
             </button>
         </form>
@@ -66,7 +65,7 @@
 
 <script>
 import InputTab from "@/components/InputTab.vue";
-import axios from "axios";
+import api from "../assets/product";
 import categoryList from "../../category.json";
 
 
@@ -128,18 +127,14 @@ export default {
           formData.append("productName", this.product.name);
           formData.append("price", this.product.price);
           formData.append("categoryId", this.product.categoryId);
-          axios
-            .post(`http://3.36.53.55/product/create-with-img`, formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            })
-            .then((response) => {
-              console.log(response.data);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+
+          try {
+            await api.createProduct(formData);
+          } catch (error) {
+            console.log(error)
+          }
+
+
         },
         goToDestinationPage() {
         this.$router.push('/list');
