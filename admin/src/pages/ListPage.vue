@@ -136,7 +136,7 @@ export default {
     },
     async fetchData() {
       axios
-        .get(`http://3.36.53.55/product/list/${this.categoryId}`)
+        .get(`https://rest.tsotan.mn/product/list/${this.categoryId}`)
         .then((response) => {
           this.products = response.data;
           this.loading = false;
@@ -180,12 +180,19 @@ export default {
 <style>
 .main {
   list-style-type: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 30px;
+  color: #fff;
+  font-stretch: normal;
 }
 li {
   display: flex;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
+}
+li td {
+  width: 120px;
 }
 .li-ct {
   margin-top: 50px;
@@ -197,11 +204,10 @@ button {
   color: #ffffff;
   text-decoration: none;
   border-radius: 4px;
-  border: none;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-  width: 200px;
+  width: 150px;
   margin-left: 13%;
 }
 .red {

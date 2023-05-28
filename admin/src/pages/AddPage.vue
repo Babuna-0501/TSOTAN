@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add">
     <h3 class="text-2xl font-bold text-left py-2">Бараа нэмэх</h3>
     <div class="overflow-x-auto relative sm:rounded-lg">
       <div class="card-body">
@@ -129,7 +129,7 @@ export default {
           formData.append("price", this.product.price);
           formData.append("categoryId", this.product.categoryId);
           axios
-            .post(`http://3.36.53.55/product/create-with-img`, formData, {
+            .post(`https://rest.tsotan.mn/product/create-with-img`, formData, {
               headers: {
                 "Content-Type": "multipart/form-data",
               },
@@ -150,11 +150,18 @@ export default {
 </script>
 
 <style>
+.add {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 30px;
+  color: #fff;
+  font-stretch: normal;
+}
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 1000px;
+  
 }
 
 form {
@@ -162,12 +169,15 @@ form {
     flex-direction: column;
     width: 100%;
     gap: 30px;
+    font-size: 14px;
 }
 
 input {
-    background: none;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 600;
+    border: 1px solid #878682;
+    padding: 15px;
+    border-radius: 15px;
 }
 /* Disable active black color for input elements */
 input:focus  {

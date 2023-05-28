@@ -6,13 +6,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/HomePage.vue'
 import Add from './pages/AddPage.vue'
 import List from './pages/ListPage.vue'
+import Edit from './pages/EditPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/add', component: Home },
     { path: '/', component: Add },
-    { path: '/list', component: List }
+    { path: '/list', component: List },
+    { path: '//edit/:id', component: Edit }
   ]
 })
 
