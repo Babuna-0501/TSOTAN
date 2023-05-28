@@ -150,7 +150,7 @@ export default {
       // return "data:image/png;base64," + imgUrl;
        const base64 = localStorage.getItem(imgUrl);
        console.log(base64);
-      return "data:image/png;base64," + base64;
+      return base64;
 
     },
     getEditUrl(id) {
