@@ -45,8 +45,8 @@
           </thead>
           <tbody>
           <tr>
-            <li v-for="product in products" :key="product.id" class="d-flex"
-                style="align-items: center; gap: 20px;">
+            <li v-for="product in products" :key="product.id" class="d-flex list"
+                style="align-items: center; gap: 1vw;">
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
@@ -55,23 +55,26 @@
                 </div>
 
               </td>
-              <td class="text-sm font-weight-bold mb-0">
+              <td class="font-weight-bold mb-0 price">
                 {{ product.name }}
               </td>
-              <td class="align-middle text-center text-sm">
+              <td class="align-middle text-center price">
                 {{ product.price }} ₮
               </td>
 
               <td class="align-middle text-center text-sm">
-                {{ product.category }} ₮
+                {{ product.category }} 
               </td>
-              <td class="align-middle">
+              <td class="align-middle edit_prod">
                 <a
                     :href=getEditUrl(product.id)
                     class="text-secondary font-weight-bold text-xs"
                     data-toggle="tooltip"
                     data-original-title="Edit user"
-                >Edit</a>
+                ><button class="edit_btn">Edit</button></a>
+              </td>
+              <td class="align-middle delete_prod">
+                <button class="dlt_btn" @click="deleteProduct(product.id) ">Delete</button>
               </td>
             </li>
           </tr>
@@ -163,3 +166,52 @@ export default {
 }
 </script>
   
+<style>
+.table-responsive {
+  overflow: hidden !important;
+}
+.list {
+  height: 120px;
+}
+.list .price {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+}
+.list td {
+  width: 9vw;
+  white-space: break-spaces !important;
+}
+.list .edit_prod {
+  width:11vw;
+  justify-content: center;
+  display: flex;
+}
+
+.list .edit_btn {
+  display: inline-block;
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.list .dlt_btn {
+  display: inline-block;
+  background-color: #5342a1; /* Green background */
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+</style>
