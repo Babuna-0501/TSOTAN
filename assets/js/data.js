@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let products = document.querySelector('.prd');
-    let url = `https://api.tsotan.mn/product/list/${id}`;
+    let url = `https://rest.tsotan.mn/product/list/${id}`;
     let opset = 0;
     //
     // const headers = new Headers();

@@ -144,7 +144,8 @@ export default {
       }
     },
     getImg(imgUrl) {
-      return "data:image/png;base64," + imgUrl;
+      // return "data:image/png;base64," + imgUrl;
+      return localStorage.getItem(imgUrl);
     },
     getEditUrl(id) {
       return "../edit/" + id;

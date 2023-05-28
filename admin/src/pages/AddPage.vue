@@ -89,7 +89,8 @@ export default {
                 price: 0,
                 name: '',
                 image: ''
-            }
+            },
+            imgData: ''
         };
     },
     methods: {
@@ -111,25 +112,42 @@ export default {
             console.log(this.product.categoryId)
         },
         onImageChange(event) {
-            this.product.image = event.target.files[0];
+          this.product.image = event.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.imgData = e.target.result;
+            this.product.image =  new Date().toJSON().toString();
+            console.log(this.product.image);
+            localStorage.setItem(this.product.image, this.imgData.toString());
+          }
+          reader.readAsDataURL(this.product.image);
         },
         onNameChange(event) {
           this.product.name = event.target.value;
+          console.log(this.product.name);
         },
         onPriceChange(event) {
             this.product.price = event.target.value;
         },
         async submitForm() {
-          const formData = new FormData();
-          console.log("start: " + this.product.name);
-          console.log("id" + this.id);
-          formData.append("file", this.product.image);
-          formData.append("productName", this.product.name);
-          formData.append("price", this.product.price);
-          formData.append("categoryId", this.product.categoryId);
+          // const formData = new FormData();
+          // console.log("start: " + this.product.name);
+          // console.log("id" + this.id);
+          // formData.append("file", this.product.image);
+          // formData.append("productName", this.product.name);
+          // formData.append("price", this.product.price);
+          // formData.append("categoryId", this.product.categoryId);
+
+
+          const productDTO = {
+            'img': this.product.image,
+            'productName':  this.product.name,
+            'price': this.product.price,
+            'categoryId': this.product.categoryId
+          }
 
           try {
-            await api.createProduct(formData);
+            await api.createProduct(productDTO);
           } catch (error) {
             console.log(error)
           }
