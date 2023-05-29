@@ -90,7 +90,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
 // import axios from "axios";
 import categoryList from "../../../category.json";
 import api from "../assets/api/product"
-
+import s3 from "@/assets/s3config";
 const body = document.getElementsByTagName("body")[0];
 
 
@@ -128,7 +128,6 @@ export default {
                 price: 0,
                 name: '',
                 image: '',
-              imgUrl: ''
             },
           isLoading: false
         };
@@ -152,52 +151,54 @@ export default {
             console.log(this.product.categoryId)
         },
         onImageChange(event) {
-            this.product.image = event.target.files[0];
-          const reader = new FileReader();
 
+          const file = event.target.files[0];
+          const fileName = Date.now().toString();
+          const bucketName = 'tsotan';
+          const params = {
+            Bucket: bucketName,
+            Key: fileName,
+            Body: file,
+          };
 
-          // Define the event handler for when the FileReader has finished reading the file
-          reader.onload = (e) => {
-            // Retrieve the base64 encoded data URL of the image
-            const imageDataUrl = e.target.result;
-            console.log(e.target);
+          s3.putObject(params, (err, data) => {
+            if (err) {
+              console.error('Error uploading image:', err);
+            } else {
+              console.log('Image uploaded successfully:', data);
+            }
+          });
 
-            // Perform any necessary operations with the image data, such as displaying it or saving it locally
+          this.product.image = fileName;
 
-            // Example: Display the image in an <img> element
-            // const imgElement = document.getElementById('previewImage');
-            // imgElement.src = imageDataUrl;
-
-            const imgName = this.product.categoryId + ":" + this.product.name;
-            // Example: Save the image locally using localStorage
-            localStorage.setItem(imgName, imageDataUrl.toString());
-            this.product.imgUrl = imgName;
-          }
-          reader.readAsDataURL(this.product.image);
         },
+
         onNameChange(event) {
           this.product.name = event.target.value;
+
         },
         onPriceChange(event) {
             this.product.price = event.target.value;
         },
         async submitForm() {
-          const formData = new FormData();
-          formData.append('img', this.product.image);
-          formData.append('productName', this.product.name);
-          formData.append('price', this.product.price);
-          formData.append('categoryId', this.product.categoryId);
+          // const formData = new FormData();
+          // formData.append('img', this.product.image);
+          // formData.append('productName', this.product.name);
+          // formData.append('price', this.product.price);
+          // formData.append('categoryId', this.product.categoryId);
 
-          // const productDTO = {
-          //   'img': this.product.imgUrl,
-          //   'productName': this.product.name,
-          //   'price': this.product.price,
-          //   'categoryId': this.product.categoryId
-          // }
+          // console.log(formData.get('productName'));
+
+          const productDTO = {
+            'img': this.product.image,
+            'productName': 'name',
+            'price': this.product.price,
+            'categoryId': this.product.categoryId
+          }
 
           try {
             this.isLoading = true;
-            await api.createProduct(formData);
+            await api.createProduct(productDTO);
           } catch (error) {
             console.log(error)
           }

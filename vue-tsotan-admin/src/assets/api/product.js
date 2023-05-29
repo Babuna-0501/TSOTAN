@@ -6,10 +6,12 @@ export default {
 
     async createProduct(data) {
         return axios.post(`${url}/product/create-with-img`, data,{headers: {'Content-Type': 'multipart/form-data'}});
+        // return axios.post(`${url}/product/create-with-img`, data);
     },
 
     async updateProduct(id, data) {
-        return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
+        // return axios.post(`${url}/product/update/${id}`, data,  {headers: {'Content-Type': 'multipart/form-data'}});
+        return axios.post(`${url}/product/update/${id}`, data);
     },
 
     async getProductList(id) {

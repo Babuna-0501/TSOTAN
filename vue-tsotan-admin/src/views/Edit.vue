@@ -90,6 +90,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
 
 import api from "../assets/api/product"
 import categoryList from "../../../category.json";
+import s3 from "@/assets/s3config";
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -130,7 +131,8 @@ export default {
         price: 0,
         name: '',
         image: ''
-      }
+      },
+      deleteUrl: ''
     };
   },
   methods: {
@@ -152,7 +154,24 @@ export default {
       console.log(this.product.categoryId)
     },
     onImageChange(event) {
-      this.product.image = event.target.files[0];
+      const file = event.target.files[0];
+      const fileName = Date.now().toString();
+      const bucketName = 'tsotan';
+
+      const data = {
+        Bucket: bucketName,
+        Key: fileName,
+        Body: file,
+      };
+      s3.putObject(data, (err, data) => {
+        if (err) {
+          console.error('Error uploading image:', err);
+        } else {
+          console.log('Image uploaded successfully:', data);
+        }
+      });
+
+      this.product.image = "https://" + bucketName + ".s3.ap-southeast-1.amazonaws.com/" + fileName;
     },
     onNameChange(event) {
       this.product.name = event.target.value;
@@ -163,7 +182,9 @@ export default {
     async fetchData() {
 
       try {
-        await api.view(this.id);
+        const response = await api.view(this.id);
+        this.product = response.data;
+        this.deleteUrl = this.product.image;
       } catch (error) {
         console.log(error);
       }
@@ -179,7 +200,7 @@ export default {
       formData.append('categoryId', this.product.categoryId);
 
       // const productDTO = {
-      //   'file': 'imgUrl',
+      //   'file': this.product.image,
       //   'productName': this.product.name,
       //   'price': this.product.price,
       //   'categoryId': this.product.categoryId
@@ -190,8 +211,22 @@ export default {
       } catch (error) {
         console.log(error)
       }
-
     },
+
+    deleteImage() {
+      const bucketName = 'tsotan';
+      const data = {
+        Bucket: bucketName,
+        Key: this.deleteUrl.toString().substring(47),
+      };
+      s3.deleteObject(data, (err, data) => {
+        if (err) {
+          console.error('Error uploading image:', err);
+        } else {
+          console.log('Image uploaded successfully:', data);
+        }
+      });
+    }
 
 
   },
