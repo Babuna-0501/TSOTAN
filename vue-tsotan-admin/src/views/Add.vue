@@ -191,7 +191,7 @@ export default {
 
           const productDTO = {
             'img': this.product.image,
-            'productName': 'name',
+            'productName': this.product.name,
             'price': this.product.price,
             'categoryId': this.product.categoryId
           }
