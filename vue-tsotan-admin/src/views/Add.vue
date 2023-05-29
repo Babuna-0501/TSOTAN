@@ -169,7 +169,7 @@ export default {
             }
           });
 
-          this.product.image = fileName;
+          this.product.image = "https://" + bucketName + ".s3.ap-southeast-1.amazonaws.com/" + fileName;
 
         },
 

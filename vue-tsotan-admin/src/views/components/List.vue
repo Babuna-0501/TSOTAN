@@ -50,7 +50,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img :src=product.imgUrl class="w-20"/>
+                    <img :src="getImg(product.imgUrl)" class="w-20"/>
                   </div>
                 </div>
 
@@ -138,9 +138,10 @@ export default {
       }
     },
 
-    // getImg(imgUrl) {
-    //   return "data:image/png;base64," + imgUrl;
-    // },
+    getImg(imgUrl) {
+      console.log(imgUrl)
+      return imgUrl;
+    },
     getEditUrl(id) {
       return "../edit/" + id;
     },
