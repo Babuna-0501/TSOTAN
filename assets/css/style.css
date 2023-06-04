@@ -235,6 +235,27 @@ input {
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .mail-area {
+    padding: 100px 30px 80px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .mail-area {
+    padding: 50px 20px 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .mail-area {
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+
 .pt-70px {
   padding-top: 70px;
 }
@@ -862,7 +883,7 @@ input {
 .main-menu ul li .mega-menu li ul li.title a {
   color: #000000;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
   border-bottom: 1px solid #ebebeb;
   margin-bottom: 15px;
@@ -5214,7 +5235,7 @@ body.offcanvas-open {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px 15px 0;
+  padding: 20px 15px;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   text-align: center;
@@ -5352,7 +5373,7 @@ body.offcanvas-open {
   font-size: 30px;
   font-weight: 600;
   line-height: 39px;
-  margin-bottom: 16px;
+  margin-bottom: 11rem;
   color: #212121;
   font-family: "Raleway", sans-serif;
 }
@@ -6370,4 +6391,13 @@ body.offcanvas-open {
   height: 20rem;
   align-items: flex-end;
   justify-content: center;
+}
+
+.main-menu ul li .mega-menu li ul li.font-sub a {
+  font-size: 14px !important;
+  font-weight: 550;
+}
+
+.menu-wrap .main-menu ul li .mega-menu li ul .text-sm a {
+  font-size: 13px !important;
 }

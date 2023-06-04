@@ -18,26 +18,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     let title = response[i].name;
                     products.innerHTML += `
             <div class="product col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                <div class="thumb">
+                <div class="py-2">
+                  
                     <a class="image"> 
-                      <img class="image" src="data:image/png;base64, ${response[i].imgUrl}" alt="" class="product-img">
+                     <img class="image" src=${response[i].imgUrl} alt="" class="">
                     </a>
                     
            
                 <div class="content">
+                 
+                    <h5 class="product-category">${response[i].category}</h5>
                     <h5 class="title">${
                     title.length > 18 ? title.substring(0, 18).concat(' ...') : title
                 }</h5>
 <!--                    TODO : name bolboh-->
-                <h5 class="product-category">${response[i].category}</h5>
+           
                 <span class="price">
-                   <span class="new">$${response[i].price}</span>
-                   <a href="#!" data-productId="${
-                     response[i].id
-                   }" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a>
+                   <span class="new">${response[i].price}₮</span>
+                  
                 </span>
+                <a><button onclick="showPopup()" class="buy-button">Buy</button></a>
                 </div>
             </div>
+ 
             </div>
             `;
                 }
