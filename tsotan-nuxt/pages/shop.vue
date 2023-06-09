@@ -10,6 +10,16 @@
                     <div class="col-lg-9">
                         <!-- shop top bar -->
                         <div class="shop-top-bar">
+                            <div class="select-showing-wrap">
+                                <div class="shop-select">
+                                    <select v-model="selectedPrice">
+                                        <option value="default">Default</option>
+                                        <option value="low2high">Price - Low to High</option>
+                                        <option value="high2low">Price - High to Low</option>
+                                    </select>
+                                </div>
+                                <p>Showing {{perPage * currentPage - perPage + 1}} to {{perPage * currentPage > filterItems.length ? filterItems.length : perPage * currentPage}} of {{filterItems.length}} result</p>
+                            </div>
                             <div class="shop-tab">
                                 <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
                                     <i class="fa fa-th-large"></i>
@@ -77,9 +87,9 @@
         },
 
         computed: {
-            // products() {
-            //     return this.$store.getters.getProducts
-            // },
+            products() {
+                return this.$store.getters.getProducts
+            },
 
             getItems() {
                 let start = (this.currentPage - 1) * this.perPage;
@@ -92,7 +102,7 @@
         },
 
         mounted(){
-            this.updateProductData();
+            this.updateProductData()
         },
 
         methods: {
@@ -175,7 +185,7 @@
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text
-            },
+            }
         },
 
         watch: {

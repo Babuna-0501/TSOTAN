@@ -31,7 +31,7 @@
     export default {
         components: {
             HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
-            BlogItemStyleTwo: () => import("@/components/BlogItemStyleTwo"),
+            BlogItemStyleTwo: () => import("@/components/unused/BlogItemStyleTwo"),
             TheFooter: () => import("@/components/TheFooter")
         },
         data() {

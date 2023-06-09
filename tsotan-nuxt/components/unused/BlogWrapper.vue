@@ -16,7 +16,7 @@
 
     export default {
         components: {
-            BlogItem: () => import('@/components/BlogItem')
+            BlogItem: () => import('@/components/unused/BlogItem')
         },
 
         data() {

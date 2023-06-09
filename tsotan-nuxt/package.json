@@ -1,7 +1,7 @@
 {
     "name": "Tsotan",
     "version": "1.0.0",
-    "author": "Uzzal",
+    "author": "",
     "private": true,
     "scripts": {
         "dev": "nuxt",

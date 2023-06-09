@@ -1,8 +1,8 @@
 <template>
     <ul>
         <li>
-            <n-link to="/">Бүтээгдэхүүн<i class="fa fa-angle-down"></i></n-link>
-            <ul class="mega-menu mega-menu-padding" style="display: flex; flex-wrap: wrap; gap: 15px;">
+            <n-link to="/shop">Бүтээгдэхүүн</n-link>
+            <!-- <ul class="mega-menu mega-menu-padding" style="display: flex; flex-wrap: wrap; gap: 15px;">
                 <li>
                     <ul>
                         <li class="mega-menu-title">
@@ -273,7 +273,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> -->
         </li>
         
         <li>

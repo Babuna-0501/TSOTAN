@@ -2,6 +2,7 @@
     <div class="home-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
         <HeroSliderTsotan />
+        <BrandLogoCarousel/>
         <BannerStyleFive />
         <DealWithCountdownTwo />
         <ServicePolicyTwo />
@@ -11,14 +12,17 @@
 </template>
 
 <script>
+
+
     export default {
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
-            HeroSliderTsotan: () => import('@/components/hero/HeroSliderTsotan'),
+            HeroSliderTsotan: () => import('@/components/hero/HeroSliderTsotan'), 
+            BrandLogoCarousel: () => import('@/components/unused/BrandLogoCarousel'),
             BannerStyleFive: () => import('@/components/banner/BannerStyleFive'),
             DealWithCountdownTwo: () => import('@/components/DealWithCountdownTwo'),
             ServicePolicyTwo: () => import('@/components/policy/ServicePolicyTwo'),
-            BlogWrapper: () => import('@/components/BlogWrapper'),
+            BlogWrapper: () => import('@/components/unused/BlogWrapper'),
             TheFooter: () => import('@/components/TheFooter'),
         },
         head() {

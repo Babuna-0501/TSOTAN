@@ -1,10 +1,11 @@
 <template>
-    <div class="brand-logo-area pb-100 about-brand-logo">
+    <div class="brand-logo-area pt-100 about-brand-logo">
         <div class="container">
+            <h4 style="text-align: center; font-family: Poppins, sans-serif; font-weight: 500; font-size: 20px; font-stretch: normal; text" class="pb-20">Манай үйлчилгээ</h4>
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/brand-logo/barnd-logo-1.png" alt="">
+                        <img src="/img/tsotan/service/resized/DTF_91x84.png" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
                         <img src="/img/brand-logo/barnd-logo-2.png" alt="">
