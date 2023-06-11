@@ -26,44 +26,44 @@
         </div>
 
         <!-- color widget  -->
-        <div class="sidebar-widget mt-50">
-            <h4 class="pro-sidebar-title">Colour</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="(color, index) in colorList" :key="index" >
-                    <n-link :to="`?color=${slugify(color)}`">
-                        <span class="check-mark"></span>
-                        {{ color }}
-                    </n-link>
-                </li>
-            </ul>
-        </div>
+<!--        <div class="sidebar-widget mt-50">-->
+<!--            <h4 class="pro-sidebar-title">Colour</h4>-->
+<!--            <ul class="sidebar-widget-list mt-20">-->
+<!--                <li class="sidebar-widget-list-left" v-for="(color, index) in colorList" :key="index" >-->
+<!--                    <n-link :to="`?color=${slugify(color)}`">-->
+<!--                        <span class="check-mark"></span>-->
+<!--                        {{ color }}-->
+<!--                    </n-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
         <!-- size widget  -->
-        <div class="sidebar-widget mt-50">
-            <h4 class="pro-sidebar-title">Sizes</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="(size, index) in sizeList" :key="index" >
-                    <n-link :to="`?size=${slugify(size)}`">
-                        <span class="check-mark"></span>
-                        {{ size }}
-                    </n-link>
-                </li>
-            </ul>
-        </div>
+<!--        <div class="sidebar-widget mt-50">-->
+<!--            <h4 class="pro-sidebar-title">Sizes</h4>-->
+<!--            <ul class="sidebar-widget-list mt-20">-->
+<!--                <li class="sidebar-widget-list-left" v-for="(size, index) in sizeList" :key="index" >-->
+<!--                    <n-link :to="`?size=${slugify(size)}`">-->
+<!--                        <span class="check-mark"></span>-->
+<!--                        {{ size }}-->
+<!--                    </n-link>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
         <!-- tag widget  -->
-        <div class="sidebar-widget sidebar-widget__tag mt-60">
-            <h4 class="pro-sidebar-title">Tags</h4>
-            <div class="sidebar-widget-tag mt-30">
-                <ul>
-                    <li v-for="(tag, index) in tagList" :key="index">
-                        <n-link :to="`?tag=${slugify(tag)}`">
-                            {{ tag }}
-                        </n-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!--        <div class="sidebar-widget sidebar-widget__tag mt-60">-->
+<!--            <h4 class="pro-sidebar-title">Tags</h4>-->
+<!--            <div class="sidebar-widget-tag mt-30">-->
+<!--                <ul>-->
+<!--                    <li v-for="(tag, index) in tagList" :key="index">-->
+<!--                        <n-link :to="`?tag=${slugify(tag)}`">-->
+<!--                            {{ tag }}-->
+<!--                        </n-link>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -73,15 +73,15 @@
         computed: {
             categoryList() {
                 return this.$store.getters.categoryList
-            },
-            sizeList() {
-                return this.$store.getters.sizeList
-            },
-            colorList() {
-                return this.$store.getters.colorList
-            },
-            tagList() {
-                return this.$store.getters.tagList
+            // },
+            // sizeList() {
+            //     return this.$store.getters.sizeList
+            // },
+            // colorList() {
+            //     return this.$store.getters.colorList
+            // },
+            // tagList() {
+            //     return this.$store.getters.tagList
             }
         },
 

@@ -192,9 +192,9 @@
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
-            discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
-            },
+            // discountedPrice(product) {
+            //     return product.price - (product.price * product.discount / 100)
+            // },
 
             clearCart() {
                 if (confirm("Are you sure you want to clear cart")) {

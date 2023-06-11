@@ -63,6 +63,9 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex';
+
     export default {
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
@@ -77,9 +80,9 @@
                 layout: "threeColumn",
                 filterItems: [],
                 prevSelectedCategoryName: '',
-                prevSelectedTagName: '',
-                prevSelectedSizeName: '',
-                prevSelectedColorName: '',
+                // prevSelectedTagName: '',
+                // prevSelectedSizeName: '',
+                // prevSelectedColorName: '',
                 currentPage: 1,
                 perPage: 9,
                 selectedPrice: 'default'
@@ -102,10 +105,18 @@
         },
 
         mounted(){
+            this.fetchData();
             this.updateProductData()
         },
 
         methods: {
+              ...mapActions(['fetchProducts']),
+              ...mapActions(['fetchCategories']),
+              async fetchData() {
+                await this.fetchProducts();
+                await this.fetchCategories();
+              },
+
             paginateClickCallback(page) {
                 this.currentPage = Number(page);
             },
@@ -114,9 +125,9 @@
                 this.paginateClickCallback(1);
 
                 const categoryName = this.$route.query.category;
-                const sizeName = this.$route.query.size;
-                const colorName = this.$route.query.color;
-                const tagName = this.$route.query.tag;
+                // const sizeName = this.$route.query.size;
+                // const colorName = this.$route.query.color;
+                // const tagName = this.$route.query.tag;
                 
                 if( Object.keys(this.$route.query).length === 0){
                     this.filterItems = [...this.products]
@@ -133,48 +144,48 @@
                     }
                 }
         
-                if(colorName && this.prevSelectedColorName !== colorName){
-                    if(Boolean(colorName) === false || colorName === this.slugify("all colors")){
-                        this.filterItems = [...this.products]
-                    }
-                    else {
-                        const resultData = this.products.filter((item) => item.variation?.color.includes(colorName));
-                        this.filterItems = [];
-                        this.filterItems.push(...resultData);
-                    }
-                }
-
-                if(sizeName && this.prevSelectedSizeName !== sizeName){
-                    if(Boolean(sizeName) === false || sizeName === this.slugify("all sizes")){
-                        this.filterItems = [...this.products]
-                    }
-                    else {
-                        const resultData = this.products.filter((item) => item.variation?.sizes.includes(sizeName));
-                        this.filterItems = [];
-                        this.filterItems.push(...resultData);
-                    }
-                }
+                // if(colorName && this.prevSelectedColorName !== colorName){
+                //     if(Boolean(colorName) === false || colorName === this.slugify("all colors")){
+                //         this.filterItems = [...this.products]
+                //     }
+                //     else {
+                //         const resultData = this.products.filter((item) => item.variation?.color.includes(colorName));
+                //         this.filterItems = [];
+                //         this.filterItems.push(...resultData);
+                //     }
+                // }
+                //
+                // if(sizeName && this.prevSelectedSizeName !== sizeName){
+                //     if(Boolean(sizeName) === false || sizeName === this.slugify("all sizes")){
+                //         this.filterItems = [...this.products]
+                //     }
+                //     else {
+                //         const resultData = this.products.filter((item) => item.variation?.sizes.includes(sizeName));
+                //         this.filterItems = [];
+                //         this.filterItems.push(...resultData);
+                //     }
+                // }
             
-                if(tagName && this.prevSelectedTagName !== tagName){
-                    if(tagName){
-                        const resultData = this.products.filter((item) => this.slugify(item.tag).includes(tagName));
-                        this.filterItems = [];
-                        this.filterItems.push(...resultData);
-                    }
-                    else {
-                        this.filterItems = [...this.products]
-                    } 
-                }
+                // if(tagName && this.prevSelectedTagName !== tagName){
+                //     if(tagName){
+                //         const resultData = this.products.filter((item) => this.slugify(item.tag).includes(tagName));
+                //         this.filterItems = [];
+                //         this.filterItems.push(...resultData);
+                //     }
+                //     else {
+                //         this.filterItems = [...this.products]
+                //     }
+                // }
                 
                 this.prevSelectedCategoryName = categoryName;
-                this.prevSelectedColorName = colorName;
-                this.prevSelectedSizeName = sizeName;
-                this.prevSelectedTagName = tagName;
+                // this.prevSelectedColorName = colorName;
+                // this.prevSelectedSizeName = sizeName;
+                // this.prevSelectedTagName = tagName;
             },
-
-            discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
-            },
+            //
+            // discountedPrice(product) {
+            //     return product.price - (product.price * product.discount / 100)
+            // },
 
             slugify(text) {
                 return text
@@ -196,10 +207,10 @@
             selectedPrice(){
                 switch (this.selectedPrice) {
                     case "low2high":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
+                        this.filterItems =  this.filterItems.sort((a, b)=> a.price - b.price)
                         break;
                     case "high2low":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(b) -  this.discountedPrice(a))
+                        this.filterItems =  this.filterItems.sort((a, b)=> b.price -  a.price)
                         break;
                     default:
                         this.filterItems = [...this.products]

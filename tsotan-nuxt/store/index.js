@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import products from "../data/product.json";
+import axios from 'axios';
 
 Vue.use(Vuex)
 
 export const state = () => ({
-    products: products,
+    products: [],
+    categories: [],
     cart: [],
     wishlist: [],
     compare: []
@@ -17,6 +18,10 @@ export const state = () => ({
 export const getters = {
     getProducts(state) {
         return state.products
+    },
+
+    getCategories(state) {
+        return state.categories
     },
 
     getCart: state => {
@@ -63,31 +68,41 @@ export const getters = {
             return item.best
         })
     },
-    getSaleProducts: state => {
-        return state.products.filter(item => {
-            return item.discount
-        })
-    },
+    // getSaleProducts: state => {
+    //     return state.products.filter(item => {
+    //         return item.discount
+    //     })
+    // },
 
     categoryList: state => {
-        return ["all categories",...new Set(state.products.map((list) => list.category).flat())]
+        return ["all categories",...new Set(state.products.map((list) => list.parentCategory).flat())]
     },
-    tagList: state => {
-        return [...new Set(state.products.map((list) => list.tag).flat())]
+
+    subCategoryList: state => {
+        return [new Set(state.products.map((list) => list.childCategory).flat())]
     },
-    sizeList: state => {
-        return ["all sizes",...new Set(state.products.map((list) => list.variation?.sizes).flat())].filter(Boolean)
-    },
-    colorList: state => {
-        return ["all colors",...new Set(state.products.map((list) => list.variation?.color).flat())].filter(Boolean)
-    },
+
+    // tagList: state => {
+    //     return [...new Set(state.products.map((list) => list.tag).flat())]
+    // },
+    // sizeList: state => {
+    //     return ["all sizes",...new Set(state.products.map((list) => list.variation?.sizes).flat())].filter(Boolean)
+    // },
+    // colorList: state => {
+    //     return ["all colors",...new Set(state.products.map((list) => list.variation?.color).flat())].filter(Boolean)
+    // },
 }
 
 
 // contains your mutations
 export const mutations = {
+
     SET_PRODUCT(state, product) {
         state.products = product
+    },
+
+    SET_CATEGORIES(state, category) {
+        state.categories = category
     },
 
     UPDATE_CART(state, payload) {
@@ -153,6 +168,28 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+    async fetchProducts({ commit }) {
+        try {
+            const response = await axios.get('https://rest.tsotan.mn/product/list');
+            console.log("get-product");
+            console.log(response.data);
+            commit('SET_PRODUCT', response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    },
+
+    async fetchCategories({ commit }) {
+        try {
+            const response = await axios.get('https://rest.tsotan.mn/category/list-names');
+            console.log("get-categories");
+            console.log(response.data);
+            commit('SET_CATEGORIES', response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    },
+
     addToCartItem({commit}, payload) {
         commit('UPDATE_CART', payload)
     },
@@ -180,5 +217,6 @@ export const actions = {
     removeFromCompare({commit}, product) {
         commit('REMOVE_FROM_COMPARE', product)
     },
+
 }
 
