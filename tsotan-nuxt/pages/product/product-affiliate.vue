@@ -37,52 +37,21 @@
                             <h2>{{ product.title }}</h2>
                             <div class="product-details-price">
                                 <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                                <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
-                            </div>
-                            <div class="pro-details-rating-wrap">
-                                <div class="pro-details-rating" v-if="product.rating == 5">
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                </div>
-                                <div class="pro-details-rating" v-if="product.rating == 4">
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="pro-details-rating" v-if="product.rating == 3">
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="pro-details-rating" v-if="product.rating == 2">
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <div class="pro-details-rating" v-if="product.rating == 1">
-                                    <i class="fa fa-star-o yellow"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <span><a href="#">{{ product.rating }} Reviews</a></span>
+                                <!-- <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span> -->
                             </div>
                             <p>{{ product.description }}</p>
-                            <div class="pro-details-cart mt-20 mb-20">
-                                <a class="empty-cart__button" href="https://www.amazon.com/" target="_blank">Buy Now</a>
+                            <div class="pro-details-quality">
+                            <div class="cart-plus-minus">
+                                <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
+                                <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
+                                <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
+                            <div class="pro-details-cart btn-hover">
+                                <button @click="addToCart(product)">Сагсанд нэмэх</button>
+                            </div>
+                        </div>
                             <div class="pro-details-meta">
-                                <span class="label">Categories:</span>
+                                <span class="label">Category:</span>
                                 <ul>
                                     <li v-for="(category, index) in product.category" :key="index">
                                         <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>
@@ -138,7 +107,12 @@
 </template>
 
 <script>
+    import ProductDetailsDescriptionReview from "../../components/unused/ProductDetailsDescriptionReview.vue";
+
     export default {
+        components: {
+            ProductDetailsDescriptionReview,
+        },
         data() {
             return {
                 singleQuantity: 1,
