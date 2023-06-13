@@ -20,11 +20,11 @@
   "HeaderOffcanvasMenuWithTransparent": {
     "description": "Auto imported from components/HeaderOffcanvasMenuWithTransparent.vue"
   },
-  "HeaderWithTopbar": {
-    "description": "Auto imported from components/HeaderWithTopbar.vue"
-  },
   "HeaderWithTopBarTwo": {
     "description": "Auto imported from components/HeaderWithTopBarTwo.vue"
+  },
+  "HeaderWithTopbar": {
+    "description": "Auto imported from components/HeaderWithTopbar.vue"
   },
   "HomeSidebarMenu": {
     "description": "Auto imported from components/HomeSidebarMenu.vue"
@@ -56,6 +56,12 @@
   "TheHeader": {
     "description": "Auto imported from components/TheHeader.vue"
   },
+  "HeroSlider": {
+    "description": "Auto imported from components/hero/HeroSlider.vue"
+  },
+  "HeroSliderTsotan": {
+    "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
+  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -77,11 +83,20 @@
   "BannerStyleTwo": {
     "description": "Auto imported from components/banner/BannerStyleTwo.vue"
   },
-  "HeroSlider": {
-    "description": "Auto imported from components/hero/HeroSlider.vue"
+  "PolicyServicePolicy": {
+    "description": "Auto imported from components/policy/ServicePolicy.vue"
   },
-  "HeroSliderTsotan": {
-    "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
+  "PolicyServicePolicyFive": {
+    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "PolicyServicePolicyThree": {
+    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  },
+  "PolicyServicePolicyTwo": {
+    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -124,21 +139,6 @@
   },
   "ProductWrapperTwo": {
     "description": "Auto imported from components/product/ProductWrapperTwo.vue"
-  },
-  "PolicyServicePolicy": {
-    "description": "Auto imported from components/policy/ServicePolicy.vue"
-  },
-  "PolicyServicePolicyFive": {
-    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "PolicyServicePolicyThree": {
-    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
-  },
-  "PolicyServicePolicyTwo": {
-    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
   },
   "UnusedAboutMission": {
     "description": "Auto imported from components/unused/AboutMission.vue"

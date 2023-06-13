@@ -2,85 +2,85 @@
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\index.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/blog/index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_7125ac02"
+    "_name": "_d8af1e80"
   },
   {
     "name": "cart",
     "path": "/cart",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\cart.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/cart.vue",
     "chunkName": "pages/cart",
-    "_name": "_1a97ecbe"
+    "_name": "_e6f40f0a"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\checkout.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/checkout.vue",
     "chunkName": "pages/checkout",
-    "_name": "_21a53c47"
+    "_name": "_de5fa3be"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\contact.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/contact.vue",
     "chunkName": "pages/contact",
-    "_name": "_196b662f"
+    "_name": "_4e8dd115"
   },
   {
     "name": "home",
     "path": "/home",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\home.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/home.vue",
     "chunkName": "pages/home",
-    "_name": "_5554e840"
+    "_name": "_6f277aba"
   },
   {
     "name": "my-account",
     "path": "/my-account",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/my-account.vue",
     "chunkName": "pages/my-account",
-    "_name": "_89d11666"
+    "_name": "_0b4d5827"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/shop.vue",
     "chunkName": "pages/shop",
-    "_name": "_4488e312"
+    "_name": "_778d7d51"
   },
   {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/blog/blog-right-sidebar.vue",
     "chunkName": "pages/blog/blog-right-sidebar",
-    "_name": "_2df7f6e3"
+    "_name": "_46f371c2"
   },
   {
     "name": "blog-blog-without-sidebar",
     "path": "/blog/blog-without-sidebar",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-without-sidebar.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/blog/blog-without-sidebar.vue",
     "chunkName": "pages/blog/blog-without-sidebar",
-    "_name": "_24b268e2"
+    "_name": "_94a1eaa4"
   },
   {
     "name": "product-product-affiliate",
     "path": "/product/product-affiliate",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\product-affiliate.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/product/product-affiliate.vue",
     "chunkName": "pages/product/product-affiliate",
-    "_name": "_f241ca3e"
+    "_name": "_70132df8"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\_slug.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/blog/_slug.vue",
     "chunkName": "pages/blog/_slug",
-    "_name": "_7492ee92"
+    "_name": "_dc1c6110"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\_slug.vue",
+    "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/product/_slug.vue",
     "chunkName": "pages/product/_slug",
-    "_name": "_299dd9fc"
+    "_name": "_6bb7049f"
   }
 ]

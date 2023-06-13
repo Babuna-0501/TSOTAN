@@ -74,13 +74,52 @@ export const getters = {
     //     })
     // },
 
-    categoryList: state => {
-        return ["all categories",...new Set(state.products.map((list) => list.parentCategory).flat())]
+    parentCategoryList: state => {
+        return [...new Set(state.products.map((list) => list.parentCategory).flat())]
     },
 
-    subCategoryList: state => {
-        return [new Set(state.products.map((list) => list.childCategory).flat())]
+    childCategoryList: state => {
+
+        return [...new Set(state.products.map((list) => list.childCategory).flat())]
+        // const childCategories = state.products.map((product) => product.childCategory);
+        // const uniqueChildCategories = [...new Set(childCategories)];
+        //
+        // const groupedChildCategories = {};
+        //
+        // for (const childCategory of uniqueChildCategories) {
+        //     const matchedProducts = state.products.filter(
+        //         (product) =>
+        //             product.childCategory === childCategory &&
+        //             product.parentCategory === parentCategory
+        //     );
+        //
+        //     if (matchedProducts.length === 0) {
+        //         continue;
+        //     }
+        //
+        //     const parentCategory = matchedProducts[0].parentCategory;
+        //
+        //     if (!groupedChildCategories[parentCategory]) {
+        //         groupedChildCategories[parentCategory] = [];
+        //     }
+        //
+        //     groupedChildCategories[parentCategory].push(childCategory);
+        // }
+        //
+        // return groupedChildCategories;
+
+        // console.log(...new Set(state.categories.filter(item => item.parent === 'ширээний бүтээлэг').map((list) => list.child).flat()));
+        //
+        //
+        // const convertedList = JSON.parse(JSON.stringify(state.categories));
+        //
+        // return [...new Set(convertedList.filter(item => item.parent === 'ширээний бүтээлэг').map((list) => list.child).flat())]
+
     },
+
+    ca
+
+
 
     // tagList: state => {
     //     return [...new Set(state.products.map((list) => list.tag).flat())]
@@ -168,6 +207,7 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+
     async fetchProducts({ commit }) {
         try {
             const response = await axios.get('https://rest.tsotan.mn/product/list');
@@ -182,8 +222,9 @@ export const actions = {
     async fetchCategories({ commit }) {
         try {
             const response = await axios.get('https://rest.tsotan.mn/category/list-names');
-            console.log("get-categories");
-            console.log(response.data);
+
+
+            console.log("converted-list" + response);
             commit('SET_CATEGORIES', response.data);
         } catch (error) {
             console.error(error);
