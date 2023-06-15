@@ -5,7 +5,7 @@ export default {
 
 
     async createProduct(data) {
-        return axios.post(`${url}/product/create-with-img`, data,{headers: {'Content-Type': 'multipart/form-data'}});
+        return axios.post(`${url}/product/create-with-img`, data);
         // return axios.post(`${url}/product/create-with-img`, data);
     },
 
@@ -28,7 +28,14 @@ export default {
 
     async deleteProduct(id) {
         return axios.delete(`${url}/product/delete/${id}`);
-    }
+    },
 
+    async getCategories(){
+        return axios.get(`${url}/category/list-names`);
+    },
+
+    async getCategoriesByParent(id){
+        return axios.get(`${url}/category/list/${id}`);
+    }
 
 };

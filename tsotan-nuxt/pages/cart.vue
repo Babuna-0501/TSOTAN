@@ -192,9 +192,9 @@
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
-            discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
-            },
+            // discountedPrice(product) {
+            //     return product.price - (product.price * product.discount / 100)
+            // },
 
             clearCart() {
                 if (confirm("Are you sure you want to clear cart")) {
@@ -210,7 +210,7 @@
                     .toString()
                     .toLowerCase()
                     .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+                    // .replace(/[^\w-]+/g, "") // Remove all non-word chars
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text

@@ -1,11 +1,12 @@
 <template>
     <div>
       <ul>
-        <li v-for="product in productList" :key="product.id">
+        <li>
           <h2>{{ product.name }}</h2>
           <p>Price: {{ product.price }}</p>
+          <p><img :src="getImg(product.img1)"/></p>
           <p>Description: {{ product.description }}</p>
-          <p>Category: {{ product.category }}</p>
+          <p>Category: {{ product.parentCategory }}</p>
         </li>
       </ul>
     </div>
@@ -17,26 +18,29 @@
     import axios from 'axios';
 
     export default {
-        created() {
-            axios.get('https://rest.tsotan.mn/product/list/${id}')
-                .then(response => {
-                this.productList = response.data;
-                })
-                .catch(error => {
-                console.error(error);
-            });
-        },
-        
-        data() {
-            return {
-                productList: []
-            };
-        },
+        // created() {
+        //     axios.get('https://rest.tsotan.mn/product/list/${id}')
+        //         .then(response => {
+        //         this.productList = response.data;
+        //         })
+        //         .catch(error => {
+        //         console.error(error);
+        //     });
+        // },
+        //
+        // data() {
+        //     return {
+        //         productList: []
+        //     };
+        // },
 
 
         props: ["product", "layout"],
 
         methods: {
+          // getImgUrl() {
+          //   return this.product.imgUrl;
+          // },
             addToCart(product) {
                 const prod = {...product, cartQuantity: 1}
                 // for notification
@@ -52,6 +56,11 @@
             onClick(product) {
                 this.$modal.show('quickview', product);
             },
+
+          getImg(imgUrl) {
+            console.log(imgUrl)
+            return imgUrl;
+          },
         },
     };
 </script>

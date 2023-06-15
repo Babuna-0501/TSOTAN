@@ -53,13 +53,16 @@
                     </option>
                   </select>
 
-                  <select class="form-control mt-4" v-model="selectedSubcategory" @change="updateSub"
+                  <select class="form-control mt-4" v-if="selectedCategory" v-model="selectedSubcategory" @change="updateSub"
                           :disabled="!selectedCategory">
                     <option value="">-- Select a Subcategory --</option>
                     <option v-for="subcategory in subcategories" :key="subcategory.name">
                       {{ subcategory.name }}
                     </option>
                   </select>
+
+
+
                 </div>
                 <label for="file">Зураг</label>
                 <div>
@@ -122,10 +125,12 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      categories: [],
-      selectedCategory: '',
+      parentCategories: [],
+      selectedParentCategory: '',
       subcategories: [],
       selectedSubcategory: '',
+      categories: [],
+      selectedCategory: '',
       product: {
         categoryId: null,
         price: 0,
@@ -138,7 +143,7 @@ export default {
   methods: {
     updateSubcategories() {
 
-      const category = this.categories.find(c => c.name === this.selectedCategory);
+      const category = this.parentCategories.find(c => c.name === this.selectedCategory);
 
       if (category) {
         this.subcategories = category.subcategories;

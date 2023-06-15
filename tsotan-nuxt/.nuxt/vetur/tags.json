@@ -20,11 +20,11 @@
   "HeaderOffcanvasMenuWithTransparent": {
     "description": "Auto imported from components/HeaderOffcanvasMenuWithTransparent.vue"
   },
-  "HeaderWithTopbar": {
-    "description": "Auto imported from components/HeaderWithTopbar.vue"
-  },
   "HeaderWithTopBarTwo": {
     "description": "Auto imported from components/HeaderWithTopBarTwo.vue"
+  },
+  "HeaderWithTopbar": {
+    "description": "Auto imported from components/HeaderWithTopbar.vue"
   },
   "HomeSidebarMenu": {
     "description": "Auto imported from components/HomeSidebarMenu.vue"
@@ -55,27 +55,6 @@
   },
   "TheHeader": {
     "description": "Auto imported from components/TheHeader.vue"
-  },
-  "BannerItem": {
-    "description": "Auto imported from components/banner/BannerItem.vue"
-  },
-  "BannerStyleFive": {
-    "description": "Auto imported from components/banner/BannerStyleFive.vue"
-  },
-  "BannerStyleFour": {
-    "description": "Auto imported from components/banner/BannerStyleFour.vue"
-  },
-  "BannerStyleOne": {
-    "description": "Auto imported from components/banner/BannerStyleOne.vue"
-  },
-  "BannerStyleSix": {
-    "description": "Auto imported from components/banner/BannerStyleSix.vue"
-  },
-  "BannerStyleThree": {
-    "description": "Auto imported from components/banner/BannerStyleThree.vue"
-  },
-  "BannerStyleTwo": {
-    "description": "Auto imported from components/banner/BannerStyleTwo.vue"
   },
   "HeroSlider": {
     "description": "Auto imported from components/hero/HeroSlider.vue"
@@ -140,6 +119,30 @@
   "ProductWrapperTwo": {
     "description": "Auto imported from components/product/ProductWrapperTwo.vue"
   },
+<<<<<<< HEAD
+=======
+  "BannerItem": {
+    "description": "Auto imported from components/banner/BannerItem.vue"
+  },
+  "BannerStyleFive": {
+    "description": "Auto imported from components/banner/BannerStyleFive.vue"
+  },
+  "BannerStyleFour": {
+    "description": "Auto imported from components/banner/BannerStyleFour.vue"
+  },
+  "BannerStyleOne": {
+    "description": "Auto imported from components/banner/BannerStyleOne.vue"
+  },
+  "BannerStyleSix": {
+    "description": "Auto imported from components/banner/BannerStyleSix.vue"
+  },
+  "BannerStyleThree": {
+    "description": "Auto imported from components/banner/BannerStyleThree.vue"
+  },
+  "BannerStyleTwo": {
+    "description": "Auto imported from components/banner/BannerStyleTwo.vue"
+  },
+>>>>>>> cfb753a4a866eb112179e329817d666814ae0098
   "UnusedAboutMission": {
     "description": "Auto imported from components/unused/AboutMission.vue"
   },
@@ -184,5 +187,20 @@
   },
   "UnusedWelcomeMessage": {
     "description": "Auto imported from components/unused/WelcomeMessage.vue"
+  },
+  "PolicyServicePolicy": {
+    "description": "Auto imported from components/policy/ServicePolicy.vue"
+  },
+  "PolicyServicePolicyFive": {
+    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "PolicyServicePolicyThree": {
+    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  },
+  "PolicyServicePolicyTwo": {
+    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
   }
 }
