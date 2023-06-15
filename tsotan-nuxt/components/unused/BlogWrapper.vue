@@ -1,9 +1,9 @@
 <template>
-    <div class="blog-area pb-55">
+    <div class="blog-area pb-55 mt-50">
         <div class="container">
             <SectionTitleWithSubTitle title="Манай үйлчилгээ" classes="section-title mb-55" />
             <div class="row">
-                <div class="col-lg-4 col-sm-6" v-for="(blog, index) in blogData.slice(0, 3)" :key="index">
+                <div class="col-lg-6 col-sm-6" v-for="(blog, index) in blogData.slice(0, 2)" :key="index">
                     <BlogItem :blog="blog" />
                 </div>
             </div>

@@ -108,7 +108,7 @@
                                 text-transform: capitalize;
                                 padding-top: 0px;
                                 &:hover {
-                                    color: $theme-color;
+                                    // color: $theme-color;
                                 }
                                 &::before {
                                     background-color: $theme-color;
@@ -190,7 +190,7 @@
                                         padding-top: 0px;
                                         position: relative;
                                         &:hover {
-                                            color: $theme-color;
+                                            // color: $theme-color;
                                         }
                                         &::before {
                                             background-color: $theme-color;
@@ -262,7 +262,7 @@
                     }
                 }
                 &:hover a {
-                    color: $theme-color;
+                    // color: $theme-color;
                 }
             }
         }
@@ -290,9 +290,9 @@
 }
 .is-sticky .main-menu.menu-white nav ul li a {
     color: #fff;
-    &:hover {
-        color: $theme-color;
-    }
+    // &:hover {
+    //     color: $theme-color;
+    // }
 }
 
 .is-sticky .main-menu nav ul li a {
@@ -342,7 +342,7 @@
             margin-left: 0px;
         }
         &:hover > a {
-            color: $theme-color;
+            // color: $theme-color;
         }
         .account-dropdown {
             background-color: $white;
@@ -373,7 +373,7 @@
                         color: $black;
                         &:hover {
                             padding-left: 5px;
-                            color: $theme-color;
+                            // color: $theme-color;
                         }
                     }
                 }
@@ -483,9 +483,9 @@
                             padding-right: 10px;
                             a {
                                 color: $black;
-                                &:hover {
-                                    color: $theme-color;
-                                }
+                                // &:hover {
+                                //     color: $theme-color;
+                                // }
                             }
                         }
                         h6 {
@@ -640,9 +640,9 @@
     .same-style {
         > a, button {
             color: $black;
-            &:hover {
-                color: $theme-color;
-            }
+            // &:hover {
+            //     color: $theme-color;
+            // }
         }
         .count-style {
             background-color: $black;
@@ -944,9 +944,9 @@
                             text-align: left;
                             text-transform: capitalize;
                             padding-top: 0px;
-                            &:hover {
-                                color: $theme-color;
-                            }
+                            // &:hover {
+                            //     color: $theme-color;
+                            // }
                             &::before {
                                 background: $theme-color none repeat scroll 0 0;
                                 border-radius: 50%;
@@ -1031,9 +1031,9 @@
                                     text-align: left;
                                     text-transform: capitalize;
                                     padding-top: 0px;
-                                    &:hover {
-                                        color: $theme-color;
-                                    }
+                                    // &:hover {
+                                    //     color: $theme-color;
+                                    // }
                                     &::before {
                                         background: $theme-color none repeat scroll 0 0;
                                         border-radius: 50%;
@@ -1090,9 +1090,9 @@
                         padding-right: 20px;
                     }
                 }
-                &:hover a {
-                    color: $theme-color;
-                }
+                // &:hover a {
+                //     color: $theme-color;
+                // }
             }
         }
     }

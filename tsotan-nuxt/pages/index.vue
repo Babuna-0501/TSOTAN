@@ -5,7 +5,6 @@
         <BrandLogoCarousel/>
         <BannerStyleFive />
         <DealWithCountdownTwo />
-        <ServicePolicyTwo />
         <BlogWrapper />
         <TheFooter />
     </div>
@@ -21,7 +20,6 @@
             BrandLogoCarousel: () => import('@/components/unused/BrandLogoCarousel'),
             BannerStyleFive: () => import('@/components/banner/BannerStyleFive'),
             DealWithCountdownTwo: () => import('@/components/DealWithCountdownTwo'),
-            ServicePolicyTwo: () => import('@/components/policy/ServicePolicyTwo'),
             BlogWrapper: () => import('@/components/unused/BlogWrapper'),
             TheFooter: () => import('@/components/TheFooter'),
         },

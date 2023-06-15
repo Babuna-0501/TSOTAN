@@ -28,13 +28,6 @@
     "_name": "_196b662f"
   },
   {
-    "name": "home",
-    "path": "/home",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\home.vue",
-    "chunkName": "pages/home",
-    "_name": "_5554e840"
-  },
-  {
     "name": "my-account",
     "path": "/my-account",
     "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
@@ -82,5 +75,12 @@
     "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\_slug.vue",
     "chunkName": "pages/product/_slug",
     "_name": "_299dd9fc"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_299933a1"
   }
 ]

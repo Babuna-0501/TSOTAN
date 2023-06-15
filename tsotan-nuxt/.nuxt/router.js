@@ -8,7 +8,6 @@ const _7125ac02 = () => interopDefault(import('..\\pages\\blog\\index.vue' /* we
 const _1a97ecbe = () => interopDefault(import('..\\pages\\cart.vue' /* webpackChunkName: "pages/cart" */))
 const _21a53c47 = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _196b662f = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
-const _5554e840 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages/home" */))
 const _89d11666 = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _4488e312 = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
 const _2df7f6e3 = () => interopDefault(import('..\\pages\\blog\\blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
@@ -16,6 +15,7 @@ const _24b268e2 = () => interopDefault(import('..\\pages\\blog\\blog-without-sid
 const _f241ca3e = () => interopDefault(import('..\\pages\\product\\product-affiliate.vue' /* webpackChunkName: "pages/product/product-affiliate" */))
 const _7492ee92 = () => interopDefault(import('..\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
 const _299dd9fc = () => interopDefault(import('..\\pages\\product\\_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
+const _299933a1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -45,10 +45,6 @@ export const routerOptions = {
     component: _196b662f,
     name: "contact"
   }, {
-    path: "/home",
-    component: _5554e840,
-    name: "home"
-  }, {
     path: "/my-account",
     component: _89d11666,
     name: "my-account"
@@ -76,6 +72,10 @@ export const routerOptions = {
     path: "/product/:slug?",
     component: _299dd9fc,
     name: "product-slug"
+  }, {
+    path: "/",
+    component: _299933a1,
+    name: "index"
   }],
 
   fallback: false

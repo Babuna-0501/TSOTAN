@@ -3,7 +3,6 @@
 .copyright {
     .footer-logo {
         margin-bottom: 12px;
-        margin-top: 41px;
         @media #{$xs-layout, $md-layout}{
             margin-top: 0px;
         }
@@ -12,12 +11,12 @@
         }
     }
     p {
-        color: $dark;
+        color: $white;
         letter-spacing: .9px;
         a {
-            color: $dark;
+            color: $white;
             &:hover {
-                color: $theme-color;
+                color: $white;
             }
         }
     }
@@ -27,7 +26,7 @@
             a {
                 color: $white;
                 &:hover {
-                    color: $theme-color;
+                    color: $white;
                 }
             }
         }
@@ -39,7 +38,7 @@
         h3{
             font-size: 16px;
             font-weight: 500;
-            color: $dark;
+            color: $white;
             margin: 0 0 16px;
             line-height: 1;
         }
@@ -52,10 +51,10 @@
                    margin: 0 0 0px; 
                 }
                 a {
-                    color: #5d5d5d;
+                    color: $white;
                     letter-spacing: .3px;
                     &:hover {
-                        color: $theme-color;
+                        color: $white;
                     }
                 }
             }
@@ -71,9 +70,9 @@
             ul {
                 li{
                     a {
-                        color: #e6e6e6;
+                        color: $white;
                         &:hover {
-                            color: $theme-color;
+                            color:$white;
                         }
                     }
                 }
@@ -82,7 +81,7 @@
     }
     .subscribe-style {
         p {
-            color: #7a7a7a;
+            color: $white;
             margin: 0 0 20px;
         }
         .subscribe-form {
@@ -90,7 +89,7 @@
                 input {
                     background: transparent;
                     font-size: 13px;
-                    color: $dark;
+                    color: $white;
                     border: none;
                     border-bottom: 2px solid #ebebeb;
                     padding: 2px 10px 2px 0;
@@ -98,7 +97,7 @@
                 .button {
                     width: auto;
                     height: auto;
-                    color: $dark;
+                    color: $white;
                     font-size: 14px;
                     padding: 0 0 1px;
                     line-height: 1;
@@ -114,12 +113,12 @@
         }
         &.subscribe-style-white {
             p {
-                color: #e6e6e6;
+                color: $white;
             }
             .subscribe-form {
                 form {
                     input {
-                        color: #a4a4a4;
+                        color: $white;
                         border-bottom: 2px solid #ebebeb;
                     }
                     .clear {
@@ -127,8 +126,8 @@
                             color: $white;
                             border-bottom: 2px solid #b5b5b6;
                             &:hover {
-                                color: $theme-color;
-                                border-bottom: 2px solid $theme-color;
+                                color: $white;
+                                border-bottom: 2px solid $white;
                             }
                         }
                     }
@@ -244,7 +243,7 @@
     position: relative;
     z-index: 9;
     p {
-        color: #fffefe;
+        color: $white;
         line-height: 28px;
         margin: 31px auto 33px;
         width: 55%;
@@ -277,10 +276,10 @@
                     display: none;
                 }
                 a {
-                    color: #e5e5e5;
+                    color: $white;
                     font-size: 16px;
                     &:hover {
-                        color: $theme-color;
+                        color: $white;
                     }
                 }
             }
@@ -315,7 +314,7 @@
         a {
             color: $white;
             &:hover {
-                color: $theme-color;
+                color: $white;
             }
         }
     }
@@ -329,7 +328,7 @@
                 color: #848484;
                 letter-spacing: .9px;
                 &:hover {
-                    color: $theme-color;
+                    color: $white;
                 }
             }
         }  
@@ -339,15 +338,15 @@
 .footer-white {
     .footer-top {
         p {
-            color: $black;
+            color: $white;
         }
         .footer-social {
             ul {
                 li {
                     a {
-                        color: $black;
+                        color: $white;
                         &:hover {
-                            color: $theme-color;
+                            color: $white;
                         }
                     }
                 }

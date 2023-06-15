@@ -54,7 +54,6 @@ export default {
         this.$store.state.showFooter = true;
         body.classList.add("bg-gray-100");
     },
-
 };
 
 
