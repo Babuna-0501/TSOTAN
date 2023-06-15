@@ -4,9 +4,9 @@
         <li>
           <h2>{{ product.name }}</h2>
           <p>Price: {{ product.price }}</p>
-          <p><img alt="image"/></p>
+          <p><img :src="getImg(product.img1)"/></p>
           <p>Description: {{ product.description }}</p>
-          <p>Category: {{ product.categoryName }}</p>
+          <p>Category: {{ product.parentCategory }}</p>
         </li>
       </ul>
     </div>
@@ -56,6 +56,11 @@
             onClick(product) {
                 this.$modal.show('quickview', product);
             },
+
+          getImg(imgUrl) {
+            console.log(imgUrl)
+            return imgUrl;
+          },
         },
     };
 </script>

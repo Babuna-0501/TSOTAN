@@ -117,8 +117,6 @@ export const getters = {
 
     },
 
-    ca
-
 
 
     // tagList: state => {

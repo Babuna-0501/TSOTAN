@@ -16,22 +16,57 @@
           <!--                    </select>-->
           <!--                    </div>-->
           <div class="form-group">
-            <select class="my-2 text-sm font-weight-bold mb-0" v-model="selectedCategory"
-                    @change="onCategoryChange">
-              <option value="">-- Select a Category --</option>
-              <option v-for="category in categories" :key="category.name">{{
-                  category.name
-                }}
+
+
+<!--            <select class="my-2 text-sm font-weight-bold mb-0" v-model="selectedCategory"-->
+<!--                    @change="onCategoryChange">-->
+<!--              <option value="">&#45;&#45; Select a Category &#45;&#45;</option>-->
+<!--              <option v-for="category in categories" :key="category.name">{{-->
+<!--                  category.name-->
+<!--                }}-->
+<!--              </option>-->
+<!--            </select>-->
+
+<!--            <select class="my-2 text-sm font-weight-bold mb-0" v-model="selectedSubcategory" @change="updateSub"-->
+<!--                    :disabled="!selectedCategory">-->
+<!--              <option value="">&#45;&#45; Select a Subcategory &#45;&#45;</option>-->
+<!--              <option v-for="subcategory in subCategories" :key="subcategory.name">-->
+<!--                {{ subcategory.name }}-->
+<!--              </option>-->
+<!--            </select>-->
+
+
+
+            <label for="Category">Category</label>
+            <select class="form-control" v-model="selectedParentCategory"
+                    @change="onSubChange">
+              <!--                    <option value="">{{parentCategories.name}}</option>-->
+              <option v-for="item in parentCategories" :key="item.name">
+                {{ item.name }}
               </option>
             </select>
 
-            <select class="my-2 text-sm font-weight-bold mb-0" v-model="selectedSubcategory" @change="updateSub"
-                    :disabled="!selectedCategory">
-              <option value="">-- Select a Subcategory --</option>
-              <option v-for="subcategory in subCategories" :key="subcategory.name">
-                {{ subcategory.name }}
+            <select class="form-control mt-4" v-if="subcategories.length" v-model="selectedSubcategory"
+                    @change="onCatChange">
+              <!--                          :disabled="!selectedParentCategory">-->
+              <!--                    <option value="">&#45;&#45; Select a Subcategory &#45;&#45;</option>-->
+              <option v-for="item in subcategories" :key="item.name">
+                {{ item.name }}
               </option>
             </select>
+
+
+            <select class="form-control mt-4" v-if="categories.length" v-model="selectedCategory" @change="onCategoryChange">
+              <!--                          :disabled="!selectedSubcategory">-->
+              <!--                    <option value="">&#45;&#45; Select a category &#45;&#45;</option>-->
+              <option v-for="item in categories" :key="item.name">
+                {{ item.name }}
+              </option>
+            </select>
+
+
+
+
           </div>
           <thead>
           <tr>
@@ -91,32 +126,69 @@
 </template>
 
 <script>
-import categoryList from "../../../category.json";
+
 import api from "../../assets/api/product";
 
 export default {
   data() {
     return {
       products: [],
-      selectedCategory: '',
+      parentCategories: [],
+      selectedParentCategory: '',
+      subcategories: [],
       selectedSubcategory: '',
-      loading: true,
       categories: [],
-      subCategories: [],
-      categoryId: 100
+      selectedCategory: '',
+      loading: true,
+      categoryId: 0
     }
   },
   mounted() {
-    this.categories = categoryList.categories;
+    this.fetchParent(0);
     this.fetchData();
   },
   methods: {
-    onCategoryChange() {
-      const category = this.categories.find(c => c.name === this.selectedCategory);
-      this.categoryId = category.id;
-      this.updateSubcategories();
+
+    async fetchParent(id) {
+      const result = await api.getCategoriesByParent(id);
+      this.parentCategories = result.data;
+      console.log(this.parentCategories);
+    },
+    onSubChange(event) {
+      this.selectedParentCategory = event.target.value;
+      this.subcategories = [];
+      this.categories = [];
+      const sub = this.parentCategories.find(c => c.name === this.selectedParentCategory);
+      if (sub) this.categoryId = sub.id;
+      this.fetchData();
+      this.updateSub(sub.id);
+    },
+    async updateSub(id) {
+      console.log("cat id " +  id);
+      const result = await api.getCategoriesByParent(id);
+      this.subcategories = result.data;
+    },
+    onCatChange(event) {
+      this.selectedSubcategory = event.target.value;
+      this.categories = [];
+      const sub = this.subcategories.find(c => c.name === this.selectedSubcategory);
+      if (sub) this.categoryId = sub.id;
+      this.fetchData();
+      this.updateCat(sub.id)
+    },
+    async updateCat(id) {
+      console.log(this.selectedCategory)
+      const result = await api.getCategoriesByParent(id);
+      this.categories = result.data;
+    },
+    onCategoryChange(event) {
+      this.selectedCategory = event.target.value;
+      const sub = this.categories.find(c => c.name === this.selectedCategory);
+      if (sub) this.categoryId = sub.id;
       this.fetchData();
     },
+
+
     async fetchData() {
       try {
         this.loading = true;
@@ -144,24 +216,6 @@ export default {
     },
     getEditUrl(id) {
       return "../edit/" + id;
-    },
-    updateSubcategories() {
-
-      const category = this.categories.find(c => c.name === this.selectedCategory);
-
-      if(category) {
-        this.subCategories = category.subcategories;
-        this.categoryId = category.id
-      }
-
-      console.log(this.categoryId);
-    },
-    updateSub() {
-      console.log(this.selectedSubcategory);
-      const subCategory = this.subCategories.find(c => c.name === this.selectedSubcategory);
-      if(subCategory) this.categoryId = subCategory.id;
-      console.log(this.categoryId)
-      this.fetchData();
     },
   }
 }
