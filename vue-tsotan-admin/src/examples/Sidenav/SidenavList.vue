@@ -40,17 +40,19 @@
           </template>
         </sidenav-item>
       </li>
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <sidenav-item
-          url="/profile"
-          :class="getRoute() === 'profile' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'حساب تعريفي' : 'Profile'"
+          url="/category"
+          :class="getRoute() === 'categoryAdd' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'حساب تعريفي' : 'Категори нэмэх'"
         >
-          <template v-slot:icon>
-            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+        <template v-slot:icon>
+            <i
+              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
+            ></i>
           </template>
         </sidenav-item>
-      </li> -->
+      </li>
       <!-- <li class="nav-item">
         <sidenav-item
           url="/signin"

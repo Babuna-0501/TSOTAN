@@ -7,6 +7,7 @@ import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
 import Add from "../views/Add.vue";
 import Edit from "../views/Edit.vue";
+import CategoryAdd from "../views/CategoryAdd.vue";
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
     path: "/edit/:id",
     name: "Edit",
     component: Edit,
+  },
+  {
+    path: "/category",
+    name: "categoryAdd",
+    component: CategoryAdd,
   },
 ];
 
