@@ -19,7 +19,7 @@
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="col-xl-8 col-lg-6 col-md-7 mx-auto">
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
               <h5>Бараа засах</h5>
@@ -27,55 +27,125 @@
             <div class="row px-xl-5 px-sm-4 px-3"></div>
             <div class="card-body">
               <form role="form">
-                <argon-input
-
-                    v-model:value="product.name"
-                    type="text"
-                    :placeholder=product.name
-                    aria-label="Name"
-                    @change="onNameChange"
-                />
-                <argon-input
-                    v-model:value="product.price"
-                    type="number"
-                    :placeholder=product.price
-                    aria-label="number"
-                    @change="onPriceChange"
-                />
+                <div class="row">
+                  <div class="col-xl-6">
+                    <label for="name">Нэр</label>
+                    <argon-input
+                        v-model:value="product.name"
+                        type="text"
+                        :placeholder=product.name
+                        aria-label="Name"
+                        @change="onNameChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                    <label for="price">Үнэ</label>
+                    <argon-input
+                        v-model:value="product.price"
+                        type="number"
+                        :placeholder=product.price
+                        aria-label="number"
+                        @change="onPriceChange"/>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="Category">Category</label>
-                  <select class="form-control" v-model="selectedCategory"
-                          @change="updateSubcategories">
-                    <option value="">-- Select a Category --</option>
-                    <option v-for="category in categories" :key="category.name">{{
-                        category.name
-                      }}
+                  <select class="form-control" v-model="selectedParentCategory"
+                          @change="onSubChange">
+<!--                    <option value="">{{parentCategories.name}}</option>-->
+                    <option v-for="item in parentCategories" :key="item.name">
+                      {{ item.name }}
                     </option>
                   </select>
 
-                  <select class="form-control mt-4" v-if="selectedCategory" v-model="selectedSubcategory" @change="updateSub"
-                          :disabled="!selectedCategory">
-                    <option value="">-- Select a Subcategory --</option>
-                    <option v-for="subcategory in subcategories" :key="subcategory.name">
-                      {{ subcategory.name }}
+                  <select class="form-control mt-4" v-if="subcategories.length" v-model="selectedSubcategory"
+                          @change="onCatChange">
+<!--                          :disabled="!selectedParentCategory">-->
+<!--                    <option value="">&#45;&#45; Select a Subcategory &#45;&#45;</option>-->
+                    <option v-for="item in subcategories" :key="item.name">
+                      {{ item.name }}
                     </option>
                   </select>
 
 
+                  <select class="form-control mt-4" v-if="categories.length" v-model="selectedCategory" @change="onCategoryChange">
+<!--                          :disabled="!selectedSubcategory">-->
+<!--                    <option value="">&#45;&#45; Select a category &#45;&#45;</option>-->
+                    <option v-for="item in categories" :key="item.name">
+                      {{ item.name }}
+                    </option>
+                  </select>
+
 
                 </div>
-                <label for="file">Зураг</label>
-                <div>
-                  <input id="image" type="file" ref="image" @change="onImageChange"/>
+                <div class="col-xl-8 col-lg-6 col-md-7">
+                  <label for="Desc">Description</label>
+                  <ArgonTextArea style="margin-top: -20px;" type="text" v-model:value="product.description" @change="onDescriptionChange"/>
                 </div>
+                <div class="additional row">
+                  <div class="col-xl-6">
+                    <label for="Нэмэлт мэдээлэл">Нэмэлт мэдээлэл</label>
+                    <argon-input
+                      v-model:value="product.weight"
+                      type="text"
+                      placeholder="Барааны жин"
+                      aria-label="Weight"
+                      @change="onWeightChange"/>
+                  </div>
+                  <div class="material col-xl-6">
+                      <argon-input
+                      v-model:value="product.material"
+                      type="text"
+                      placeholder="Материал"
+                      aria-label="Weight"
+                      @change="onMaterialChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                      <argon-input
+                      v-model:value="product.instruction"
+                      type="text"
+                      placeholder="Угаах заавар"
+                      aria-label="instruction"
+                      @change="onInstructionChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                    <argon-input
+                      v-model:value="product.size"
+                      type="text"
+                      placeholder="Хэмжээ"
+                      aria-label="size"
+                      @change="onSizeChange"/>
+                  </div>
+                </div>
+                <div class="row flex">
+                  <label for="file">Зураг</label>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                </div>
+          
                 <div class="text-center">
                   <argon-button
+                      v-if="isClickable"
                       @click="submitForm"
                       fullWidth
                       color="dark"
                       variant="gradient"
                       class="my-4 mb-2"
-                  >Бараа засах
+                      type="submit"
+                  >Бараа нэмэх
                   </argon-button>
                 </div>
               </form>
@@ -90,9 +160,9 @@
 <script>
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import ArgonTextArea from "@/components/ArgonTextarea.vue"
 
 import api from "../assets/api/product"
-import categoryList from "../../category.json";
 import s3 from "@/assets/s3config";
 
 const body = document.getElementsByTagName("body")[0];
@@ -103,6 +173,7 @@ export default {
   components: {
     ArgonInput,
     ArgonButton,
+    ArgonTextArea,
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -119,12 +190,11 @@ export default {
     body.classList.add("bg-gray-100");
   },
   mounted() {
-    this.categories = categoryList.categories;
-    this.fetchData();
+    // this.categories = categoryList.categories;
+    this.fetchParent(0);
   },
   data() {
     return {
-      id: this.$route.params.id,
       parentCategories: [],
       selectedParentCategory: '',
       subcategories: [],
@@ -135,40 +205,73 @@ export default {
         categoryId: null,
         price: 0,
         name: '',
-        image: ''
+        image1: '',
+        image2: '',
+        image3: '',
+        image4: '',
+        description: '',
+        instruction: '',
+        size: '',
+        weight: '',
+        material: '',
       },
-      deleteUrl: ''
+      isLoading: false,
+      // isClickable: false
     };
   },
+  computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
+    isClickable() {
+      return (this.product.name && this.product.image1 && this.product.price && this.product.categoryId)
+    }
+  },
   methods: {
-    updateSubcategories() {
 
-      const category = this.parentCategories.find(c => c.name === this.selectedCategory);
-
-      if (category) {
-        this.subcategories = category.subcategories;
-        this.product.categoryId = category.id
-      }
-
-      console.log(this.product.categoryId);
+    async fetchParent(id) {
+      const result = await api.getCategoriesByParent(id);
+      this.parentCategories = result.data;
+      console.log(this.parentCategories);
     },
-    updateSub() {
-      console.log(this.selectedSubcategory);
-      const subCategory = this.subcategories.find(c => c.name === this.selectedSubcategory);
-      if (subCategory) this.product.categoryId = subCategory.id;
-      console.log(this.product.categoryId)
+    onSubChange(event) {
+      this.selectedParentCategory = event.target.value;
+      this.subcategories = [];
+      this.categories = [];
+      const sub = this.parentCategories.find(c => c.name === this.selectedParentCategory);
+      if (sub) this.product.categoryId = sub.id;
+      this.updateSub(sub.id);
+    },
+    async updateSub(id) {
+      console.log("cat id " +  id);
+      const result = await api.getCategoriesByParent(id);
+      this.subcategories = result.data;
+    },
+    onCatChange(event) {
+      this.selectedSubcategory = event.target.value;
+      this.categories = [];
+      const sub = this.subcategories.find(c => c.name === this.selectedSubcategory);
+      if (sub) this.product.categoryId = sub.id;
+      this.updateCat(sub.id)
+    },
+    async updateCat(id) {
+      console.log(this.selectedCategory)
+      const result = await api.getCategoriesByParent(id);
+      this.categories = result.data;
+    },
+    onCategoryChange(event) {
+      this.selectedCategory = event.target.value;
+      const sub = this.categories.find(c => c.name === this.selectedCategory);
+      if (sub) this.product.categoryId = sub.id;
     },
     onImageChange(event) {
       const file = event.target.files[0];
       const fileName = Date.now().toString();
       const bucketName = 'tsotan';
-
-      const data = {
+      const params = {
         Bucket: bucketName,
         Key: fileName,
         Body: file,
       };
-      s3.putObject(data, (err, data) => {
+      s3.putObject(params, (err, data) => {
         if (err) {
           console.error('Error uploading image:', err);
         } else {
@@ -176,67 +279,75 @@ export default {
         }
       });
 
-      this.product.image = "https://" + bucketName + ".s3.ap-southeast-1.amazonaws.com/" + fileName;
+      this.product.image1 = "https://" + bucketName + ".s3.ap-southeast-1.amazonaws.com/" + fileName;
+
     },
+
+
     onNameChange(event) {
       this.product.name = event.target.value;
+
     },
     onPriceChange(event) {
       this.product.price = event.target.value;
     },
-    async fetchData() {
+    onDescriptionChange(event) {
+      this.product.description = event.target.value;
+      console.log(this.product.description);
+    },
+    onInstructionChange(event) {
+      this.product.instruction = event.target.value;
+    },
+    onSizeChange(event) {
+      this.product.size = event.target.value;
+    },
+    onWeightChange(event) {
+      this.product.weight = event.target.value;
+    },
+    onMaterialChange(event) {
+      this.product.material = event.target.value;
+    },
+    async submitForm() {
 
-      try {
-        const response = await api.view(this.id);
-        this.product = response.data;
-        this.deleteUrl = this.product.image;
-      } catch (error) {
-        console.log(error);
+      const productDTO = {
+        'img1': this.product.image1,
+        'img2': this.product.image1,
+        'img3': this.product.image1,
+        'img4': this.product.image1,
+        'name': this.product.name,
+        'price': this.product.price,
+        'categoryId': this.product.categoryId,
+        'description': this.product.description,
+        'instruction': this.product.instruction,
+        'size': this.product.size,
+        'weight': this.product.weight,
+        'material': this.product.material
       }
 
-    },
-
-    async submitForm() {
-      const formData = new FormData();
-      console.log("start: " + this.product.name);
-      formData.append('img', this.product.image);
-      formData.append('productName', this.product.name);
-      formData.append('price', this.product.price);
-      formData.append('categoryId', this.product.categoryId);
-
-      // const productDTO = {
-      //   'file': this.product.image,
-      //   'productName': this.product.name,
-      //   'price': this.product.price,
-      //   'categoryId': this.product.categoryId
-      // }
-
       try {
-        await api.updateProduct(this.id, formData);
+        this.isLoading = true;
+        await api.createProduct(productDTO);
       } catch (error) {
         console.log(error)
       }
+      this.isLoading = false;
     },
-
-    deleteImage() {
-      const bucketName = 'tsotan';
-      const data = {
-        Bucket: bucketName,
-        Key: this.deleteUrl.toString().substring(47),
-      };
-      s3.deleteObject(data, (err, data) => {
-        if (err) {
-          console.error('Error uploading image:', err);
-        } else {
-          console.log('Image uploaded successfully:', data);
-        }
-      });
+    goToDestinationPage() {
+      this.$router.push('/tables');
     }
-
-
   },
+
 
 };
 
 
 </script>
+
+<style>
+@media screen and (min-width: 1200px) {
+  .material {
+    margin-top: 32px !important;
+  }
+}
+
+</style>
