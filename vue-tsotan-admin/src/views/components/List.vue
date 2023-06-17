@@ -127,7 +127,7 @@
 
 <script>
 
-import api from "../../assets/api/product";
+import api from "../../../../api/product";
 
 export default {
   data() {

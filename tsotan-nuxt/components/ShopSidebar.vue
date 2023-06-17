@@ -43,7 +43,7 @@
       <h4 class="pro-sidebar-title">Categories3</h4>
       <ul class="sidebar-widget-list mt-20">
         <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList" :key="index">
-          <n-link :to="`?parent=${slugify(selectedParent)}&child=${slugify(selectedChild)}&&category=${slugify(category)}`" >
+          <n-link :to="`?parent=${slugify(selectedParent)}&child=${slugify(selectedChild)}&category=${slugify(category)}`" >
             <span class="check-mark"></span>
             {{ category }}
           </n-link>
@@ -55,13 +55,15 @@
 </template>
 
 <script>
-import {charAt} from "core-js/internals/string-multibyte";
+import api from "../../api/product"
 
 export default {
   props: ["classes"],
 
   data() {
     return {
+      childCategoryList: [],
+      categoryList: [],
       selectedParent: null,
       selectedChild: null,
       selectedCat: null,
@@ -71,12 +73,12 @@ export default {
     parentCategoryList() {
       return this.$store.getters.parentCategoryList
     },
-    childCategoryList() {
-      return this.$store.getters.childCategoryList
-    },
-    categoryList() {
-      return this.$store.getters.categoryList
-    }
+    // childCategoryList() {
+    //   return this.$store.getters.childCategoryList
+    // },
+    // categoryList() {
+    //   return this.$store.getters.categoryList
+    // }
 
   },
 
@@ -89,9 +91,25 @@ export default {
       this.selectedChild = this.$route.query.child;
     },
 
+    selectedParent() {
+      const sub = this.parentCategories.find(c => c.name === this.selectedParent);
+      this.childCategoryList = this.fetchChildCategories(sub.id);
+    },
+
+    async selectedChild() {
+      const sub = this.childCategoryList.find(c => c.name === this.selectedChild)
+      this.categoryList = this.fetchChildCategories(sub.id);
+    }
+
   },
 
   methods: {
+
+    async fetchChildCategories(id) {
+      const result = await api.getCategoriesByParent(id);
+      this.childCategoryList = result.data;
+      console.log(this.parentCategories);
+    },
     slugify(text) {
       console.log(text);
       const a = text

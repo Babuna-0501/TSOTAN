@@ -91,7 +91,7 @@
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 
-import api from "../assets/api/product"
+import api from "../../../api/product"
 import categoryList from "../../category.json";
 import s3 from "@/assets/s3config";
 
