@@ -5,7 +5,7 @@
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/tsotan/service/resized/DTF_91x84.png" alt="">
+                        <img src="/img/service/service-logo-1.webp" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
                         <img src="/img/brand-logo/barnd-logo-2.png" alt="">
@@ -19,6 +19,7 @@
                     <div class="single-brand-logo swiper-slide">
                         <img src="/img/brand-logo/barnd-logo-5.png" alt="">
                     </div>
+                    
                 </swiper>
             </div>
         </div>
