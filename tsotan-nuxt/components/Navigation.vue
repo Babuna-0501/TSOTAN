@@ -1,6 +1,9 @@
 <template>
     <ul>
         <li>
+            <n-link to="">Шинэ бараа<i></i></n-link>
+        </li>
+        <li>
             <n-link to="/shop">Бүтээгдэхүүн</n-link>
             <!-- <ul class="mega-menu mega-menu-padding" style="display: flex; flex-wrap: wrap; gap: 15px;">
                 <li>
@@ -279,11 +282,9 @@
         <li>
             <n-link to="/service"> Үйлчилгээ<i></i></n-link>
         </li>
+       
         <li>
-            <n-link to="">Шинэ бараа<i></i></n-link>
-        </li>
-        <li>
-            <n-link to="/">Сошиал<i class="fa fa-angle-down"></i></n-link>
+            <n-link to="/">Сошиал</n-link>
         </li>
         <li>
             <n-link to="/contact">Холбоо барих </n-link>

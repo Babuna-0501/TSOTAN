@@ -1,9 +1,10 @@
 <template>
     <div class="blog-wrap mb-25">
         <div class="blog-img">
-            <n-link :to="`/blog/${slugify(blog.title)}`">
-                <img :src="blog.imgSrc" :alt="blog.title">
-            </n-link>
+            <video loop="true" autoplay="autoplay" controls muted style="width: 100%;">
+                <source :src="blog.videoSource" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <span>{{ blog.category[0]}}</span>
         </div>
         <div class="blog-content-wrap">

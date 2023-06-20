@@ -16,36 +16,38 @@
     <div class="sidebar-widget">
       <h4 class="pro-sidebar-title">Categories1</h4>
       <ul class="sidebar-widget-list mt-20">
-        <li class="sidebar-widget-list-left" v-for="(parentCategory, index) in parentCategoryList" :key="index">
-          <n-link :to="`?parent=${slugify(parentCategory)}`">
+        <li class="sidebar-widget-list-left" v-for="(parentCategory, index) in parentCategoryList.map(item => item.name)" :key="index">
+          <n-link :to="`?parent=${slugify(String(parentCategory))}`">
             <span class="check-mark"></span>
-            {{ parentCategory }}
+              <option value="">{{ parentCategory }}</option>
           </n-link>
         </li>
       </ul>
     </div>
 
 
-    <div class="sidebar-widget" v-if="selectedParent">
+    <div class="sidebar-widget" v-if="childCategoryList.length">
       <h4 class="pro-sidebar-title">Categories2</h4>
       <ul class="sidebar-widget-list mt-20">
-        <li class="sidebar-widget-list-left" v-for="(child, index) in childCategoryList" :key="index">
-          <n-link :to="`?parent=${slugify(selectedParent)}&child=${slugify(child.toString())}`" >
+        <li class="sidebar-widget-list-left" v-for="(child, index) in childCategoryList.map(item=>item.name)" :key="index">
+          <n-link :to="`?parent=${slugify(String(selectedParent))}&child=${slugify(String(child))}`" >
             <span class="check-mark"></span>
-            {{ child }}
+              <option value="">{{ child }}</option>
+              <!-- Add more options if needed -->
           </n-link>
         </li>
       </ul>
     </div>
 
 
-    <div class="sidebar-widget" v-if="selectedChild">
+    <div class="sidebar-widget" v-if="categoryList.length">
       <h4 class="pro-sidebar-title">Categories3</h4>
       <ul class="sidebar-widget-list mt-20">
-        <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList" :key="index">
-          <n-link :to="`?parent=${slugify(selectedParent)}&child=${slugify(selectedChild)}&category=${slugify(category)}`" >
+        <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList.map(item=>item.name)" :key="index">
+          <n-link :to="`?parent=${slugify(String(selectedParent))}&child=${slugify(String(selectedChild))}&category=${slugify(String(category))}`" >
             <span class="check-mark"></span>
-            {{ category }}
+              <option value="">{{ category }}</option>
+              <!-- Add more options if needed -->
           </n-link>
         </li>
       </ul>
@@ -64,15 +66,30 @@ export default {
     return {
       childCategoryList: [],
       categoryList: [],
+      childNames: [],
       selectedParent: null,
       selectedChild: null,
       selectedCat: null,
     }
   },
   computed: {
+
     parentCategoryList() {
-      return this.$store.getters.parentCategoryList
+      return this.$store.getters.parentCategoryList;
     },
+
+
+    // async selectedParent() {
+    //   const sub = this.parentCategories.find(c => c.name === this.selectedParent);
+    //   console.log("update child");
+    //   console.log(sub);
+    //   this.childCategoryList = await this.fetchChildCategories(sub.id).map(item=>item.name);
+    // },
+    //
+    // async selectedChild() {
+    //   const sub = this.childCategoryList.find(c => c.name === this.selectedChild)
+    //   this.categoryList = await this.fetchChildCategories(sub.id);
+    // }
     // childCategoryList() {
     //   return this.$store.getters.childCategoryList
     // },
@@ -83,35 +100,41 @@ export default {
   },
 
   watch: {
-    // selectedParent() {
-    //   this.childCategoryList();
-    // },
+
     $route() {
       this.selectedParent = this.$route.query.parent;
       this.selectedChild = this.$route.query.child;
-    },
 
-    selectedParent() {
-      const sub = this.parentCategories.find(c => c.name === this.selectedParent);
-      this.childCategoryList = this.fetchChildCategories(sub.id);
-    },
-
-    async selectedChild() {
-      const sub = this.childCategoryList.find(c => c.name === this.selectedChild)
-      this.categoryList = this.fetchChildCategories(sub.id);
+      if(this.selectedParent) {
+        this.categoryList=[];
+        this.fetchChildCategories();
+      }
+      if(this.selectedChild) {
+        this.fetchCategories();
+      }
     }
-
   },
 
   methods: {
 
-    async fetchChildCategories(id) {
-      const result = await api.getCategoriesByParent(id);
-      this.childCategoryList = result.data;
-      console.log(this.parentCategories);
+    async fetchChildCategories() {
+      const sub = this.parentCategoryList.filter(c => this.slugify(String(c.name)) === this.selectedParent);
+      const id = sub.map(item => item.id);
+      this.childCategoryList = await this.fetch(id);
     },
+
+    async fetchCategories() {
+      const sub = this.childCategoryList.filter(c => this.slugify(String(c.name)) === this.selectedChild);
+      const id = sub.map(item => item.id);
+      this.categoryList = await this.fetch(id);
+    },
+
+    async fetch(id) {
+      const result = await api.getCategoriesByParent(id);
+      return result.data;
+    },
+
     slugify(text) {
-      console.log(text);
       const a = text
           .toString()
           .toLowerCase()
@@ -119,8 +142,9 @@ export default {
           // .replace(/[^\w-]+/g, "") // Remove all non-word chars
           .replace(/--+/g, "-") // Replace multiple - with single -
           .replace(/^-+/, "") // Trim - from start of text
-          .replace(/-+$/, ""); // Trim - from end of text
-      console.log('a : ' + a);
+          .replace(/-+$/, "") // Trim - from end of text
+          .replace(/,+/, "");
+      // console.log('a : ' + a);
       return a;
     }
   }

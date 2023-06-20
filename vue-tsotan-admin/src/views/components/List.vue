@@ -85,7 +85,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <img :src="getImg(product.imgUrl)" style="width: 70%;"/>
+                    <img :src="getImg(product.img1)" style="width: 70%;"/>
                   </div>
                 </div>
 
@@ -152,7 +152,6 @@ export default {
     async fetchParent(id) {
       const result = await api.getCategoriesByParent(id);
       this.parentCategories = result.data;
-      console.log(this.parentCategories);
     },
     onSubChange(event) {
       this.selectedParentCategory = event.target.value;
@@ -164,7 +163,6 @@ export default {
       this.updateSub(sub.id);
     },
     async updateSub(id) {
-      console.log("cat id " +  id);
       const result = await api.getCategoriesByParent(id);
       this.subcategories = result.data;
     },
@@ -177,7 +175,6 @@ export default {
       this.updateCat(sub.id)
     },
     async updateCat(id) {
-      console.log(this.selectedCategory)
       const result = await api.getCategoriesByParent(id);
       this.categories = result.data;
     },

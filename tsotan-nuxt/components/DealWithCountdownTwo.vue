@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 ms-auto">
                     <div class="funfact-content funfact-res text-center">
-                        <h2>Deal of the day</h2>
+                        <h2>Дэлгүүрээр зочлох</h2>
                         <ul class="timer">
                             <li>
                                 <span id="days"></span>
@@ -24,7 +24,7 @@
                             </li>
                         </ul>
                         <div class="funfact-btn btn-only-round funfact-btn-red-2 btn-hover">
-                            <n-link to="/shop">SHOP NOW</n-link>
+                            <n-link to="/shop">Зочлох</n-link>
                         </div>
                     </div>
                 </div>

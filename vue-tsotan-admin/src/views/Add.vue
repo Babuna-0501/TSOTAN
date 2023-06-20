@@ -19,7 +19,7 @@
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="col-xl-8 col-lg-6 col-md-7 mx-auto">
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
               <h5>Бараа нэмэх</h5>
@@ -27,26 +27,27 @@
             <div class="row px-xl-5 px-sm-4 px-3"></div>
             <div class="card-body">
               <form role="form">
-                <label for="name">Нэр</label>
-                <argon-input
-                    v-model:value="product.name"
-                    type="text"
-                    :placeholder=product.name
-                    aria-label="Name"
-                    @change="onNameChange"/>
-                <label for="price">Үнэ</label>
-                <argon-input
-                    v-model:value="product.price"
-                    type="number"
-                    :placeholder=product.price
-                    aria-label="number"
-                    @change="onPriceChange"/>
-
-
-
+                <div class="row">
+                  <div class="col-xl-6">
+                    <label for="name">Нэр</label>
+                    <argon-input
+                        v-model:value="product.name"
+                        type="text"
+                        :placeholder=product.name
+                        aria-label="Name"
+                        @change="onNameChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                    <label for="price">Үнэ</label>
+                    <argon-input
+                        v-model:value="product.price"
+                        type="number"
+                        :placeholder=product.price
+                        aria-label="number"
+                        @change="onPriceChange"/>
+                  </div>
+                </div>
                 <div class="form-group">
-
-
                   <label for="Category">Category</label>
                   <select class="form-control" v-model="selectedParentCategory"
                           @change="onSubChange">
@@ -76,43 +77,66 @@
 
 
                 </div>
-                <div>
+                <div class="col-xl-8 col-lg-6 col-md-7">
                   <label for="Desc">Description</label>
                   <ArgonTextArea style="margin-top: -20px;" type="text" v-model:value="product.description" @change="onDescriptionChange"/>
                 </div>
-                <div class="additional">
-                  <label for="Нэмэлт мэдээлэл">Нэмэлт мэдээлэл</label>
-                  <argon-input
+                <div class="additional row">
+                  <div class="col-xl-6">
+                    <label for="Нэмэлт мэдээлэл">Нэмэлт мэдээлэл</label>
+                    <argon-input
                       v-model:value="product.weight"
                       type="text"
                       placeholder="Барааны жин"
                       aria-label="Weight"
                       @change="onWeightChange"/>
-                  <argon-input
+                  </div>
+                  <div class="material col-xl-6">
+                      <argon-input
                       v-model:value="product.material"
                       type="text"
                       placeholder="Материал"
                       aria-label="Weight"
                       @change="onMaterialChange"/>
-                  <argon-input
+                  </div>
+                  <div class="col-xl-6">
+                      <argon-input
                       v-model:value="product.instruction"
                       type="text"
                       placeholder="Угаах заавар"
                       aria-label="instruction"
                       @change="onInstructionChange"/>
-                  <argon-input
+                  </div>
+                  <div class="col-xl-6">
+                    <argon-input
                       v-model:value="product.size"
                       type="text"
                       placeholder="Хэмжээ"
                       aria-label="size"
                       @change="onSizeChange"/>
+                  </div>
                 </div>
-                <label for="file">Зураг</label>
-                <div>
+                <div class="row flex">
+                  <label for="file">Зураг</label>
+                  <div class="col-xl-6">
                   <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
-                  <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
+                  <div class="col-xl-6">
+                  <!--                                  TODO  : 4 image upliad hiih, img tag taviad product.image haruuulah -->
+                    <input id="image" type="file" ref="image" multiple @change="onImageChange"/>
+                  </div>
                 </div>
-                <div class="text-center">
+          
+                <div class="text-center" @click="goToDestinationPage">
                   <argon-button
                       v-if="isClickable"
                       @click="submitForm"
@@ -206,7 +230,6 @@ export default {
     async fetchParent(id) {
       const result = await api.getCategoriesByParent(id);
       this.parentCategories = result.data;
-      console.log(this.parentCategories);
     },
     onSubChange(event) {
       this.selectedParentCategory = event.target.value;
@@ -217,7 +240,6 @@ export default {
       this.updateSub(sub.id);
     },
     async updateSub(id) {
-      console.log("cat id " +  id);
       const result = await api.getCategoriesByParent(id);
       this.subcategories = result.data;
     },
@@ -229,7 +251,6 @@ export default {
       this.updateCat(sub.id)
     },
     async updateCat(id) {
-      console.log(this.selectedCategory)
       const result = await api.getCategoriesByParent(id);
       this.categories = result.data;
     },
@@ -287,7 +308,6 @@ export default {
     },
     onDescriptionChange(event) {
       this.product.description = event.target.value;
-      console.log(this.product.description);
     },
     onInstructionChange(event) {
       this.product.instruction = event.target.value;
@@ -336,3 +356,12 @@ export default {
 
 
 </script>
+
+<style>
+@media screen and (min-width: 1200px) {
+  .material {
+    margin-top: 32px !important;
+  }
+}
+
+</style>

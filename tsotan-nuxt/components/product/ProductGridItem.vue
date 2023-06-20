@@ -58,7 +58,6 @@
             },
 
           getImg(imgUrl) {
-            console.log(imgUrl)
             return imgUrl;
           },
         },

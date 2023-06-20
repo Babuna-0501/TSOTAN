@@ -75,59 +75,10 @@ export const getters = {
     // },
 
     parentCategoryList: state => {
-        return [...new Set(state.products.map((list) => list.parentCategory).flat())]
+        // return [...new Set(state.products.map((list) => list.parentCategory).flat())]
+        return state.categories;
     },
 
-    childCategoryList: state => {
-
-        return [...new Set(state.products.map((list) => list.childCategory).flat())]
-        // const childCategories = state.products.map((product) => product.childCategory);
-        // const uniqueChildCategories = [...new Set(childCategories)];
-        //
-        // const groupedChildCategories = {};
-        //
-        // for (const childCategory of uniqueChildCategories) {
-        //     const matchedProducts = state.products.filter(
-        //         (product) =>
-        //             product.childCategory === childCategory &&
-        //             product.parentCategory === parentCategory
-        //     );
-        //
-        //     if (matchedProducts.length === 0) {
-        //         continue;
-        //     }
-        //
-        //     const parentCategory = matchedProducts[0].parentCategory;
-        //
-        //     if (!groupedChildCategories[parentCategory]) {
-        //         groupedChildCategories[parentCategory] = [];
-        //     }
-        //
-        //     groupedChildCategories[parentCategory].push(childCategory);
-        // }
-        //
-        // return groupedChildCategories;
-
-        // console.log(...new Set(state.categories.filter(item => item.parent === 'ширээний бүтээлэг').map((list) => list.child).flat()));
-        //
-        //
-        // const convertedList = JSON.parse(JSON.stringify(state.categories));
-        //
-        // return [...new Set(convertedList.filter(item => item.parent === 'ширээний бүтээлэг').map((list) => list.child).flat())]
-
-    },
-
-
-
-    // tagList: state => {
-    //     return [...new Set(state.products.map((list) => list.tag).flat())]
-    // },
-    // sizeList: state => {
-    //     return ["all sizes",...new Set(state.products.map((list) => list.variation?.sizes).flat())].filter(Boolean)
-    // },
-    // colorList: state => {
-    //     return ["all colors",...new Set(state.products.map((list) => list.variation?.color).flat())].filter(Boolean)
-    // },
 }
 
 
@@ -209,8 +160,6 @@ export const actions = {
     async fetchProducts({ commit }) {
         try {
             const response = await axios.get('https://rest.tsotan.mn/product/list');
-            console.log("get-product");
-            console.log(response.data);
             commit('SET_PRODUCT', response.data);
         } catch (error) {
             console.error(error);
@@ -219,11 +168,9 @@ export const actions = {
 
     async fetchCategories({ commit }) {
         try {
-            const response = await axios.get('https://rest.tsotan.mn/category/list-names');
-
-
-            console.log("converted-list" + response);
+            const response = await axios.get('https://rest.tsotan.mn/category/list/0');
             commit('SET_CATEGORIES', response.data);
+
         } catch (error) {
             console.error(error);
         }

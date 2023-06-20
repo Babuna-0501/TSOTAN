@@ -8,14 +8,14 @@ const _d8af1e80 = () => interopDefault(import('../pages/blog/index.vue' /* webpa
 const _e6f40f0a = () => interopDefault(import('../pages/cart.vue' /* webpackChunkName: "pages/cart" */))
 const _de5fa3be = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _4e8dd115 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
-const _6f277aba = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
 const _0b4d5827 = () => interopDefault(import('../pages/my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _778d7d51 = () => interopDefault(import('../pages/shop.vue' /* webpackChunkName: "pages/shop" */))
 const _46f371c2 = () => interopDefault(import('../pages/blog/blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
 const _94a1eaa4 = () => interopDefault(import('../pages/blog/blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
-const _70132df8 = () => interopDefault(import('../pages/product/product-affiliate.vue' /* webpackChunkName: "pages/product/product-affiliate" */))
+const _4870d72a = () => interopDefault(import('../pages/product/product-detail.vue' /* webpackChunkName: "pages/product/product-detail" */))
 const _dc1c6110 = () => interopDefault(import('../pages/blog/_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
 const _6bb7049f = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
+const _6bf5bff2 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -45,10 +45,6 @@ export const routerOptions = {
     component: _4e8dd115,
     name: "contact"
   }, {
-    path: "/home",
-    component: _6f277aba,
-    name: "home"
-  }, {
     path: "/my-account",
     component: _0b4d5827,
     name: "my-account"
@@ -65,9 +61,9 @@ export const routerOptions = {
     component: _94a1eaa4,
     name: "blog-blog-without-sidebar"
   }, {
-    path: "/product/product-affiliate",
-    component: _70132df8,
-    name: "product-product-affiliate"
+    path: "/product/product-detail",
+    component: _4870d72a,
+    name: "product-product-detail"
   }, {
     path: "/blog/:slug",
     component: _dc1c6110,
@@ -76,6 +72,10 @@ export const routerOptions = {
     path: "/product/:slug?",
     component: _6bb7049f,
     name: "product-slug"
+  }, {
+    path: "/",
+    component: _6bf5bff2,
+    name: "index"
   }],
 
   fallback: false

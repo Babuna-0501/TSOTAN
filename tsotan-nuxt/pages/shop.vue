@@ -141,32 +141,36 @@ export default {
         this.filterItems = [...this.products]
       }
 
-      if (parent && this.prevSelectedCategoryName !== parent) {
-        if (Boolean(parent) === false || parent === this.slugify("all categories")) {
-          this.filterItems = [...this.products]
-        } else {
-          console.log(parent)
+      if (!parent) {
+        this.filterItems = [...this.products]
+      }
+
+      if (parent && this.prevSelectedParentName !== parent) {
           const resultData = this.products.filter((item) => this.slugify(item.parentCategory).includes(parent));
           this.filterItems = [];
           this.filterItems.push(...resultData);
-        }
       }
 
-      // if (parent && this.prevSelectedCategoryName !== parent) {
-      //   if (Boolean(parent) === false || parent === this.slugify("all categories")) {
-      //     this.filterItems = [...this.products]
-      //   } else {
-      //     console.log(parent)
-      //     const resultData = this.products.filter((item) => this.slugify(item.parentCategory).includes(parent));
-      //     this.filterItems = [];
-      //     this.filterItems.push(...resultData);
-      //   }
-      // }
+      if (child && this.prevSelectedChildName !== child) {
+          const resultData = this.products.filter((item) => (this.slugify(item.parentCategory).includes(parent) &&
+              this.slugify(item.childCategory).includes(child)) );
+          this.filterItems = [];
+          this.filterItems.push(...resultData);
+      }
+
+      if (category && this.prevSelectedCategoryName !== category) {
+        const resultData = this.products.filter((item) =>
+            (this.slugify(item.parentCategory).includes(parent) &&
+                (this.slugify(item.childCategory).includes(child))) &&
+            (this.slugify(item.category).includes(category)) );
+        this.filterItems = [];
+        this.filterItems.push(...resultData);
+      }
 
 
-      this.prevSelectedCategoryName = parent;
-      this.prevSelectedCategoryName = category;
+      this.prevSelectedParentName = parent;
       this.prevSelectedChildName = child;
+      this.prevSelectedCategoryName = category;
 
     },
 
@@ -177,7 +181,8 @@ export default {
           .replace(/\s+/g, "-") // Replace spaces with -
           // .replace(/[^\w-]+/g, "") // Remove all non-word chars
           .replace(/--+/g, "-") // Replace multiple - with single -
-          .replace(/^-+/, "") // Trim - from start of text
+          .replace(/^-+/, "")
+          .replace(/,+/, "")  // Trim - from start of text
           .replace(/-+$/, ""); // Trim - from end of text
     }
   },

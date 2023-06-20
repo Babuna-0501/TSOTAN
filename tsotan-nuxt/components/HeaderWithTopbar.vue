@@ -13,7 +13,7 @@
                         </div>
                         <div class="language-currency-wrap">
                             <div class="same-language-currency">
-                                <p>Call: <a href="callto:3965410">+976-99999999</a></p>
+                                <p>Call: <a style="color: #000;" href="callto:3965410">+976-9330 0991</a></p>
                             </div>
                         </div>
                         <!-- <div class="header-offer">
