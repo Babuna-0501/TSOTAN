@@ -1,7 +1,7 @@
 <template>
   <div class="shop-page-wrapper">
     <HeaderWithTopbar containerClass="container"/>
-    <Breadcrumb pageTitle="shop grid standard"/>
+    <Breadcrumb pageTitle="дэлгүүр"/>
 
     <!-- product items wrapper -->
     <div class="shop-area pt-100 pb-100">
@@ -13,9 +13,9 @@
               <div class="select-showing-wrap">
                 <div class="shop-select">
                   <select v-model="selectedPrice">
-                    <option value="default">Default</option>
-                    <option value="low2high">Price - Low to High</option>
-                    <option value="high2low">Price - High to Low</option>
+                    <option value="default">Үнээр эрэмблэх</option>
+                    <option value="low2high">Үнэ - Багаас их рүү</option>
+                    <option value="high2low">Үнэ - Ихээс бага руу</option>
                   </select>
                 </div>
                 <p>Showing {{ perPage * currentPage - perPage + 1 }} to
@@ -38,12 +38,14 @@
 
             <!-- shop product -->
             <div class="shop-bottom-area mt-35">
-              <div class="row product-layout"
-                   :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
-                <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
-                  <ProductGridItem :product="product" :layout="layout"/>
+              <n-link to="/product/product-detail">
+                <div class="row product-layout"
+                    :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
+                  <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
+                    <ProductGridItem :product="product" :layout="layout"/>
+                  </div>
                 </div>
-              </div>
+              </n-link>
             </div>
             <!-- end shop product -->
 

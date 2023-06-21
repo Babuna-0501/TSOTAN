@@ -12,12 +12,12 @@
         }
     }
     p {
-        color: $dark;
+        color: #fff;
         letter-spacing: .9px;
         a {
-            color: $dark;
+            color: #fff;
             &:hover {
-                color: $theme-color;
+                color: #fff;
             }
         }
     }
@@ -52,10 +52,10 @@
                    margin: 0 0 0px; 
                 }
                 a {
-                    color: #5d5d5d;
+                    color: #fff;
                     letter-spacing: .3px;
                     &:hover {
-                        color: $theme-color;
+                        color: #fff;
                     }
                 }
             }
@@ -71,9 +71,9 @@
             ul {
                 li{
                     a {
-                        color: #e6e6e6;
+                        color: #fff;
                         &:hover {
-                            color: $theme-color;
+                            color: #fff;
                         }
                     }
                 }

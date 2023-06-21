@@ -3,10 +3,10 @@
       <ul>
         <li>
           <h2>{{ product.name }}</h2>
-          <p>Price: {{ product.price }}</p>
+          <p>Үнэ: {{ product.price }} ₮</p>
           <p><img :src="getImg(product.img1)"/></p>
-          <p>Description: {{ product.description }}</p>
-          <p>Category: {{ product.parentCategory }}</p>
+          <p>Дэлгэрэнгүй: {{ product.description }}</p>
+          <p>Категори: {{ product.parentCategory }}</p>
         </li>
       </ul>
     </div>

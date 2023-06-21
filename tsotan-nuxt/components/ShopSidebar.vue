@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-style" :class="classes">
+  <div class="sidebar-style" :class="classes" style="display: flex; flex-direction: column; gap: 40px;">
     <div class="sidebar-widget">
       <h4 class="pro-sidebar-title">Search</h4>
       <div class="pro-sidebar-search mb-50 mt-25">
@@ -14,7 +14,7 @@
 
     <!-- category widget  -->
     <div class="sidebar-widget">
-      <h4 class="pro-sidebar-title">Categories1</h4>
+      <h4 class="pro-sidebar-title">Үндсэн Категори</h4>
       <ul class="sidebar-widget-list mt-20">
         <li class="sidebar-widget-list-left" v-for="(parentCategory, index) in parentCategoryList.map(item => item.name)" :key="index">
           <n-link :to="`?parent=${slugify(String(parentCategory))}`">
@@ -27,7 +27,7 @@
 
 
     <div class="sidebar-widget" v-if="childCategoryList.length">
-      <h4 class="pro-sidebar-title">Categories2</h4>
+      <h4 class="pro-sidebar-title">Дэд Категори</h4>
       <ul class="sidebar-widget-list mt-20">
         <li class="sidebar-widget-list-left" v-for="(child, index) in childCategoryList.map(item=>item.name)" :key="index">
           <n-link :to="`?parent=${slugify(String(selectedParent))}&child=${slugify(String(child))}`" >
@@ -41,7 +41,7 @@
 
 
     <div class="sidebar-widget" v-if="categoryList.length">
-      <h4 class="pro-sidebar-title">Categories3</h4>
+      <h4 class="pro-sidebar-title">Дэд Категори 2</h4>
       <ul class="sidebar-widget-list mt-20">
         <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList.map(item=>item.name)" :key="index">
           <n-link :to="`?parent=${slugify(String(selectedParent))}&child=${slugify(String(selectedChild))}&category=${slugify(String(category))}`" >

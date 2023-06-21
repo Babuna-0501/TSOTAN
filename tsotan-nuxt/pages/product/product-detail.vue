@@ -1,7 +1,7 @@
 <template>
     <div class="product-details-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb pageTitle="product affiliate" />
+        <Breadcrumb pageTitle="Барааны дэлгэрэнгүй" />
         
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -50,6 +50,9 @@
                                 <button @click="addToCart(product)">Сагсанд нэмэх</button>
                             </div>
                         </div>
+                        <div class="pro-details-cart mt-20 mb-20">
+                                <a class="empty-cart__button" href="https://www.amazon.com/" target="_blank">Худалдан авах</a>
+                            </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>
                                 <ul>
@@ -161,9 +164,9 @@
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({ title: 'Бараа аль хэдийн нэмэгдсэн' })
                 } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
+                    this.$notify({ title: 'Бараа картанд нэмэгдлээ!'})
                 }
                 this.$store.dispatch('addToCartItem', prod)
             },
@@ -203,7 +206,7 @@
 
         head() {
             return {
-                title: "Product Affiliate"
+                title: "Product Detail"
             }
         },
     };
