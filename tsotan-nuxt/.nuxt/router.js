@@ -10,6 +10,7 @@ const _21a53c47 = () => interopDefault(import('..\\pages\\checkout.vue' /* webpa
 const _196b662f = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
 const _89d11666 = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _4488e312 = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
+const _368543ca = () => interopDefault(import('..\\pages\\shop-new.vue' /* webpackChunkName: "pages/shop-new" */))
 const _2df7f6e3 = () => interopDefault(import('..\\pages\\blog\\blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
 const _24b268e2 = () => interopDefault(import('..\\pages\\blog\\blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
 const _b1d08b26 = () => interopDefault(import('..\\pages\\product\\product-detail.vue' /* webpackChunkName: "pages/product/product-detail" */))
@@ -52,6 +53,10 @@ export const routerOptions = {
     path: "/shop",
     component: _4488e312,
     name: "shop"
+  }, {
+    path: "/shop-new",
+    component: _368543ca,
+    name: "shop-new"
   }, {
     path: "/blog/blog-right-sidebar",
     component: _2df7f6e3,

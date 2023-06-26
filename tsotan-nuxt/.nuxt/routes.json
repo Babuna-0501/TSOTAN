@@ -42,6 +42,13 @@
     "_name": "_4488e312"
   },
   {
+    "name": "shop-new",
+    "path": "/shop-new",
+    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop-new.vue",
+    "chunkName": "pages/shop-new",
+    "_name": "_368543ca"
+  },
+  {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
     "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",

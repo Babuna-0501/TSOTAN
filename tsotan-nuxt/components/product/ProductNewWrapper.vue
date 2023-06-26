@@ -8,6 +8,7 @@
                 <swiper :options="swiperOption">
                     <swiper-slide v-for="(product, index) in products" :key="index">
                         <ProductGridItemTwo :product="product" />
+                        dasdasdasdsadqwueywqueywqeuwyqqeuwqy
                     </swiper-slide>
                 </swiper>
                 <!-- Swiper Navigation Start -->

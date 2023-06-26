@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li>
-            <n-link to="">Шинэ бараа<i></i></n-link>
+            <n-link to="/shop-new">Шинэ бараа<i></i></n-link>
         </li>
         <li>
             <n-link to="/shop">Бүтээгдэхүүн</n-link>
