@@ -96,12 +96,12 @@ export const mutations = {
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
         if (item) {
-            const price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            // const price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
             item.cartQuantity = item.cartQuantity + payload.cartQuantity
-            item.total = item.cartQuantity * price
+            item.total = item.cartQuantity * item.price
         } else {
-            const price = payload.discount ? payload.price - (payload.price *(payload.discount)/100) : payload.price;
-            state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
+            // const price = payload.discount ? payload.price - (payload.price *(payload.discount)/100) : payload.price;
+            state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: payload.price })
         }
     },
 
@@ -177,6 +177,7 @@ export const actions = {
     },
 
     addToCartItem({commit}, payload) {
+        console.log()
         commit('UPDATE_CART', payload)
     },
 

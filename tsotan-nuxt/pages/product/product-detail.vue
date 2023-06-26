@@ -9,32 +9,32 @@
                     <div class="col-md-6">
                         <div class="product-details-slider">
                             <div class="product-details-img">
-                                <div class="product-badges">
-                                    <span class="product-label pink" v-if="product.new">New</span>
-                                    <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
-                                </div>
-                                <swiper :options="swiperOptionTop" ref="swiperTop">
-                                    <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">
-                                        <img class="img-fluid" :src="image" :alt="product.title">
-                                    </div>
-                                    <div class="quickview-nav swiper-button-prev">
-                                        <i class="pe-7s-angle-left"></i>
-                                    </div>
-                                    <div class="quickview-nav swiper-button-next">
-                                        <i class="pe-7s-angle-right"></i>
-                                    </div>
-                                </swiper>
-                                <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
-                                    <div class="thumb-img swiper-slide" v-for="(image, index) in product.images" :key="index">
-                                        <img class="img-fluid" :src="image" :alt="product.title">
-                                    </div>
-                                </swiper>
+<!--                                <div class="product-badges">-->
+<!--                                    <span class="product-label pink" v-if="product.new">New</span>-->
+<!--                                    <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>-->
+<!--                                </div>-->
+<!--                                <swiper :options="swiperOptionTop" ref="swiperTop">-->
+<!--                                    <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">-->
+<!--                                        <img class="img-fluid" :src="image" :alt="product.title">-->
+<!--                                    </div>-->
+<!--                                    <div class="quickview-nav swiper-button-prev">-->
+<!--                                        <i class="pe-7s-angle-left"></i>-->
+<!--                                    </div>-->
+<!--                                    <div class="quickview-nav swiper-button-next">-->
+<!--                                        <i class="pe-7s-angle-right"></i>-->
+<!--                                    </div>-->
+<!--                                </swiper>-->
+<!--                                <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">-->
+<!--                                    <div class="thumb-img swiper-slide" v-for="(image, index) in product.images" :key="index">-->
+<!--                                        <img class="img-fluid" :src="image" :alt="product.title">-->
+<!--                                    </div>-->
+<!--                                </swiper>-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content ml-70">
-                            <h2>{{ product.title }}</h2>
+<!--                            <h2>{{ product.title }}</h2>-->
                             <div class="product-details-price">
                                 <span>${{ discountedPrice(product).toFixed(2) }}</span>
                                 <!-- <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span> -->
@@ -55,20 +55,20 @@
                             </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>
-                                <ul>
-                                    <li v-for="(category, index) in product.category" :key="index">
-                                        <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>
-                                    </li>
-                                </ul>
+<!--                                <ul>-->
+<!--                                    <li v-for="(category, index) in product.category" :key="index">-->
+<!--                                        <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
                             </div>
-                            <div class="pro-details-meta">
-                                <span class="label">Tag:</span>
-                                <ul>
-                                    <li v-for="(tag, index) in product.tag" :key="index">
-                                        <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
-                                    </li>
-                                </ul>
-                            </div>
+<!--                            <div class="pro-details-meta">-->
+<!--                                <span class="label">Tag:</span>-->
+<!--                                <ul>-->
+<!--                                    <li v-for="(tag, index) in product.tag" :key="index">-->
+<!--                                        <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
                             <div class="pro-details-social">
                                 <ul>
                                     <li>
@@ -146,20 +146,22 @@
 
         computed: {
             product() {
-                return this.$store.getters.getProducts[1];
+              console.log("[+] : " + this.$store.getters.getProducts[0]);
+                return this.$store.getters.getProducts[0];
             },
         },
 
         mounted() {
-            this.$nextTick(() => {
-                const swiperTop = this.$refs.swiperTop.$swiper
-                const swiperThumbs = this.$refs.swiperThumbs.$swiper
-                swiperTop.controller.control = swiperThumbs
-                swiperThumbs.controller.control = swiperTop
-            })
+            // this.$nextTick(() => {
+            //     const swiperTop = this.$refs.swiperTop.$swiper
+            //     const swiperThumbs = this.$refs.swiperThumbs.$swiper
+            //     swiperTop.controller.control = swiperThumbs
+            //     swiperThumbs.controller.control = swiperTop
+            // })
         },
 
         methods: {
+
             addToCart(product) {
                 const prod = {...product, cartQuantity: this.singleQuantity}
                 // for notification
@@ -172,7 +174,9 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+              console.log("discounted price : " + product.price);
+              return product.price;
+                // return product.price - (product.price * product.discount / 100)
             },
 
             increaseQuantity(){

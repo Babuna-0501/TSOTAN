@@ -6,7 +6,7 @@
                     <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                         <div class="shopping-cart-img">
                             <n-link :to="`/product/${slugify(product.title)}`">
-                                <img :src="product.images[0]" :alt="product.title">
+                                <img :src="product.img" :alt="product.title">
                             </n-link>
                         </div>
                         <div class="shopping-cart-title">
@@ -59,15 +59,15 @@
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.price
             },
 
             slugify(text) {
-                return text
-                    .toString()
+                return String(text)
+                    // .toString()
                     .toLowerCase()
                     .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+                    // .replace(/[^\w-]+/g, "") // Remove all non-word chars
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text

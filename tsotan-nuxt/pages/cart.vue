@@ -24,7 +24,7 @@
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
                                             <n-link :to="`/product/${slugify(product.title)}`">
-                                                <img :src="product.images[0]" :alt="product.title">
+                                                <img :src="product.img1" :alt="product.title">
                                             </n-link>
                                         </td>
                                         <td class="product-name">
@@ -192,9 +192,9 @@
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
-            // discountedPrice(product) {
-            //     return product.price - (product.price * product.discount / 100)
-            // },
+            discountedPrice(product) {
+                return product.price
+            },
 
             clearCart() {
                 if (confirm("Are you sure you want to clear cart")) {
@@ -206,8 +206,8 @@
             },
 
             slugify(text) {
-                return text
-                    .toString()
+                return String(text)
+                    // .toString()
                     .toLowerCase()
                     .replace(/\s+/g, "-") // Replace spaces with -
                     // .replace(/[^\w-]+/g, "") // Remove all non-word chars
