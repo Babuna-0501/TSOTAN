@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="slider-singleimg-hm10 ml-40 mr-40 slider-img-animation">
-                                <img src="/img/tsotan/futbolk/mongolia/mongolia02.jpg" alt="image">
+                                <img src="../../assets/tsotan/futbolk/mongolia/mongolia04.jpg" alt="image">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="slider-singleimg-hm10 ml-40 mr-40 slider-img-animation">
-                                <img src="/img/tsotan/aravch/Tavan nuden aravch.jpg" alt="image">
+                                <img src="../../assets/tsotan/aravch/Tavan_nuden_aravch.jpg" alt="image">
                             </div>
                         </div>
                     </div>

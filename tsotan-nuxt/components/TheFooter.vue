@@ -6,7 +6,7 @@
                     <div class="copyright mb-30">
                         <div class="footer-logo">
                             <n-link to="/">
-                                <img src="/img/logo/logo.jpg" alt="logo">
+                                <img src="../assets/tsotan/logo.jpg" alt="logo">
                             </n-link>
                         </div>
                         <p>© 2023 <a href="#" target="_blank">Tsotan</a>.<br> All Rights Reserved</p>

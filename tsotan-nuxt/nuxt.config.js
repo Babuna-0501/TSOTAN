@@ -1,4 +1,5 @@
 export default {
+    mode: 'universal',
     generate: {
         fallback: true
     },
@@ -73,5 +74,10 @@ export default {
         babel: {
             compact: true,
         },
+        ssr: true,
+    },
+     server: {
+        host: '', // or '0.0.0.0' to listen on all network interfaces
+        port: 3000,
     },
 }

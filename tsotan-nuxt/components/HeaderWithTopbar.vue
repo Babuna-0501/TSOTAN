@@ -7,7 +7,7 @@
                         <div class="col-lg-2 col-md-6 col-4">
                             <div class="logo">
                                 <n-link to="/">
-                                    <img src="/img/logo/logo.jpg" alt="tsotan logo">
+                                    <img src="../assets/tsotan/logo.jpg" alt="tsotan logo">
                                 </n-link>
                             </div>
                         </div>
