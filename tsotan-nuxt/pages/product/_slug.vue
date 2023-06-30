@@ -1,7 +1,7 @@
 <template>
     <div class="product-details-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb :pageTitle="product.title" />
+        <Breadcrumb :pageTitle="product.name" />
         <ProductDetailsWrapper :product="product" />
         <ProductDetailsDescriptionReview />
         <TheFooter />
@@ -18,13 +18,13 @@
 
         computed: {
             product() {
-                return this.$store.getters.getProducts.find(product => this.slugify(product.title) == this.slug);
+                return this.$store.getters.getProducts.find(product => this.slugify(product.name) === this.slug);
             },
         },
 
         head() {
             return {
-                title: this.product.title
+                title: this.product.name
             }
         },
 

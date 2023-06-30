@@ -38,14 +38,14 @@
 
             <!-- shop product -->
             <div class="shop-bottom-area mt-35">
-              <n-link to="/product/product-detail">
+
                 <div class="row product-layout"
                     :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                   <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
                     <ProductGridItem :product="product" :layout="layout"/>
                   </div>
                 </div>
-              </n-link>
+
             </div>
             <!-- end shop product -->
 
@@ -73,6 +73,7 @@
 
 import {mapActions} from 'vuex';
 import ShopSidebar from "../components/ShopSidebar.vue";
+import {id} from "../../api/product";
 
 export default {
   components: {
@@ -93,7 +94,7 @@ export default {
       prevSelectedCategoryName: '',
       currentPage: 1,
       perPage: 9,
-      selectedPrice: 'default'
+      selectedPrice: 'default',
     }
   },
 
@@ -118,6 +119,7 @@ export default {
   },
 
   methods: {
+
     ...mapActions(['fetchProducts']),
     ...mapActions(['fetchCategories']),
     async fetchData() {
@@ -190,6 +192,13 @@ export default {
   },
 
   watch: {
+      selectedProductId(newProductId) {
+        if (newProductId) {
+          // Run any code or perform actions here that should be executed after selectedProductId is selected
+          console.log(`Product with ID ${newProductId} is selected.`);
+        }
+      },
+
     $route() {
       this.updateProductData()
     },

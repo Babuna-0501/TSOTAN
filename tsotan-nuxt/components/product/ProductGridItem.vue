@@ -4,8 +4,8 @@
         <li>
           <h2>{{ product.name }}</h2>
           <p>Үнэ: {{ product.price }} ₮</p>
-          <p><img :src="getImg(product.img1)"/></p>
-          <p>Дэлгэрэнгүй: {{ product.description }}</p>
+          <p><img :src="getImg(product.img)"  @click="handleProductClick(product.id)"/></p>
+<!--          <p>Дэлгэрэнгүй: {{ product.description }}</p>-->
           <p>Категори: {{ product.parentCategory }}</p>
         </li>
       </ul>
@@ -15,32 +15,15 @@
   
 
 <script>
-    import axios from 'axios';
 
     export default {
-        // created() {
-        //     axios.get('https://rest.tsotan.mn/product/list/${id}')
-        //         .then(response => {
-        //         this.productList = response.data;
-        //         })
-        //         .catch(error => {
-        //         console.error(error);
-        //     });
-        // },
-        //
-        // data() {
-        //     return {
-        //         productList: []
-        //     };
-        // },
-
 
         props: ["product", "layout"],
 
         methods: {
-          // getImgUrl() {
-          //   return this.product.imgUrl;
-          // },
+          handleProductClick(productId) {
+            this.$router.push(`/product/product-detail/${productId}`);
+          },
             addToCart(product) {
                 const prod = {...product, cartQuantity: 1}
                 // for notification

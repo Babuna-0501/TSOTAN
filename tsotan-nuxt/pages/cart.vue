@@ -23,16 +23,16 @@
                                 <tbody>
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
-                                            <n-link :to="`/product/${slugify(product.title)}`">
-                                                <img :src="product.img1" :alt="product.title">
+                                            <n-link :to="`/product/${slugify(product.name)}`">
+                                                <img :src="product.img" :alt="product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">
-                                            <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                                            <n-link :to="`/product/${slugify(product.name)}`">{{ product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
                                             <span class="amount">${{ discountedPrice(product).toFixed(2) }}</span>
-                                            <del class="old">${{ product.price.toFixed(2) }}</del>
+<!--                                            <del class="old">${{ product.price.toFixed(2) }}</del>-->
                                         </td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">

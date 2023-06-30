@@ -8,36 +8,34 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="product-details-slider">
-                            <div class="product-details-img">
-<!--                                <div class="product-badges">-->
-<!--                                    <span class="product-label pink" v-if="product.new">New</span>-->
-<!--                                    <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>-->
-<!--                                </div>-->
-<!--                                <swiper :options="swiperOptionTop" ref="swiperTop">-->
-<!--                                    <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">-->
-<!--                                        <img class="img-fluid" :src="image" :alt="product.title">-->
-<!--                                    </div>-->
-<!--                                    <div class="quickview-nav swiper-button-prev">-->
-<!--                                        <i class="pe-7s-angle-left"></i>-->
-<!--                                    </div>-->
-<!--                                    <div class="quickview-nav swiper-button-next">-->
-<!--                                        <i class="pe-7s-angle-right"></i>-->
-<!--                                    </div>-->
-<!--                                </swiper>-->
-<!--                                <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">-->
-<!--                                    <div class="thumb-img swiper-slide" v-for="(image, index) in product.images" :key="index">-->
-<!--                                        <img class="img-fluid" :src="image" :alt="product.title">-->
-<!--                                    </div>-->
-<!--                                </swiper>-->
+                            <div class="product-details-img" v-if="this.product.image">
+                                <div class="product-badges">
+                                    <span class="product-label pink" v-if="product.isNew">New</span>
+                                </div>
+                                <swiper :options="swiperOptionTop" ref="swiperTop">
+                                    <div class="large-img swiper-slide" v-for="(image, index) in product.image" :key="index">
+                                        <img class="img-fluid" :src="image" :alt="product.name">
+                                    </div>
+                                    <div class="quickview-nav swiper-button-prev">
+                                        <i class="pe-7s-angle-left"></i>
+                                    </div>
+                                    <div class="quickview-nav swiper-button-next">
+                                        <i class="pe-7s-angle-right"></i>
+                                    </div>
+                                </swiper>
+                                <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
+                                    <div class="thumb-img swiper-slide" v-for="(image, index) in product.image" :key="index">
+                                        <img class="img-fluid" :src="image" :alt="product.name">
+                                    </div>
+                                </swiper>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content ml-70">
-<!--                            <h2>{{ product.title }}</h2>-->
+                            <h2>{{ product.name }}</h2>
                             <div class="product-details-price">
-                                <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                                <!-- <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span> -->
+                                <span>${{ product.price }}</span>
                             </div>
                             <p>{{ product.description }}</p>
                             <div class="pro-details-quality">
@@ -47,7 +45,19 @@
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Сагсанд нэмэх</button>
+                                <button @click="addToCart({
+                                   id: product.id,
+                              name: product.name,
+                              price: product.price,
+                              usdPrice: product.usdPrice,
+                              parentCategory: product.parentCategory,
+                              childCategory: product.childCategory,
+                              category: product.category,
+                              categoryId: product.categoryId,
+                              img: product.image[0],
+                              isSpecial: product.isSpecial,
+                              isNew: product.isNew
+                                })">Сагсанд нэмэх</button>
                             </div>
                         </div>
                         <div class="pro-details-cart mt-20 mb-20">
@@ -55,11 +65,17 @@
                             </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>
-<!--                                <ul>-->
-<!--                                    <li v-for="(category, index) in product.category" :key="index">-->
-<!--                                        <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>-->
-<!--                                    </li>-->
-<!--                                </ul>-->
+                                <ul>
+                                    <li v-if="product.category">
+                                      <n-link :to="`/shop?parent=${slugify(String(product.parentCategory))}&child=${slugify(String(product.childCategory))}&category=${slugify(String(product.category))}`">{{product.category}}</n-link>
+                                    </li>
+                                  <li v-if="product.childCategory">
+                                    <n-link :to="`/shop?parent=${slugify(String(product.parentCategory))}&child=${slugify(String(product.childCategory))}`">{{product.childCategory}}</n-link>
+                                  </li>
+                                  <li v-if="product.parentCategory">
+                                    <n-link :to="`/shop?parent=${slugify(String(product.parentCategory))}`">{{product.parentCategory}}</n-link>
+                                  </li>
+                                </ul>
                             </div>
 <!--                            <div class="pro-details-meta">-->
 <!--                                <span class="label">Tag:</span>-->
@@ -106,10 +122,9 @@
                                             <div id="des-details1" >
                                                 <div class="product-anotherinfo-wrapper">
                                                     <ul>
-                                                        <li><span>Weight</span> 400 g</li>
-                                                        <li><span>Dimensions</span>10 x 10 x 15 cm </li>
-                                                        <li><span>Materials</span> 60% cotton, 40% polyester</li>
-                                                        <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress</li>
+                                                        <li><span>Хэмжээ:</span> {{product.size}}</li>
+                                                        <li><span>Материал:</span>{{product.material}}</li>
+                                                        <li><span>Угаах заавар:</span> {{product.instruction}}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -129,14 +144,29 @@
 </template>
 
 <script>
-    import ProductDetailsDescriptionReview from "../../components/unused/ProductDetailsDescriptionReview.vue";
-
+    import api from "../../../api/product"
     export default {
-        components: {
-            ProductDetailsDescriptionReview,
-        },
+
         data() {
             return {
+              id: 0,
+              product: {
+                image: [],
+                name: null,
+                // id: 0,
+                price: 0,
+                description: null,
+                instruction: null,
+                size: null,
+                material: null,
+                usdPrice: 0,
+                categoryId: 0,
+                parentCategory: null,
+                childCategory: null,
+                category: null,
+                isSpecial: false,
+                isNew: false,
+              },
                 singleQuantity: 1,
 
                 swiperOptionTop: {
@@ -163,23 +193,58 @@
             }
         },
 
-        computed: {
-            product() {
-              console.log("[+] : " + this.$store.getters.getProducts[0]);
-                return this.$store.getters.getProducts[0];
-            },
-        },
-
         mounted() {
-            // this.$nextTick(() => {
-            //     const swiperTop = this.$refs.swiperTop.$swiper
-            //     const swiperThumbs = this.$refs.swiperThumbs.$swiper
-            //     swiperTop.controller.control = swiperThumbs
-            //     swiperThumbs.controller.control = swiperTop
-            // })
+          this.id = this.$route.params.id;
+          this.fetchData();
+            this.$nextTick(() => {
+                const swiperTop = this.$refs.swiperTop.$swiper
+                const swiperThumbs = this.$refs.swiperThumbs.$swiper
+                swiperTop.controller.control = swiperThumbs
+                swiperThumbs.controller.control = swiperTop
+            })
         },
 
         methods: {
+          slugify(text) {
+            const a = text
+                .toString()
+                .toLowerCase()
+                .replace(/\s+/g, "-") // Replace spaces with -
+                // .replace(/[^\w-]+/g, "") // Remove all non-word chars
+                .replace(/--+/g, "-") // Replace multiple - with single -
+                .replace(/^-+/, "") // Trim - from start of text
+                .replace(/-+$/, "") // Trim - from end of text
+                .replace(/,+/, "");
+            // console.log('a : ' + a);
+            return a;
+          },
+          async fetchData() {
+            try {
+              const res = await api.detail(this.id);
+              const data = res.data;
+
+              this.product = data;
+              // this.product.id = data.id;
+              // this.product.image = data.image;
+              // this.product.name = data.name;
+              // // this.product.id = data.id;
+              // this.product.price = data.price;
+              // this.product.description = data.description;
+              // this.product.instruction = data.instruction;
+              // this.product.size = data.size;
+              // this.product.material = data.material;
+              // this.product.isSpecial = data.isSpecial;
+              // this.product.categoryId = data.categoryId;
+              // this.product.parentCategory = data.parentCategory;
+              // this.product.childCategory = data.childCategory;
+              // this.product.category = data.category;
+              // this.product.isNew = data.isNew;
+
+              console.log("image", data);
+            } catch (error) {
+              console.log(error);
+            }
+          },
 
             addToCart(product) {
                 const prod = {...product, cartQuantity: this.singleQuantity}
@@ -192,12 +257,7 @@
                 this.$store.dispatch('addToCartItem', prod)
             },
 
-            discountedPrice(product) {
-              console.log("discounted price : " + product.price);
-              return product.price;
-                // return product.price - (product.price * product.discount / 100)
-            },
-
+            // TODO : zasah
             increaseQuantity(){
                 if(this.product.quantity > this.singleQuantity) this.singleQuantity++
             },
@@ -206,25 +266,6 @@
                 if(this.singleQuantity > 1) this.singleQuantity--
             },
 
-            addToWishlist(product) {
-                // for notification
-                if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
-                } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
-                }
-                this.$store.dispatch('addToWishlist', product)
-            },
-
-            addToCompare(product) {
-                // for notification
-                if (this.$store.state.compare.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to compare!' })
-                } else {
-                    this.$notify({ title: 'Add to compare successfully!'})
-                }
-                this.$store.dispatch('addToCompare', product)
-            }
         },
 
         head() {

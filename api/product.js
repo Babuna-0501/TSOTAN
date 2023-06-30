@@ -26,6 +26,10 @@ export default {
         return axios.get(`${url}/product/view/${id}`);
     },
 
+    async detail(id) {
+        return axios.get(`${url}/product/detail/${id}`);
+    },
+
     async deleteProduct(id) {
         return axios.delete(`${url}/product/delete/${id}`);
     },
