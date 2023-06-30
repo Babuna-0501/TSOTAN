@@ -66,7 +66,7 @@ export const routerOptions = {
     component: _94a1eaa4,
     name: "blog-blog-without-sidebar"
   }, {
-    path: "/product/product-detail",
+    path: "/product/product-detail/:id",
     component: _4870d72a,
     name: "product-product-detail"
   }, {

@@ -55,7 +55,7 @@
   },
   {
     "name": "product-product-detail",
-    "path": "/product/product-detail",
+    "path": "/product/product-detail/:id?",
     "component": "/home/ailab/Documents/myDocuments/web/tsotan/tsotan-nuxt/pages/product/product-detail.vue",
     "chunkName": "pages/product/product-detail"
   },
