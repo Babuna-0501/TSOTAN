@@ -2,92 +2,92 @@
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\index.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/blog/index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_7125ac02"
+    "_name": "_ec344ef2"
   },
   {
     "name": "cart",
     "path": "/cart",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\cart.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/cart.vue",
     "chunkName": "pages/cart",
-    "_name": "_1a97ecbe"
+    "_name": "_37c28182"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\checkout.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/checkout.vue",
     "chunkName": "pages/checkout",
-    "_name": "_21a53c47"
+    "_name": "_6dfa48b0"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\contact.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/contact.vue",
     "chunkName": "pages/contact",
-    "_name": "_196b662f"
+    "_name": "_481bd6ae"
   },
   {
     "name": "my-account",
     "path": "/my-account",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/my-account.vue",
     "chunkName": "pages/my-account",
-    "_name": "_89d11666"
+    "_name": "_018abfee"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/shop.vue",
     "chunkName": "pages/shop",
-    "_name": "_4488e312"
+    "_name": "_22ca0658"
   },
   {
     "name": "shop-new",
     "path": "/shop-new",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop-new.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/shop-new.vue",
     "chunkName": "pages/shop-new",
-    "_name": "_368543ca"
+    "_name": "_443a39aa"
   },
   {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/blog/blog-right-sidebar.vue",
     "chunkName": "pages/blog/blog-right-sidebar",
-    "_name": "_2df7f6e3"
+    "_name": "_2945b54a"
   },
   {
     "name": "blog-blog-without-sidebar",
     "path": "/blog/blog-without-sidebar",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-without-sidebar.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/blog/blog-without-sidebar.vue",
     "chunkName": "pages/blog/blog-without-sidebar",
-    "_name": "_24b268e2"
+    "_name": "_330b87f2"
   },
   {
     "name": "product-product-detail",
     "path": "/product/product-detail",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\product-detail.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/product/product-detail.vue",
     "chunkName": "pages/product/product-detail",
-    "_name": "_b1d08b26"
+    "_name": "_2ab4671e"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\_slug.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/blog/_slug.vue",
     "chunkName": "pages/blog/_slug",
-    "_name": "_7492ee92"
+    "_name": "_efa19182"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\_slug.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/product/_slug.vue",
     "chunkName": "pages/product/_slug",
-    "_name": "_299dd9fc"
+    "_name": "_c0f29910"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\batdo\\\\OneDrive\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\index.vue",
+    "component": "/root/web/tsotan/tsotan-nuxt/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_299933a1"
+    "_name": "_f34c9040"
   }
 ]

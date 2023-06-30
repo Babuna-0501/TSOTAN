@@ -20,11 +20,11 @@
   "HeaderOffcanvasMenuWithTransparent": {
     "description": "Auto imported from components/HeaderOffcanvasMenuWithTransparent.vue"
   },
-  "HeaderWithTopbar": {
-    "description": "Auto imported from components/HeaderWithTopbar.vue"
-  },
   "HeaderWithTopBarTwo": {
     "description": "Auto imported from components/HeaderWithTopBarTwo.vue"
+  },
+  "HeaderWithTopbar": {
+    "description": "Auto imported from components/HeaderWithTopbar.vue"
   },
   "HomeSidebarMenu": {
     "description": "Auto imported from components/HomeSidebarMenu.vue"

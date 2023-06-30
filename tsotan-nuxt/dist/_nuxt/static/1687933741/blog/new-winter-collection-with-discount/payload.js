@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/blog/new-winter-collection-with-discount", {data:[{}],fetch:{},mutations:[]});
