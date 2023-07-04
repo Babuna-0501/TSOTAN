@@ -13,9 +13,8 @@ const _778d7d51 = () => interopDefault(import('../pages/shop.vue' /* webpackChun
 const _b49f94b8 = () => interopDefault(import('../pages/shop-new.vue' /* webpackChunkName: "pages/shop-new" */))
 const _46f371c2 = () => interopDefault(import('../pages/blog/blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
 const _94a1eaa4 = () => interopDefault(import('../pages/blog/blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
-const _4870d72a = () => interopDefault(import('../pages/product/product-detail.vue' /* webpackChunkName: "pages/product/product-detail" */))
+const _500f34e5 = () => interopDefault(import('../pages/product/product-detail/_slug.vue' /* webpackChunkName: "pages/product/product-detail/_slug" */))
 const _dc1c6110 = () => interopDefault(import('../pages/blog/_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
-const _6bb7049f = () => interopDefault(import('../pages/product/_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
 const _6bf5bff2 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -66,17 +65,13 @@ export const routerOptions = {
     component: _94a1eaa4,
     name: "blog-blog-without-sidebar"
   }, {
-    path: "/product/product-detail/:id",
-    component: _4870d72a,
-    name: "product-product-detail"
+    path: "/product/product-detail/:slug?",
+    component: _500f34e5,
+    name: "product-product-detail-slug"
   }, {
     path: "/blog/:slug",
     component: _dc1c6110,
     name: "blog-slug"
-  }, {
-    path: "/product/:slug?",
-    component: _6bb7049f,
-    name: "product-slug"
   }, {
     path: "/",
     component: _6bf5bff2,

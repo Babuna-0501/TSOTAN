@@ -5,13 +5,13 @@
                 <ul>
                     <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                         <div class="shopping-cart-img">
-                            <n-link :to="`/product/${slugify(product.title)}`">
-                                <img :src="product.img" :alt="product.title">
+                            <n-link :to="`/product/product-detail/${product.id}`">
+                                <img :src="product.img" :alt="product.name">
                             </n-link>
                         </div>
                         <div class="shopping-cart-title">
                             <h4>
-                                <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                              <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>
                             </h4>
                             <h6>Qty: {{ product.cartQuantity }}</h6>
                             <span>${{ discountedPrice(product).toFixed(2) }}</span>

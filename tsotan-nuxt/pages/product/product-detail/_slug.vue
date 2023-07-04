@@ -144,12 +144,12 @@
 </template>
 
 <script>
-    import api from "../../../api/product"
+    import api from "../../../../api/product"
     export default {
 
         data() {
             return {
-              id: this.$route.params.id,
+              id: 0,
               product: {
                 image: [],
                 name: null,
@@ -194,7 +194,7 @@
         },
 
         mounted() {
-          this.id = this.$route.params.id;
+          this.id = this.$route.params.slug;
           this.fetchData();
             this.$nextTick(() => {
                 const swiperTop = this.$refs.swiperTop.$swiper
@@ -222,23 +222,23 @@
             try {
               const res = await api.detail(this.id);
               const data = res.data;
-
+              console.log("Response: ", data);
               this.product = data;
+              this.product.id = data.id;
+              this.product.image = data.image;
+              this.product.name = data.name;
               // this.product.id = data.id;
-              // this.product.image = data.image;
-              // this.product.name = data.name;
-              // // this.product.id = data.id;
-              // this.product.price = data.price;
-              // this.product.description = data.description;
-              // this.product.instruction = data.instruction;
-              // this.product.size = data.size;
-              // this.product.material = data.material;
-              // this.product.isSpecial = data.isSpecial;
-              // this.product.categoryId = data.categoryId;
-              // this.product.parentCategory = data.parentCategory;
-              // this.product.childCategory = data.childCategory;
-              // this.product.category = data.category;
-              // this.product.isNew = data.isNew;
+              this.product.price = data.price;
+              this.product.description = data.description;
+              this.product.instruction = data.instruction;
+              this.product.size = data.size;
+              this.product.material = data.material;
+              this.product.isSpecial = data.isSpecial;
+              this.product.categoryId = data.categoryId;
+              this.product.parentCategory = data.parentCategory;
+              this.product.childCategory = data.childCategory;
+              this.product.category = data.category;
+              this.product.isNew = data.isNew;
 
               console.log("image", data);
             } catch (error) {

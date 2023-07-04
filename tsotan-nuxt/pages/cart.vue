@@ -23,7 +23,7 @@
                                 <tbody>
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
-                                            <n-link :to="`/product/${slugify(product.name)}`">
+                                            <n-link :to="`/product/product-detail/${product.id}`">
                                                 <img :src="product.img" :alt="product.name">
                                             </n-link>
                                         </td>
