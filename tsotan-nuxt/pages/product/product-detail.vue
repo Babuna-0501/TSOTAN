@@ -149,7 +149,7 @@
 
         data() {
             return {
-              id: 0,
+              id: this.$route.params.id,
               product: {
                 image: [],
                 name: null,
