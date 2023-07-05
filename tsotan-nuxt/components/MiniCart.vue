@@ -14,7 +14,7 @@
                               <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>
                             </h4>
                             <h6>Qty: {{ product.cartQuantity }}</h6>
-                            <span>${{ discountedPrice(product).toFixed(2) }}</span>
+                            <span>{{ product.price }}</span>
                         </div>
                         <div class="shopping-cart-delete">
                             <button @click="removeProduct(product)">

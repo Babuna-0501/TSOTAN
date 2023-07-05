@@ -59,15 +59,16 @@ export const getters = {
     },
 
     getNewProducts: state => {
+        console.log("Get new products: " + state.products.length);
         return state.products.filter(item => {
-            return item.new
+            return item.isNew
         })
     },
-    getBestProducts: state => {
-        return state.products.filter(item => {
-            return item.best
-        })
-    },
+    // getBestProducts: state => {
+    //     return state.products.filter(item => {
+    //         return item.best
+    //     })
+    // },
     // getSaleProducts: state => {
     //     return state.products.filter(item => {
     //         return item.discount

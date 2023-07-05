@@ -66,7 +66,7 @@
 
         computed: {
             products() {
-                return this.$store.getters.getNewProducts.filter(item => item.category.includes("book"))
+                return this.$store.getters.getNewProducts;
             },
         },
     };

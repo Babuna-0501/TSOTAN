@@ -6,8 +6,8 @@
                     <div class="product-details-slider">
                         <div class="product-details-img">
                             <div class="product-badges">
-                                <span class="product-label pink" v-if="product.new">New</span>
-                                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
+                                <span class="product-label pink" v-if="product.isNew">New</span>
+<!--                                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>-->
                             </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
                                 <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">
