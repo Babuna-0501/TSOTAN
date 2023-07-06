@@ -35,7 +35,7 @@
                         <div class="product-details-content ml-70">
                             <h2>{{ product.name }}</h2>
                             <div class="product-details-price">
-                                <span>${{ product.price }}</span>
+                                <span>{{ product.price }}₮</span>
                             </div>
                             <p>{{ product.description }}</p>
                             <div class="pro-details-quality">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="pro-details-cart mt-20 mb-20">
-                                <a class="empty-cart__button" href="https://www.amazon.com/" target="_blank">Худалдан авах</a>
+                            <n-link to="/cart"><a class="empty-cart__button" >Худалдан авах</a></n-link>
                             </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>
@@ -194,14 +194,14 @@
         },
 
         mounted() {
-          this.id = this.$route.params.slug;
-          this.fetchData();
             this.$nextTick(() => {
                 const swiperTop = this.$refs.swiperTop.$swiper
                 const swiperThumbs = this.$refs.swiperThumbs.$swiper
                 swiperTop.controller.control = swiperThumbs
                 swiperThumbs.controller.control = swiperTop
             })
+            this.id = this.$route.params.slug;
+            this.fetchData();
         },
 
         methods: {
