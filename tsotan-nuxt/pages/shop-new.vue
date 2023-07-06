@@ -37,17 +37,29 @@
               <!-- end shop top bar -->
   
               <!-- shop product -->
+<!--              <div class="shop-bottom-area mt-35">-->
+<!--                <n-link to="/product/product-detail">-->
+<!--                  <div class="row product-layout"-->
+<!--                      :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">-->
+<!--                      tueryterutyreutyeruityeruiteryiu-->
+<!--                    <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">-->
+<!--                      <ProductNewWrapper/>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </n-link>-->
+<!--              </div>-->
+
               <div class="shop-bottom-area mt-35">
-                <n-link to="/product/product-detail">
-                  <div class="row product-layout"
-                      :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
-                      tueryterutyreutyeruityeruiteryiu
-                    <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
-                      <ProductNewWrapper/>
-                    </div>
+
+                <div class="row product-layout"
+                     :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
+                  <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
+                    <ProductGridItem :product="product" :layout="layout"/>
                   </div>
-                </n-link>
+                </div>
+
               </div>
+
               <!-- end shop product -->
   
               <div v-if="getPaginateCount > 1">
@@ -75,7 +87,7 @@
     components: {
       HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
       Breadcrumb: () => import('@/components/Breadcrumb'),
-      ProductNewWrapper: () => import('@/components/product/ProductNewWrapper'),
+      ProductGridItem: () => import('@/components/product/ProductGridItem'),
       QuickView: () => import('@/components/QuickView'),
       TheFooter: () => import('@/components/TheFooter'),
     },
@@ -95,7 +107,7 @@
   
     computed: {
       products() {
-        return this.$store.getters.getProducts
+        return this.$store.getters.getNewProducts;
       },
   
       getItems() {
@@ -127,48 +139,12 @@
   
       updateProductData() {
         this.paginateClickCallback(1);
-  
-        const parent = this.$route.query.parent;
-        const child = this.$route.query.child;
-        const category = this.$route.query.category;
-        // const sizeName = this.$route.query.size;
-        // const colorName = this.$route.query.color;
-        // const tagName = this.$route.query.tag;
+
   
         if (Object.keys(this.$route.query).length === 0) {
           this.filterItems = [...this.products]
         }
-  
-        if (!parent) {
-          this.filterItems = [...this.products]
-        }
-  
-        if (parent && this.prevSelectedParentName !== parent) {
-            const resultData = this.products.filter((item) => this.slugify(item.parentCategory).includes(parent));
-            this.filterItems = [];
-            this.filterItems.push(...resultData);
-        }
-  
-        if (child && this.prevSelectedChildName !== child) {
-            const resultData = this.products.filter((item) => (this.slugify(item.parentCategory).includes(parent) &&
-                this.slugify(item.childCategory).includes(child)) );
-            this.filterItems = [];
-            this.filterItems.push(...resultData);
-        }
-  
-        if (category && this.prevSelectedCategoryName !== category) {
-          const resultData = this.products.filter((item) =>
-              (this.slugify(item.parentCategory).includes(parent) &&
-                  (this.slugify(item.childCategory).includes(child))) &&
-              (this.slugify(item.category).includes(category)) );
-          this.filterItems = [];
-          this.filterItems.push(...resultData);
-        }
-  
-  
-        this.prevSelectedParentName = parent;
-        this.prevSelectedChildName = child;
-        this.prevSelectedCategoryName = category;
+
   
       },
   

@@ -259,7 +259,7 @@
 
             // TODO : zasah
             increaseQuantity(){
-                if(this.product.quantity > this.singleQuantity) this.singleQuantity++
+              this.singleQuantity++
             },
 
             decreaseQuantity() {

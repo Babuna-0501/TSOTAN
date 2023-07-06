@@ -116,9 +116,9 @@
         methods: {
             incrementProduct(product) {
                 const prod = { ...product, cartQuantity: 1 }
-                if (product.cartQuantity < product.quantity) {
+                // if (product.cartQuantity < product.quantity) {
                     this.$store.dispatch('addToCartItem', prod)
-                }
+                // }
             },
 
             decrementProduct(product) {
