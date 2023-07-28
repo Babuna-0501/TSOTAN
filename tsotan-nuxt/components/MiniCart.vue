@@ -5,9 +5,9 @@
                 <ul>
                     <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                         <div class="shopping-cart-img">
-                            <n-link :to="`/product/product-detail/${product.id}`">
-                                <img :src="product.img" :alt="product.name">
-                            </n-link>
+<!--                            <n-link :to="`/product/product-detail/${product.id}`">-->
+                                <img :src="product.img" :alt="product.name" @click="onClick(product)"/>
+// <!--                            </n-link>-->
                         </div>
                         <div class="shopping-cart-title">
                             <h4>
@@ -52,6 +52,9 @@
         },
 
         methods: {
+          onClick(product) {
+            this.$modal.show('quickview', product);
+          },
             removeProduct(product) {
                 // for notification
                 this.$notify({ title: 'Item remove from cart!'})
