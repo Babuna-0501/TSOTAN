@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="pro-details-cart mt-20 mb-20">
-                                <a class="empty-cart__button" href="https://www.amazon.com/" target="_blank">Худалдан авах</a>
+                                <n-link class="empty-cart__button" to="/cart">Худалдан авах</n-link>
                             </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>

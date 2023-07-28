@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/blog/tips-on-having-a-happy-life-forever", {data:[{}],fetch:{},mutations:[]});
