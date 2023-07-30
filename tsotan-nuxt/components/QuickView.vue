@@ -194,6 +194,7 @@
 
         computed: {
             product() {
+              console.log("quick view");
                 return this.item;
             }
         },

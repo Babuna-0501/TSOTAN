@@ -10,7 +10,7 @@
 <!--                                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>-->
                             </div>
                             <swiper :options="swiperOptionTop" ref="swiperTop">
-                                <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">
+                                <div class="large-img swiper-slide" v-for="(image, index) in product.image" :key="index">
                                     <img class="img-fluid" :src="image" :alt="product.title">
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
@@ -21,7 +21,7 @@
                                 </div>
                             </swiper>
                             <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
-                                <div class="thumb-img swiper-slide" v-for="(image, index) in product.images" :key="index">
+                                <div class="thumb-img swiper-slide" v-for="(image, index) in product.image" :key="index">
                                     <img class="img-fluid" :src="image" :alt="product.title">
                                 </div>
                             </swiper>

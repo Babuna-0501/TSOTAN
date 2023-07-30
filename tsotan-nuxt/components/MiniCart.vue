@@ -6,14 +6,16 @@
                     <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                         <div class="shopping-cart-img">
 <!--                            <n-link :to="`/product/product-detail/${product.id}`">-->
-                                <img :src="product.img" :alt="product.name" @click="onClick(product)"/>
-// <!--                            </n-link>-->
+                                <img :src="product.img" :alt="product.name"
+                              @click="onClick(product.id)"/>
+<!--                            </n-link>-->
                         </div>
                         <div class="shopping-cart-title">
                             <h4>
-                              <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>
+                              <div @click = "onClick(product.id)">{{product.name}}</div>
+<!--                              <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>-->
                             </h4>
-                            <h6>Qty: {{ product.cartQuantity }}</h6>
+                            <h6>Тоо : {{ product.cartQuantity }}</h6>
                             <span>{{ product.price }}</span>
                         </div>
                         <div class="shopping-cart-delete">
@@ -39,6 +41,8 @@
 </template>
 
 <script>
+    import api from "../../api/product";
+
     export default {
         props: ["miniCart"],
 
@@ -52,8 +56,10 @@
         },
 
         methods: {
-          onClick(product) {
-            this.$modal.show('quickview', product);
+          async onClick(id) {
+            console.log("mini cart onClick");
+            const res = await api.detail(id)
+            this.$modal.show('quickview', res.data);
           },
             removeProduct(product) {
                 // for notification
