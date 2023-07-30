@@ -5,21 +5,37 @@
             <div class="brand-logo-active">
                 <swiper :options="brandLogoCarousel">
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/service/service-logo-1.webp" alt="">
+                        <h5>Бүтээгдэхүүн</h5>
+                        <img src="../../static/img/brand-logo/bogts_tsunh_200x200.jpg" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/brand-logo/barnd-logo-2.png" alt="">
+                        <h5>DTF DTG хэвлэл</h5>
+                        <img src="../../static/img/brand-logo/DTF_200x200.png" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/brand-logo/barnd-logo-3.png" alt="">
+                        <h5>Уут цүнх</h5>
+                        <img src="../../static/img/brand-logo/eko_uut_tsunh__200x200.jpg" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/brand-logo/barnd-logo-4.png" alt="">
+                        <h5>Хатгамал</h5>
+                        <img src="../../static/img/brand-logo/hatgamal_200x200.jpg" alt="">
                     </div>
                     <div class="single-brand-logo swiper-slide">
-                        <img src="/img/brand-logo/barnd-logo-5.png" alt="">
+                        <h5>Лазер</h5>
+                        <img src="../../static/img/brand-logo/laser__200x200.png" alt="">
                     </div>
-                    
+                    <div class="single-brand-logo swiper-slide">
+                        <h5>Шошго</h5>
+                        <img src="../../static/img/brand-logo/shoshgo_hevlel_200x200.jpg" alt="">
+                    </div>
+                    <div class="single-brand-logo swiper-slide">
+                        <h5>Шүр шигтгээ</h5>
+                        <img src="../../static/img/brand-logo/shvr_shigtgee_200x200.jpg" alt="">
+                    </div>
+                    <div class="single-brand-logo swiper-slide">
+                        <h5>Холст хэвлэл</h5>
+                        <img src="../../static/img/brand-logo/uran_zurag_holst_hevlel_200x200.jpg" alt="">
+                    </div>
                 </swiper>
             </div>
         </div>

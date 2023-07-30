@@ -35,7 +35,7 @@
                         <div class="product-details-content ml-70">
                             <h2>{{ product.name }}</h2>
                             <div class="product-details-price">
-                                <span>${{ product.price }}</span>
+                                <span>{{ product.price }}₮</span>
                             </div>
                             <p>{{ product.description }}</p>
                             <div class="pro-details-quality">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="pro-details-cart mt-20 mb-20">
-                                <n-link class="empty-cart__button" to="/cart">Худалдан авах</n-link>
+                            <n-link to="/cart"><a class="empty-cart__button" >Худалдан авах</a></n-link>
                             </div>
                             <div class="pro-details-meta">
                                 <span class="label">Category:</span>
