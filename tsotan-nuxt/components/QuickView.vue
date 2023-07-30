@@ -221,7 +221,8 @@
             },
 
             increaseQuantity(){
-                if(this.product.quantity > this.singleQuantity) this.singleQuantity++
+                // if(this.product.quantity > this.singleQuantity)
+              this.singleQuantity++
             },
 
             decreaseQuantity() {

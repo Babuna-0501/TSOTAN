@@ -58,9 +58,26 @@
         methods: {
           async onClick(id) {
             console.log("mini cart onClick");
-            const res = await api.detail(id)
-            this.$modal.show('quickview', res.data);
+            try {
+              const product = await this.getDetail(id);
+              console.log(product);
+              this.$modal.show('quickview', product);
+            } catch (error) {
+              console.error("Error fetching product details:", error);
+            }
           },
+
+          async getDetail(id) {
+            try {
+              const res = await api.detail(id);
+              console.log(res.data);
+              return res.data;
+            } catch (error) {
+              console.error("Error fetching product details:", error);
+              throw error;
+            }
+          },
+
             removeProduct(product) {
                 // for notification
                 this.$notify({ title: 'Item remove from cart!'})
