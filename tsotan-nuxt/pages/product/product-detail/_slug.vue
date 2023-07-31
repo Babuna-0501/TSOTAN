@@ -188,7 +188,7 @@
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
                     slideToClickedSlide: true,
-                    loopedSlides: 4, // looped slides should be the same
+                    loopedSlides: 1, // looped slides should be the same
                 },
             }
         },
