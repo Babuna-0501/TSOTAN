@@ -1,26 +1,28 @@
 <template>
     <div class="blog-wrap mb-25">
         <div class="blog-img">
-            <video loop="true" autoplay="autoplay" controls muted style="width: 100%;">
-                <source :src="blog.videoSource" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <span>{{ blog.category[0]}}</span>
-        </div>
-        <div class="blog-content-wrap">
-            <div class="blog-content text-center">
-                <h3>
-                    <n-link :to="`/blog/${slugify(blog.title)}`">{{ blog.title }}</n-link>
-                </h3>
-                <span>By <n-link to="">{{ blog.author }}</n-link></span>
-            </div>
+            <iframe
+                width="560"
+                height="315"
+                :src="embedUrl"
+                frameborder="0"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ["blog"],
+        props: {
+            videoId: String, // The YouTube video ID
+        },
+        computed: {
+            embedUrl() {
+            return `https://www.youtube.com/embed/SdPM8t1h3kY?autoplay=1&loop=1&autopause=0&muted=1`;
+            },
+        },
 
         methods: {
             slugify(text) {

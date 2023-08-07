@@ -20,11 +20,11 @@
   "HeaderOffcanvasMenuWithTransparent": {
     "description": "Auto imported from components/HeaderOffcanvasMenuWithTransparent.vue"
   },
-  "HeaderWithTopBarTwo": {
-    "description": "Auto imported from components/HeaderWithTopBarTwo.vue"
-  },
   "HeaderWithTopbar": {
     "description": "Auto imported from components/HeaderWithTopbar.vue"
+  },
+  "HeaderWithTopBarTwo": {
+    "description": "Auto imported from components/HeaderWithTopBarTwo.vue"
   },
   "HomeSidebarMenu": {
     "description": "Auto imported from components/HomeSidebarMenu.vue"
@@ -62,6 +62,21 @@
   "HeroSliderTsotan": {
     "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
   },
+  "PolicyServicePolicy": {
+    "description": "Auto imported from components/policy/ServicePolicy.vue"
+  },
+  "PolicyServicePolicyFive": {
+    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "PolicyServicePolicyThree": {
+    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  },
+  "PolicyServicePolicyTwo": {
+    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
+  },
   "BannerItem": {
     "description": "Auto imported from components/banner/BannerItem.vue"
   },
@@ -82,66 +97,6 @@
   },
   "BannerStyleTwo": {
     "description": "Auto imported from components/banner/BannerStyleTwo.vue"
-  },
-  "PolicyServicePolicy": {
-    "description": "Auto imported from components/policy/ServicePolicy.vue"
-  },
-  "PolicyServicePolicyFive": {
-    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "PolicyServicePolicyThree": {
-    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
-  },
-  "PolicyServicePolicyTwo": {
-    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
-  },
-  "UnusedAboutMission": {
-    "description": "Auto imported from components/unused/AboutMission.vue"
-  },
-  "UnusedBlogItem": {
-    "description": "Auto imported from components/unused/BlogItem.vue"
-  },
-  "UnusedBlogItemStyleTwo": {
-    "description": "Auto imported from components/unused/BlogItemStyleTwo.vue"
-  },
-  "UnusedBlogSidebar": {
-    "description": "Auto imported from components/unused/BlogSidebar.vue"
-  },
-  "UnusedBlogWrapper": {
-    "description": "Auto imported from components/unused/BlogWrapper.vue"
-  },
-  "UnusedBrandLogoCarousel": {
-    "description": "Auto imported from components/unused/BrandLogoCarousel.vue"
-  },
-  "UnusedFunFact": {
-    "description": "Auto imported from components/unused/FunFact.vue"
-  },
-  "UnusedInstagramPostWrapper": {
-    "description": "Auto imported from components/unused/InstagramPostWrapper.vue"
-  },
-  "UnusedNewsletterStyleOne": {
-    "description": "Auto imported from components/unused/NewsletterStyleOne.vue"
-  },
-  "UnusedProductDetailsDescriptionReview": {
-    "description": "Auto imported from components/unused/ProductDetailsDescriptionReview.vue"
-  },
-  "UnusedRegister": {
-    "description": "Auto imported from components/unused/Register.vue"
-  },
-  "UnusedSectionTitleWithSubTitle": {
-    "description": "Auto imported from components/unused/SectionTitleWithSubTitle.vue"
-  },
-  "UnusedTeamMembers": {
-    "description": "Auto imported from components/unused/TeamMembers.vue"
-  },
-  "UnusedTestimonialOne": {
-    "description": "Auto imported from components/unused/TestimonialOne.vue"
-  },
-  "UnusedWelcomeMessage": {
-    "description": "Auto imported from components/unused/WelcomeMessage.vue"
   },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
@@ -184,5 +139,53 @@
   },
   "ProductWrapperTwo": {
     "description": "Auto imported from components/product/ProductWrapperTwo.vue"
+  },
+  "UnusedAboutMission": {
+    "description": "Auto imported from components/unused/AboutMission.vue"
+  },
+  "UnusedAd": {
+    "description": "Auto imported from components/unused/Ad.vue"
+  },
+  "UnusedBlogItem": {
+    "description": "Auto imported from components/unused/BlogItem.vue"
+  },
+  "UnusedBlogItemStyleTwo": {
+    "description": "Auto imported from components/unused/BlogItemStyleTwo.vue"
+  },
+  "UnusedBlogSidebar": {
+    "description": "Auto imported from components/unused/BlogSidebar.vue"
+  },
+  "UnusedBlogWrapper": {
+    "description": "Auto imported from components/unused/BlogWrapper.vue"
+  },
+  "UnusedBrandLogoCarousel": {
+    "description": "Auto imported from components/unused/BrandLogoCarousel.vue"
+  },
+  "UnusedFunFact": {
+    "description": "Auto imported from components/unused/FunFact.vue"
+  },
+  "UnusedInstagramPostWrapper": {
+    "description": "Auto imported from components/unused/InstagramPostWrapper.vue"
+  },
+  "UnusedNewsletterStyleOne": {
+    "description": "Auto imported from components/unused/NewsletterStyleOne.vue"
+  },
+  "UnusedProductDetailsDescriptionReview": {
+    "description": "Auto imported from components/unused/ProductDetailsDescriptionReview.vue"
+  },
+  "UnusedRegister": {
+    "description": "Auto imported from components/unused/Register.vue"
+  },
+  "UnusedSectionTitleWithSubTitle": {
+    "description": "Auto imported from components/unused/SectionTitleWithSubTitle.vue"
+  },
+  "UnusedTeamMembers": {
+    "description": "Auto imported from components/unused/TeamMembers.vue"
+  },
+  "UnusedTestimonialOne": {
+    "description": "Auto imported from components/unused/TestimonialOne.vue"
+  },
+  "UnusedWelcomeMessage": {
+    "description": "Auto imported from components/unused/WelcomeMessage.vue"
   }
 }

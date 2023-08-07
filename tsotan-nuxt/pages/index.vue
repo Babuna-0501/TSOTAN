@@ -2,10 +2,10 @@
     <div class="home-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
         <HeroSliderTsotan />
-        <BrandLogoCarousel/>
         <BannerStyleFive />
         <DealWithCountdownTwo />
-        <BlogWrapper />
+        <BrandLogoCarousel/>
+            <BlogWrapper />
         <TheFooter />
     </div>
 </template>
@@ -30,5 +30,4 @@
         },
     };
 </script>
-
 

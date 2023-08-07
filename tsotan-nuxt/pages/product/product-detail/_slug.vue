@@ -13,7 +13,7 @@
                                     <span class="product-label pink" v-if="product.isNew">New</span>
                                 </div>
                                 <swiper :options="swiperOptionTop" ref="swiperTop">
-                                    <div class="large-img swiper-slide" v-for="(image, index) in product.image" :key="index">
+                                    <div class="large-img swiper-slide imageContainer" v-for="(image, index) in product.image" :key="index">
                                         <img class="img-fluid" :src="image" :alt="product.name">
                                     </div>
                                     <div class="quickview-nav swiper-button-prev">
@@ -25,7 +25,7 @@
                                 </swiper>
                                 <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                                     <div class="thumb-img swiper-slide" v-for="(image, index) in product.image" :key="index">
-                                        <img class="img-fluid" :src="image" :alt="product.name">
+                                        <img class="img-fluid" :src="image" :alt="product.title">
                                     </div>
                                 </swiper>
                             </div>
@@ -46,17 +46,17 @@
                             </div>
                             <div class="pro-details-cart btn-hover">
                                 <button @click="addToCart({
-                                   id: product.id,
-                              name: product.name,
-                              price: product.price,
-                              usdPrice: product.usdPrice,
-                              parentCategory: product.parentCategory,
-                              childCategory: product.childCategory,
-                              category: product.category,
-                              categoryId: product.categoryId,
-                              img: product.image[0],
-                              isSpecial: product.isSpecial,
-                              isNew: product.isNew
+                                    id: product.id,
+                                    name: product.name,
+                                    price: product.price,
+                                    usdPrice: product.usdPrice,
+                                    parentCategory: product.parentCategory,
+                                    childCategory: product.childCategory,
+                                    category: product.category,
+                                    categoryId: product.categoryId,
+                                    img: product.image[0],
+                                    isSpecial: product.isSpecial,
+                                    isNew: product.isNew
                                 })">Сагсанд нэмэх</button>
                             </div>
                         </div>
@@ -132,7 +132,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -181,27 +180,28 @@
                 },
 
                 swiperOptionThumbs: {
-                    loop: true,
+                    // loop: true,
                     spaceBetween: 10,
-                    slidesPerView: 4,
                     freeMode: true,
                     watchSlidesVisibility: true,
                     watchSlidesProgress: true,
                     slideToClickedSlide: true,
-                    loopedSlides: 1, // looped slides should be the same
+                    touchRatio: 0.2,
+                    slidesPerView: 4,
+                    loopedSlides: 4, // looped slides should be the same
                 },
             }
         },
 
         mounted() {
-          this.id = this.$route.params.slug;
-          this.fetchData();
             this.$nextTick(() => {
                 const swiperTop = this.$refs.swiperTop.$swiper
                 const swiperThumbs = this.$refs.swiperThumbs.$swiper
                 swiperTop.controller.control = swiperThumbs
                 swiperThumbs.controller.control = swiperTop
             })
+            this.id = this.$route.params.slug;
+            this.fetchData();
         },
 
         methods: {
@@ -265,7 +265,10 @@
             decreaseQuantity() {
                 if(this.singleQuantity > 1) this.singleQuantity--
             },
-
+            onSlideChange() {
+                // Synchronize the thumbs gallery with the main swiper
+                this.$refs.thumbsSwiper.swiper.slideTo(this.$refs.swiper.swiper.realIndex);
+            },
         },
 
         head() {
@@ -275,3 +278,15 @@
         },
     };
 </script>
+
+<style>
+
+    /* @media (min-width: 1200px) {
+        .imageContainer {
+            width: 170px !important;
+        }
+    } */
+    .thumb-image {
+    width: 100px;
+  }
+</style>
