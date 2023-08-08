@@ -5,7 +5,7 @@
         <BannerStyleFive />
         <DealWithCountdownTwo />
         <BrandLogoCarousel/>
-            <BlogWrapper />
+        <BlogWrapper />
         <TheFooter />
     </div>
 </template>

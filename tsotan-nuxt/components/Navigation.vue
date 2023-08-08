@@ -280,11 +280,11 @@
         </li>
         
         <li>
-            <n-link to="/service"> Үйлчилгээ<i></i></n-link>
+            <n-link to="/#service"> Үйлчилгээ<i></i></n-link>
         </li>
        
         <li>
-            <n-link to="/">Сошиал</n-link>
+            <n-link to="/#social">Сошиал</n-link>
         </li>
         <li>
             <n-link to="/contact">Холбоо барих </n-link>

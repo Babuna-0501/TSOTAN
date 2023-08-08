@@ -41,7 +41,7 @@
 
                 <div class="row product-layout"
                     :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
-                  <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index">
+                  <div class="col-xl-4 col-sm-6 mt-35" v-for="(product, index) in getItems" :key="index">
                     <ProductGridItem :product="product" :layout="layout"/>
                   </div>
                 </div>

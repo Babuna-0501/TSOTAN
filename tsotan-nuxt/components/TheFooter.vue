@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-area pt-100 pb-70" style="background-color: #2f333a; color: #fff;">
+    <footer id="social" class="footer-area pt-100 pb-70" style="background-color: #2f333a; color: #fff;">
         <div class="container">
             <div class="row" style="justify-content: space-around;">
                 <div class="col-lg-2 col-sm-4">
