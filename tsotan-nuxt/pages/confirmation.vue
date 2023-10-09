@@ -1,15 +1,33 @@
 <template>
   <div class="cart-page-wrapper">
     <HeaderWithTopbar containerClass="container" />
-    <Breadcrumb pageTitle="Төлбөр төлөх" />
+    <Breadcrumb pageTitle="Баталгаажуулах" />
 
-    <!-- checkout section start -->
     <div class="checkout-area pt-95 pb-100">
       <div class="container">
-        <h3 class="mb-5">Таны захиалга</h3>
-        <div class="row" v-if="products.length > 0">
-          <FormPage @formSubmitted="handleFormSubmitted" />
-          <div class="col-lg-5 mt-4">
+        <h1>Захиалга баталгаажуулах</h1>
+        <product-payment-timer />
+        <div class="row mt-4">
+          <div class="confirmWrapper">
+            <p v-if="$route.query.facebookName">
+              <strong>Facebook Name:</strong> {{ $route.query.facebookName }}
+            </p>
+            <p v-if="$route.query.email">
+              <strong>Email:</strong> {{ $route.query.email }}
+            </p>
+            <p v-if="$route.query.phone">
+              <strong>Утас:</strong> {{ $route.query.phone }}
+            </p>
+            <p v-if="$route.query.additionalInfo">
+              <strong>Нэмэлт мэдээлэл:</strong>
+              {{ $route.query.additionalInfo }}
+            </p>
+            <p v-if="$route.query.option">
+              <strong>Хүргэлтийн нөхцөл:</strong>
+              {{ $route.query.option }}
+            </p>
+          </div>
+          <div class="col-lg-5">
             <div class="your-order-area">
               <div class="your-order-wrap gray-bg-4">
                 <div class="your-order-product-info">
@@ -48,21 +66,13 @@
             </div>
           </div>
         </div>
-        <div class="row" v-else>
-          <div class="col-12">
-            <div class="empty-cart text-center">
-              <div class="icon">
-                <i class="pe-7s-cash"></i>
-              </div>
-              <h4>Таны сагсанд бараа байхгүй байна</h4>
-              <n-link to="/shop" class="empty-cart__button">Дэлгүүр</n-link>
-            </div>
+        <div class="qpay row mt-4">
+          <div class="confirmWrapper">
+            <h2>Qpay энд байрлана</h2>
           </div>
         </div>
       </div>
     </div>
-    <!-- The Modal -->
-    <!-- checkout section end -->
     <TheFooter />
   </div>
 </template>
@@ -73,8 +83,7 @@ export default {
     HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
     Breadcrumb: () => import("@/components/Breadcrumb"),
     TheFooter: () => import("@/components/TheFooter"),
-    FormPage: () => import("@/components/FormPage"),
-    Confirm: () => import("./confirmation.vue"),
+    ProductPaymentTimer: () => import("@/components/ProductPaymentTimer"),
   },
   computed: {
     products() {
@@ -85,40 +94,26 @@ export default {
       return this.$store.getters.getTotal;
     },
   },
-  data() {
-    return {
-      formData: {
-        facebookName: "",
-        email: "",
-        phone: "",
-        additionalInfo: "",
-        option: "",
-      },
-    };
-  },
-
-  methods: {
-    handleFormSubmitted(formData) {
-      this.$router.push({
-        name: "confirmation",
-        query: formData,
-      });
-    },
-  },
-
   head() {
     return {
-      title: "Checkout",
+      title: "Confirmation",
     };
+  },
+  mounted() {
+    console.log("$route.query:", this.$route.query);
+  },
+  props: {
+    formData: Object,
   },
 };
 </script>
-
-<style>
-.address {
+<style scoped>
+.confirmWrapper {
   width: 50%;
+  background-color: #f6f6f6;
+  padding: 40px;
+  font-size: 15px;
 }
-.form-group {
-  margin-bottom: 20px;
+.qpay {
 }
 </style>

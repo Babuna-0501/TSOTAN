@@ -1,103 +1,117 @@
 <template>
-    <client-only>
-        <div class="minicart-wrapper" :class="miniCart">
-            <div class="shopping-cart-content" v-if="products.length > 0">
-                <ul>
-                    <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
-                        <div class="shopping-cart-img">
-<!--                            <n-link :to="`/product/product-detail/${product.id}`">-->
-                                <img :src="product.img" :alt="product.name"
-                              @click="onClick(product.id)"/>
-<!--                            </n-link>-->
-                        </div>
-                        <div class="shopping-cart-title">
-                            <h4>
-                              <div @click = "onClick(product.id)">{{product.name}}</div>
-<!--                              <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>-->
-                            </h4>
-                            <h6>Тоо : {{ product.cartQuantity }}</h6>
-                            <span>{{ product.price }}</span>
-                        </div>
-                        <div class="shopping-cart-delete">
-                            <button @click="removeProduct(product)">
-                                <i class="fa fa-times-circle"></i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                <div class="shopping-cart-total">
-                    <h4>Total : <span class="shop-total">${{ total.toFixed(2) }}</span></h4>
-                </div>
-                <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
-                    <n-link to="/cart" class="default-btn">view cart</n-link>
-                    <n-link to="/checkout" class="default-btn">checkout</n-link>
-                </div>
+  <client-only>
+    <div class="minicart-wrapper" :class="miniCart">
+      <div class="shopping-cart-content" v-if="products.length > 0">
+        <ul>
+          <li
+            class="single-shopping-cart"
+            v-for="(product, index) in products"
+            :key="index"
+          >
+            <div class="shopping-cart-img">
+              <!--                            <n-link :to="`/product/product-detail/${product.id}`">-->
+              <img
+                :src="product.img"
+                :alt="product.name"
+                @click="onClick(product.id)"
+              />
+              <!--                            </n-link>-->
             </div>
-            <div class="shopping-cart-content text-center" v-else>
-                <p>No items added to cart</p>
+            <div class="shopping-cart-title">
+              <h4>
+                <div @click="onClick(product.id)">{{ product.name }}</div>
+                <!--                              <n-link :to="`/product/product-detail/${product.id}`">{{ product.name }}</n-link>-->
+              </h4>
+              <h6>Тоо : {{ product.cartQuantity }}</h6>
+              <span>{{ product.price }}</span>
             </div>
+            <div class="shopping-cart-delete">
+              <button @click="removeProduct(product)">
+                <i class="fa fa-times-circle"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+        <div class="shopping-cart-total">
+          <h4>
+            Нийт : <span class="shop-total">${{ total.toFixed(2) }}</span>
+          </h4>
         </div>
-    </client-only>
+        <div
+          class="shopping-cart-btn btn-hover text-center"
+          @click="$emit('minicartClose')"
+        >
+          <n-link to="/cart" class="default-btn">Сагсыг харах</n-link>
+          <n-link to="/checkout" class="default-btn">төлбөрийн хэсэг</n-link>
+        </div>
+      </div>
+      <div class="shopping-cart-content text-center" v-else>
+        <p>Сагсанд бараа байхгүй байна</p>
+      </div>
+    </div>
+  </client-only>
 </template>
 
 <script>
-    import api from "../../api/product";
+import api from "../../api/product";
 
-    export default {
-        props: ["miniCart"],
+export default {
+  props: ["miniCart"],
 
-        computed: {
-            products() {
-                return this.$store.getters.getCart
-            },
-            total() {
-                return this.$store.getters.getTotal
-            }
-        },
+  computed: {
+    products() {
+      return this.$store.getters.getCart;
+    },
+    total() {
+      return this.$store.getters.getTotal;
+    },
+  },
 
-        methods: {
-          async onClick(id) {
-            console.log("mini cart onClick");
-            try {
-              const product = await this.getDetail(id);
-              console.log(product);
-              this.$modal.show('quickview', product);
-            } catch (error) {
-              console.error("Error fetching product details:", error);
-            }
-          },
+  methods: {
+    async onClick(id) {
+      console.log("mini cart onClick");
+      try {
+        const product = await this.getDetail(id);
+        console.log(product);
+        this.$modal.show("quickview", product);
+      } catch (error) {
+        console.error("Error fetching product details:", error);
+      }
+    },
 
-          async getDetail(id) {
-            try {
-              const res = await api.detail(id);
-              console.log(res.data);
-              return res.data;
-            } catch (error) {
-              console.error("Error fetching product details:", error);
-              throw error;
-            }
-          },
+    async getDetail(id) {
+      try {
+        const res = await api.detail(id);
+        console.log(res.data);
+        return res.data;
+      } catch (error) {
+        console.error("Error fetching product details:", error);
+        throw error;
+      }
+    },
 
-            removeProduct(product) {
-                // for notification
-                this.$notify({ title: 'Item remove from cart!'})
-                this.$store.dispatch('removeProductFromCart', product)
-            },
+    removeProduct(product) {
+      // for notification
+      this.$notify({ title: "Item remove from cart!" });
+      this.$store.dispatch("removeProductFromCart", product);
+    },
 
-            discountedPrice(product) {
-                return product.price
-            },
+    discountedPrice(product) {
+      return product.price;
+    },
 
-            slugify(text) {
-                return String(text)
-                    // .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    // .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
-        },
-    };
+    slugify(text) {
+      return (
+        String(text)
+          // .toString()
+          .toLowerCase()
+          .replace(/\s+/g, "-") // Replace spaces with -
+          // .replace(/[^\w-]+/g, "") // Remove all non-word chars
+          .replace(/--+/g, "-") // Replace multiple - with single -
+          .replace(/^-+/, "") // Trim - from start of text
+          .replace(/-+$/, "")
+      ); // Trim - from end of text
+    },
+  },
+};
 </script>

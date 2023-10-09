@@ -14,6 +14,9 @@
   "FooterStyleTwo": {
     "description": "Auto imported from components/FooterStyleTwo.vue"
   },
+  "FormPage": {
+    "description": "Auto imported from components/FormPage.vue"
+  },
   "HeaderLogoCenterWithTransparent": {
     "description": "Auto imported from components/HeaderLogoCenterWithTransparent.vue"
   },
@@ -40,6 +43,9 @@
   },
   "OffCanvasMobileMenu": {
     "description": "Auto imported from components/OffCanvasMobileMenu.vue"
+  },
+  "ProductPaymentTimer": {
+    "description": "Auto imported from components/ProductPaymentTimer.vue"
   },
   "QuickView": {
     "description": "Auto imported from components/QuickView.vue"
