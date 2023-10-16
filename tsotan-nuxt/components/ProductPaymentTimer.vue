@@ -38,6 +38,8 @@ export default {
   beforeDestroy() {
     clearInterval(this.timer);
   },
+
+//   TODO : 10 minut duusahad confirmation huudasnii this.invoice=null bolgoh
 };
 </script>
 

@@ -2,12 +2,12 @@
   <div class="formpage">
     <form @submit.prevent="submitForm">
       <div class="mb-3">
-        <label for="facebookName" class="form-label">Facebook Name</label>
+        <label for="fb" class="form-label">Facebook Name</label>
         <input
           type="text"
           class="form-control"
-          id="facebookName"
-          v-model="formData.facebookName"
+          id="fb"
+          v-model="formData.fb"
           required
         />
       </div>
@@ -22,35 +22,35 @@
         />
       </div>
       <div class="mb-3">
-        <label for="phone" class="form-label">Утас</label>
+        <label for="phoneNumber" class="form-label">Утас</label>
         <input
           type="text"
           class="form-control"
-          id="phone"
-          v-model="formData.phone"
+          id="phoneNumber"
+          v-model="formData.phoneNumber"
           required
         />
       </div>
       <div class="mb-3">
-        <label for="additionalInfo" class="form-label">Нэмэлт мэдээлэл</label>
+        <label for="address" class="form-label">Хаяг</label>
         <textarea
           class="form-control"
-          id="additionalInfo"
-          v-model="formData.additionalInfo"
+          id="address"
+          v-model="formData.address"
         ></textarea>
       </div>
       <div class="mb-3">
-        <label for="additionalInfo" class="form-label"
+        <label for="comment" class="form-label"
           >Хүргэлтийн нөхцөл (Та бараа хүлээн авах өдөр, байршил, нөхцөл зэргийг
           дэлгэрэнгүй тусгана уу)</label
         >
         <textarea
           class="form-control"
-          id="option"
-          v-model="formData.option"
+          id="comment"
+          v-model="formData.comment"
         ></textarea>
       </div>
-      <button type="submit" class="btn border-0 formbtn btn-primary">
+      <button type="submit" class="btn border-0 formbtn btn-primary" @click.prevent="submitForm()">
         Баталгаажуулах
       </button>
     </form>
@@ -58,23 +58,57 @@
 </template>
 
 <script>
+
+import api from "../../api/product"
+import product from "../../api/product";
 export default {
   data() {
     return {
+      orderId: null,
       formData: {
-        facebookName: "",
+        fb: "",
         email: "",
-        phone: "",
-        additionalInfo: "",
-        option: "",
+        phoneNumber: "",
+        address: "",
+        comment: "",
       },
     };
   },
   methods: {
-    submitForm() {
-      this.$emit("formSubmitted", this.formData);
+    async submitForm() {
+      try {
+        await this.createOrder();
+        this.$emit("formSubmitted", {
+          ...this.formData,
+          orderId: this.orderId,
+        });
+      } catch (error) {
+        console.log(error)
+      }
+
+    },
+
+    async createOrder() {
+      try {
+        const jsonStrings = this.products.map(product => `"${product.name}":"${product.cartQuantity}"`);
+        const res = await api.createOrder({...this.formData, orderedProducts: jsonStrings.toString(), price: this.total.toFixed(2)});
+        this.orderId = res.data.id;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+  },
+  computed: {
+    products() {
+      return this.$store.getters.getCart;
+    },
+
+    total() {
+      return this.$store.getters.getTotal;
     },
   },
+
 };
 </script>
 

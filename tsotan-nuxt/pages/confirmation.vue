@@ -9,22 +9,22 @@
         <product-payment-timer />
         <div class="row mt-4">
           <div class="confirmWrapper">
-            <p v-if="$route.query.facebookName">
-              <strong>Facebook Name:</strong> {{ $route.query.facebookName }}
+            <p v-if="formData.fb">
+              <strong>Facebook Name:</strong> {{ formData.fb}}
             </p>
-            <p v-if="$route.query.email">
-              <strong>Email:</strong> {{ $route.query.email }}
+            <p v-if="formData.email">
+              <strong>Email:</strong> {{formData.email }}
             </p>
-            <p v-if="$route.query.phone">
-              <strong>Утас:</strong> {{ $route.query.phone }}
+            <p v-if="formData.phoneNumber">
+              <strong>Утас:</strong> {{ formData.phoneNumber }}
             </p>
-            <p v-if="$route.query.additionalInfo">
-              <strong>Нэмэлт мэдээлэл:</strong>
-              {{ $route.query.additionalInfo }}
+            <p v-if="formData.address">
+              <strong>Хаяг:</strong>
+              {{formData.address }}
             </p>
-            <p v-if="$route.query.option">
+            <p v-if="formData.comment">
               <strong>Хүргэлтийн нөхцөл:</strong>
-              {{ $route.query.option }}
+              {{ formData.comment }}
             </p>
           </div>
           <div class="col-lg-5">
@@ -68,7 +68,7 @@
         </div>
         <div class="qpay row mt-4">
           <div class="confirmWrapper">
-            <h2>Qpay энд байрлана</h2>
+            <img v-if="invoice" class="default-img" :src="'data:image/png;base64,' + invoice.qrImage" :alt="invoice.qPayShortUrl">
           </div>
         </div>
       </div>
@@ -78,6 +78,8 @@
 </template>
 
 <script>
+import api from "../../api/product";
+
 export default {
   components: {
     HeaderWithTopbar: () => import("@/components/HeaderWithTopbar"),
@@ -85,6 +87,46 @@ export default {
     TheFooter: () => import("@/components/TheFooter"),
     ProductPaymentTimer: () => import("@/components/ProductPaymentTimer"),
   },
+
+  data() {
+    return {
+      invoice: null,
+      formData: {
+        fb: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+        comment: "",
+        orderId: ""
+      },
+    };
+  },
+
+  methods: {
+    async createInvoice() {
+      try {
+        if (!this.formData.orderId) {
+          console.error('Invalid orderId');
+          return;
+        }
+        const res = await api.createInvoice({ orderId: this.formData.orderId});
+        if (res.status >= 200 && res.status < 300) {
+          this.invoice = res.data;
+        } else {
+          console.error('Failed to create invoice', res.status, res.statusText);
+        }
+      } catch (error) {
+        console.error('An error occurred while creating the invoice:', error);
+      }
+    }
+  },
+
+  mounted() {
+    this.formData = this.$route.params.formData;
+    this.createInvoice();
+  },
+
+
   computed: {
     products() {
       return this.$store.getters.getCart;
@@ -99,12 +141,7 @@ export default {
       title: "Confirmation",
     };
   },
-  mounted() {
-    console.log("$route.query:", this.$route.query);
-  },
-  props: {
-    formData: Object,
-  },
+
 };
 </script>
 <style scoped>

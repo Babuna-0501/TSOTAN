@@ -18,10 +18,6 @@ export default {
         return axios.get(`${url}/product/list/${id}`);
     },
 
-    async login(data) {
-        return axios.post(`${url}/user/login`, data);
-    },
-
     async view(id) {
         return axios.get(`${url}/product/view/${id}`);
     },
@@ -40,6 +36,15 @@ export default {
 
     async getCategoriesByParent(id){
         return axios.get(`${url}/category/list/${id}`);
+    },
+
+    async createOrder(data){
+        console.log("create order : ", data)
+        return axios.post(`${url}/order/create`, {data});
+    },
+
+    async createInvoice(id){
+        return axios.post(`${url}/invoice/create${id}`);
     }
 
 };

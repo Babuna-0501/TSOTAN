@@ -88,11 +88,12 @@ export default {
   data() {
     return {
       formData: {
-        facebookName: "",
+        fb: "",
         email: "",
-        phone: "",
-        additionalInfo: "",
-        option: "",
+        phoneNumber: "",
+        address: "",
+        comment: "",
+        orderId: ""
       },
     };
   },
@@ -101,7 +102,7 @@ export default {
     handleFormSubmitted(formData) {
       this.$router.push({
         name: "confirmation",
-        query: formData,
+        params: { formData },
       });
     },
   },
