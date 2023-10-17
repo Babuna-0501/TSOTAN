@@ -68,7 +68,7 @@
         </div>
         <div class="qpay row mt-4">
           <div class="confirmWrapper">
-            <img v-if="invoice" class="default-img" :src="'data:image/png;base64,' + invoice.qr_image" :alt="invoice.qPay_shortUrl">
+            <img v-if="invoice" class="default-img" :src="'data:image/png;base64,' + invoice.qr_image" :alt="invoice.qr_text">
           </div>
         </div>
       </div>
