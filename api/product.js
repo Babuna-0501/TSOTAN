@@ -39,12 +39,11 @@ export default {
     },
 
     async createOrder(data){
-        console.log("create order : ", data)
-        return axios.post(`${url}/order/create`, {data});
+        return axios.post(`${url}/order/create`, data);
     },
 
     async createInvoice(id){
-        return axios.post(`${url}/invoice/create${id}`);
+        return axios.post(`${url}/invoice/create/${id}`);
     }
 
 };
