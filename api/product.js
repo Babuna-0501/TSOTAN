@@ -42,8 +42,8 @@ export default {
         return axios.post(`${url}/order/create`, data);
     },
 
-    async createInvoice(id){
-        return axios.post(`${url}/invoice/create/${id}`);
+    async createInvoice(data){
+        return axios.post(`${url}/invoice/create/`, data);
     }
 
 };

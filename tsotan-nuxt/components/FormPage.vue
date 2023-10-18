@@ -71,16 +71,18 @@ export default {
         phoneNumber: "",
         address: "",
         comment: "",
+        orderedProducts: "",
+        price: ""
       },
     };
   },
   methods: {
     async submitForm() {
       try {
-        await this.createOrder();
+        this.formData.orderedProducts = this.products.map(product => `${product.name}:${product.cartQuantity}`).toString();
+        this.formData.price =  this.total.toFixed(2);
         this.$emit("formSubmitted", {
           ...this.formData,
-          orderId: this.orderId,
         });
       } catch (error) {
         console.log(error)

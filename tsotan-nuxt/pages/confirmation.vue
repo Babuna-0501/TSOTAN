@@ -68,7 +68,7 @@
         </div>
         <div class="qpay row mt-4">
           <div class="confirmWrapper">
-            <img v-if="invoice" class="default-img" :src="'data:image/png;base64,' + invoice.qr_image" :alt="invoice.qr_text">
+            <img v-if="invoice" class="default-img" :src="'data:image/png;base64,' + invoice.qpayUrl" :alt="invoice.qpayText">
           </div>
         </div>
       </div>
@@ -97,7 +97,8 @@ export default {
         phoneNumber: "",
         address: "",
         comment: "",
-        orderId: ""
+        orderedProducts: "",
+        price:""
       },
     };
   },
@@ -105,11 +106,7 @@ export default {
   methods: {
     async createInvoice() {
       try {
-        if (!this.formData.orderId) {
-          console.error('Invalid orderId');
-          return;
-        }
-        const res = await api.createInvoice(this.formData.orderId);
+        const res = await api.createInvoice(this.formData);
         if (res.status >= 200 && res.status < 300) {
           this.invoice = res.data;
         } else {
