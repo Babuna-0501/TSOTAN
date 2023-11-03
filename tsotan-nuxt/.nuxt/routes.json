@@ -2,92 +2,92 @@
   {
     "name": "blog",
     "path": "/blog",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\index.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\blog\\\\index.vue",
     "chunkName": "pages/blog/index",
-    "_name": "_11e399cc"
+    "_name": "_92d3fb4a"
   },
   {
     "name": "cart",
     "path": "/cart",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\cart.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\cart.vue",
     "chunkName": "pages/cart",
-    "_name": "_09701674"
+    "_name": "_cae4be76"
   },
   {
     "name": "checkout",
     "path": "/checkout",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\checkout.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\checkout.vue",
     "chunkName": "pages/checkout",
-    "_name": "_2f18a79a"
+    "_name": "_f252bd2a"
   },
   {
     "name": "confirmation",
     "path": "/confirmation",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\confirmation.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\confirmation.vue",
     "chunkName": "pages/confirmation",
-    "_name": "_08611909"
+    "_name": "_0c087b4c"
   },
   {
     "name": "contact",
     "path": "/contact",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\contact.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\contact.vue",
     "chunkName": "pages/contact",
-    "_name": "_81f87708"
+    "_name": "_08b266ea"
   },
   {
     "name": "my-account",
     "path": "/my-account",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
     "chunkName": "pages/my-account",
-    "_name": "_395d5760"
+    "_name": "_ccf7be1e"
   },
   {
     "name": "shop",
     "path": "/shop",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\shop.vue",
     "chunkName": "pages/shop",
-    "_name": "_1710c96c"
+    "_name": "_f4d5b4ca"
   },
   {
     "name": "shop-new",
     "path": "/shop-new",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\shop-new.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\shop-new.vue",
     "chunkName": "pages/shop-new",
-    "_name": "_43f8af1d"
+    "_name": "_c892ae24"
   },
   {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",
     "chunkName": "pages/blog/blog-right-sidebar",
-    "_name": "_1c485c36"
+    "_name": "_6da29407"
   },
   {
     "name": "blog-blog-without-sidebar",
     "path": "/blog/blog-without-sidebar",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-without-sidebar.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-without-sidebar.vue",
     "chunkName": "pages/blog/blog-without-sidebar",
-    "_name": "_ed19afbc"
+    "_name": "_25c2a09a"
   },
   {
     "name": "product-product-detail-slug",
     "path": "/product/product-detail/:slug?",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\product\\\\product-detail\\\\_slug.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\product\\\\product-detail\\\\_slug.vue",
     "chunkName": "pages/product/product-detail/_slug",
-    "_name": "_4574af40"
+    "_name": "_52000651"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\blog\\\\_slug.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\blog\\\\_slug.vue",
     "chunkName": "pages/blog/_slug",
-    "_name": "_102cf884"
+    "_name": "_96413dda"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Gankhorol\\\\Desktop\\\\tsotan\\\\tsotan-nuxt\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\itwizard\\\\Desktop\\\\ts2\\\\tsotan-nuxt\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_2b427da4"
+    "_name": "_7cf280fd"
   }
 ]

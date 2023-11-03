@@ -34,7 +34,7 @@
                     </td>
                     <td class="product-price-cart">
                       <span class="amount"
-                        >${{ discountedPrice(product).toFixed(2) }}</span
+                        >{{ discountedPrice(product).toFixed(2) }}₮</span
                       >
                       <!--                                            <del class="old">${{ product.price.toFixed(2) }}</del>-->
                     </td>
@@ -61,7 +61,7 @@
                       </div>
                     </td>
                     <td class="product-subtotal">
-                      ${{ product.total.toFixed(2) }}
+                      {{ product.total.toFixed(2) }}₮
                     </td>
                     <td class="product-remove">
                       <button @click="removeProduct(product)">
@@ -91,10 +91,10 @@
                     <h4 class="cart-bottom-title section-bg-gary-cart">Сагс</h4>
                   </div>
                   <h5>
-                    Нийт бүтээгдэхүүн<span>${{ total.toFixed(2) }}</span>
+                    Нийт бүтээгдэхүүн<span>{{ total.toFixed(2) }}₮</span>
                   </h5>
                   <h4 class="grand-total-title">
-                    Нийт үнэ<span>${{ total.toFixed(2) }}</span>
+                    Нийт үнэ<span>{{ total.toFixed(2) }}₮</span>
                   </h4>
                   <n-link to="/checkout">Төлбөр төлөх</n-link>
                 </div>

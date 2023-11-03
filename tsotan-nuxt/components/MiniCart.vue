@@ -34,7 +34,7 @@
         </ul>
         <div class="shopping-cart-total">
           <h4>
-            Нийт : <span class="shop-total">${{ total.toFixed(2) }}</span>
+            Нийт : <span class="shop-total">{{ total.toFixed(2) }}₮</span>
           </h4>
         </div>
         <div

@@ -26,7 +26,7 @@
                           >{{ product.name }} X {{ product.cartQuantity }}</span
                         >
                         <span class="order-price"
-                          >${{ product.total.toFixed(2) }}</span
+                          >{{ product.total.toFixed(2) }}₮</span
                         >
                       </li>
                     </ul>
@@ -40,7 +40,7 @@
                   <div class="your-order-total">
                     <ul>
                       <li class="order-total">Нийт</li>
-                      <li>${{ total.toFixed(2) }}</li>
+                      <li>{{ total.toFixed(2) }}₮</li>
                     </ul>
                   </div>
                 </div>
