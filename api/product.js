@@ -43,7 +43,7 @@ export default {
     },
 
     async createInvoice(data){
-        return axios.post(`${url}/invoice/create/`, data);
+        return axios.post(`${url}/order/qpay-invoice`, data);
     }
 
 };
