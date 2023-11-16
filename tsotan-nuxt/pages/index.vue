@@ -6,13 +6,12 @@
         <DealWithCountdownTwo />
         <BrandLogoCarousel/>
         <BlogWrapper />
+        <FacebookChatbox />
         <TheFooter />
     </div>
 </template>
 
 <script>
-
-
     export default {
         components: {
             HeaderWithTopbar: () => import('@/components/HeaderWithTopbar'),
@@ -21,6 +20,7 @@
             BannerStyleFive: () => import('@/components/banner/BannerStyleFive'),
             DealWithCountdownTwo: () => import('@/components/DealWithCountdownTwo'),
             BlogWrapper: () => import('@/components/unused/BlogWrapper'),
+            FacebookChatbox: () => import("@/components/FacebookChatbox.vue"),
             TheFooter: () => import('@/components/TheFooter'),
         },
         head() {

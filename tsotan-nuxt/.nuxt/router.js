@@ -4,19 +4,19 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _92d3fb4a = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
-const _cae4be76 = () => interopDefault(import('..\\pages\\cart.vue' /* webpackChunkName: "pages/cart" */))
-const _f252bd2a = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
-const _0c087b4c = () => interopDefault(import('..\\pages\\confirmation.vue' /* webpackChunkName: "pages/confirmation" */))
-const _08b266ea = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
-const _ccf7be1e = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
-const _f4d5b4ca = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
-const _c892ae24 = () => interopDefault(import('..\\pages\\shop-new.vue' /* webpackChunkName: "pages/shop-new" */))
-const _6da29407 = () => interopDefault(import('..\\pages\\blog\\blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
-const _25c2a09a = () => interopDefault(import('..\\pages\\blog\\blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
-const _52000651 = () => interopDefault(import('..\\pages\\product\\product-detail\\_slug.vue' /* webpackChunkName: "pages/product/product-detail/_slug" */))
-const _96413dda = () => interopDefault(import('..\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
-const _7cf280fd = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _0c7eb1ab = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
+const _618ee916 = () => interopDefault(import('..\\pages\\cart.vue' /* webpackChunkName: "pages/cart" */))
+const _41acb41b = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
+const _6128fd0a = () => interopDefault(import('..\\pages\\confirmation.vue' /* webpackChunkName: "pages/confirmation" */))
+const _0d28b84a = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
+const _11bf70be = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
+const _8b7fdf6a = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
+const _568cbb9e = () => interopDefault(import('..\\pages\\shop-new.vue' /* webpackChunkName: "pages/shop-new" */))
+const _22dd46b7 = () => interopDefault(import('..\\pages\\blog\\blog-right-sidebar.vue' /* webpackChunkName: "pages/blog/blog-right-sidebar" */))
+const _3e777663 = () => interopDefault(import('..\\pages\\blog\\blog-without-sidebar.vue' /* webpackChunkName: "pages/blog/blog-without-sidebar" */))
+const _2735f501 = () => interopDefault(import('..\\pages\\product\\product-detail\\_slug.vue' /* webpackChunkName: "pages/product/product-detail/_slug" */))
+const _0ac81063 = () => interopDefault(import('..\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
+const _44b62766 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -31,55 +31,55 @@ export const routerOptions = {
 
   routes: [{
     path: "/blog",
-    component: _92d3fb4a,
+    component: _0c7eb1ab,
     name: "blog"
   }, {
     path: "/cart",
-    component: _cae4be76,
+    component: _618ee916,
     name: "cart"
   }, {
     path: "/checkout",
-    component: _f252bd2a,
+    component: _41acb41b,
     name: "checkout"
   }, {
     path: "/confirmation",
-    component: _0c087b4c,
+    component: _6128fd0a,
     name: "confirmation"
   }, {
     path: "/contact",
-    component: _08b266ea,
+    component: _0d28b84a,
     name: "contact"
   }, {
     path: "/my-account",
-    component: _ccf7be1e,
+    component: _11bf70be,
     name: "my-account"
   }, {
     path: "/shop",
-    component: _f4d5b4ca,
+    component: _8b7fdf6a,
     name: "shop"
   }, {
     path: "/shop-new",
-    component: _c892ae24,
+    component: _568cbb9e,
     name: "shop-new"
   }, {
     path: "/blog/blog-right-sidebar",
-    component: _6da29407,
+    component: _22dd46b7,
     name: "blog-blog-right-sidebar"
   }, {
     path: "/blog/blog-without-sidebar",
-    component: _25c2a09a,
+    component: _3e777663,
     name: "blog-blog-without-sidebar"
   }, {
     path: "/product/product-detail/:slug?",
-    component: _52000651,
+    component: _2735f501,
     name: "product-product-detail-slug"
   }, {
     path: "/blog/:slug",
-    component: _96413dda,
+    component: _0ac81063,
     name: "blog-slug"
   }, {
     path: "/",
-    component: _7cf280fd,
+    component: _44b62766,
     name: "index"
   }],
 

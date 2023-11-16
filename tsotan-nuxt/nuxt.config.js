@@ -18,7 +18,6 @@ export default {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
-        
     },
 
     // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -80,4 +79,13 @@ export default {
         host: '', // or '0.0.0.0' to listen on all network interfaces
         port: 3000,
     },
+    script: [
+        {
+          async: true,
+          defer: true,
+          crossorigin: "anonymous",
+          src: "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=1492669904285331",
+          nonce: "your-nonce",
+        },
+    ],
 }
