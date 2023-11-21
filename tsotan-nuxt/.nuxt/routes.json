@@ -3,78 +3,91 @@
     "name": "blog",
     "path": "/blog",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index"
+    "chunkName": "pages/blog/index",
+    "_name": "_0c7eb1ab"
   },
   {
     "name": "cart",
     "path": "/cart",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\cart.vue",
-    "chunkName": "pages/cart"
+    "chunkName": "pages/cart",
+    "_name": "_618ee916"
   },
   {
     "name": "checkout",
     "path": "/checkout",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\checkout.vue",
-    "chunkName": "pages/checkout"
+    "chunkName": "pages/checkout",
+    "_name": "_41acb41b"
   },
   {
     "name": "confirmation",
     "path": "/confirmation",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\confirmation.vue",
-    "chunkName": "pages/confirmation"
+    "chunkName": "pages/confirmation",
+    "_name": "_6128fd0a"
   },
   {
     "name": "contact",
     "path": "/contact",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\contact.vue",
-    "chunkName": "pages/contact"
+    "chunkName": "pages/contact",
+    "_name": "_0d28b84a"
   },
   {
     "name": "my-account",
     "path": "/my-account",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\my-account.vue",
-    "chunkName": "pages/my-account"
+    "chunkName": "pages/my-account",
+    "_name": "_11bf70be"
   },
   {
     "name": "shop",
     "path": "/shop",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\shop.vue",
-    "chunkName": "pages/shop"
+    "chunkName": "pages/shop",
+    "_name": "_8b7fdf6a"
   },
   {
     "name": "shop-new",
     "path": "/shop-new",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\shop-new.vue",
-    "chunkName": "pages/shop-new"
+    "chunkName": "pages/shop-new",
+    "_name": "_568cbb9e"
   },
   {
     "name": "blog-blog-right-sidebar",
     "path": "/blog/blog-right-sidebar",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-right-sidebar.vue",
-    "chunkName": "pages/blog/blog-right-sidebar"
+    "chunkName": "pages/blog/blog-right-sidebar",
+    "_name": "_22dd46b7"
   },
   {
     "name": "blog-blog-without-sidebar",
     "path": "/blog/blog-without-sidebar",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\blog\\\\blog-without-sidebar.vue",
-    "chunkName": "pages/blog/blog-without-sidebar"
+    "chunkName": "pages/blog/blog-without-sidebar",
+    "_name": "_3e777663"
   },
   {
     "name": "product-product-detail-slug",
     "path": "/product/product-detail/:slug?",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\product\\\\product-detail\\\\_slug.vue",
-    "chunkName": "pages/product/product-detail/_slug"
+    "chunkName": "pages/product/product-detail/_slug",
+    "_name": "_2735f501"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\blog\\\\_slug.vue",
-    "chunkName": "pages/blog/_slug"
+    "chunkName": "pages/blog/_slug",
+    "_name": "_0ac81063"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\dell\\\\Desktop\\\\web-ts\\\\tsotan-nuxt\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_44b62766"
   }
 ]

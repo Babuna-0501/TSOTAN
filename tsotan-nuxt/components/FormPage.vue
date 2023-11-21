@@ -10,6 +10,7 @@
           v-model="formData.fb"
           required
         />
+        <span v-show="validationErrors.fb" class="text-danger">{{ validationErrors.fb }}</span>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -20,6 +21,7 @@
           v-model="formData.email"
           required
         />
+        <span v-show="validationErrors.email" class="text-danger">{{ validationErrors.email }}</span>
       </div>
       <div class="mb-3">
         <label for="phoneNumber" class="form-label">Утас</label>
@@ -30,6 +32,7 @@
           v-model="formData.phoneNumber"
           required
         />
+        <span v-show="validationErrors.phoneNumber" class="text-danger">{{ validationErrors.phoneNumber }}</span>
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">Хаяг</label>
@@ -38,6 +41,7 @@
           id="address"
           v-model="formData.address"
         ></textarea>
+        <!-- <span v-show="validationErrors.fb" class="text-danger">{{ validationErrors.fb }}</span> -->
       </div>
       <div class="mb-3">
         <label for="comment" class="form-label"
@@ -49,6 +53,7 @@
           id="comment"
           v-model="formData.comment"
         ></textarea>
+        <!-- <span v-show="validationErrors.fb" class="text-danger">{{ validationErrors.fb }}</span> -->
       </div>
       <button type="submit" class="btn border-0 formbtn btn-primary" @click.prevent="submitForm()">
         Баталгаажуулах
@@ -74,21 +79,36 @@ export default {
         orderedProducts: "",
         price: ""
       },
+      validationErrors: {
+        fb: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+        comment: "",
+        orderedProducts: "",
+        price: ""
+      },
     };
   },
   methods: {
     async submitForm() {
-      try {
-        this.formData.orderedProducts = this.products.map(product => `${product.name}:${product.cartQuantity}`).toString();
-        this.formData.price =  this.total.toFixed(2);
-        this.$emit("formSubmitted", {
-          ...this.formData,
-        });
-      } catch (error) {
-        console.log(error)
-      }
+    try {
+    this.validateForm();
 
-    },
+    if (Object.values(this.validationErrors).every(error => !error)) {
+
+      this.formData.orderedProducts = this.products.map(product => `${product.name}:${product.cartQuantity}`).toString();
+      this.formData.price = this.total.toFixed(2);
+
+      this.$emit("formSubmitted", { ...this.formData });
+    } else {
+      console.log('Form validation failed. Please check the fields.');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+},
+
 
     async createOrder() {
       try {
@@ -99,7 +119,11 @@ export default {
         console.log(error);
       }
     },
-
+    validateForm() {
+      this.validationErrors.fb = this.formData.fb.trim() === '' ? 'FB нэрээ оруулна уу' : '';
+      this.validationErrors.email = this.formData.email.trim() === '' ? 'email оруулна уу' : '';
+      this.validationErrors.phoneNumber = this.formData.phoneNumber.trim() === '' ? 'Утасны дугаараа оруулна уу' : '';
+    },
   },
   computed: {
     products() {

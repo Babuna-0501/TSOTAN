@@ -75,9 +75,9 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="cart-shiping-update-wrapper">
-                  <div class="cart-shiping-update">
+                  <!-- <div class="cart-shiping-update">
                     <n-link to="/shop">Үргэлжлүүлэх</n-link>
-                  </div>
+                  </div> -->
                   <div class="cart-clear">
                     <button @click="clearCart()">Картыг хоослох</button>
                   </div>

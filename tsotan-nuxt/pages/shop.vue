@@ -37,9 +37,9 @@
             <!-- end shop top bar -->
 
             <!-- shop product -->
-            <div class="shop-bottom-area mt-35">
+            <div class="shop-bottom-area mt-35 cursor-pointer">
 
-                <div class="row product-layout"
+                <div class="row product-layout prod-hs"
                     :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                   <div class="col-xl-4 col-sm-6 mt-35" v-for="(product, index) in getItems" :key="index">
                     <ProductGridItem :product="product" :layout="layout"/>
@@ -224,3 +224,12 @@ export default {
   },
 };
 </script>
+
+
+<style>
+
+.prod-hs {
+  cursor: pointer;
+}
+
+</style>
