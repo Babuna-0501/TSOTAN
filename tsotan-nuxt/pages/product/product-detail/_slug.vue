@@ -34,10 +34,13 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content ml-70">
                             <h2>{{ product.name }}</h2>
-                            <div class="product-details-price">
-                                <span>{{ product.price }}₮</span>
+                            <div class="product-details-price text-sm mt-3">
+                                <span style="margin-top: 10px;">Үнэ : {{ product.price }}₮</span>
                             </div>
-                            <p>{{ product.description }}</p>
+                            <div class="product-details-price text-sm">
+                                <span style="color: rgb(36, 147, 180) !important;">Price : {{ product.usdPrice }}$</span>
+                            </div>
+                            <p style="font-size: 16px;">{{ product.description }}</p>
                             <div class="pro-details-quality">
                             <div class="cart-plus-minus">
                                 <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
@@ -64,7 +67,7 @@
                             <n-link to="/cart"><a class="empty-cart__button" >Худалдан авах</a></n-link>
                             </div>
                             <div class="pro-details-meta">
-                                <span class="label">Category:</span>
+                                <span class="label">Ангилал:</span>
                                 <ul>
                                     <li v-if="product.category">
                                       <n-link :to="`/shop?parent=${slugify(String(product.parentCategory))}&child=${slugify(String(product.childCategory))}&category=${slugify(String(product.category))}`">{{product.category}}</n-link>
@@ -85,7 +88,23 @@
 <!--                                    </li>-->
 <!--                                </ul>-->
 <!--                            </div>-->
-                            <div class="pro-details-social">
+                            <div class="description-review-area pb-90 mt-30">
+                                <div class="container">
+                                    <div class="description-review-wrapper">
+                                        <div class="tab-content description-review-bottom">
+                                            <div id="des-details1" >
+                                                <div class="product-anotherinfo-wrapper">
+                                                    <ul>
+                                                        <li><span>Хэмжээ:</span> {{product.size}}</li>
+                                                        <li><span>Материал:</span>{{product.material}}</li>
+                                                        <li><span>Угаах заавар:</span> {{product.instruction}}</li>
+                                                        <li><span>Дэлгэрэнгүй:</span>{{ product.description }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-social">
                                 <ul>
                                     <li>
                                         <a href="https://www.facebook.com/" target="_blank">
@@ -114,22 +133,6 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <div class="description-review-area pb-90 mt-30">
-                                <div class="container">
-                                    <div class="description-review-wrapper">
-                                        <div class="tab-content description-review-bottom">
-                                            <div id="des-details1" >
-                                                <div class="product-anotherinfo-wrapper">
-                                                    <ul>
-                                                        <li><span>Хэмжээ:</span> {{product.size}}</li>
-                                                        <li><span>Материал:</span>{{product.material}}</li>
-                                                        <li><span>Угаах заавар:</span> {{product.instruction}}</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

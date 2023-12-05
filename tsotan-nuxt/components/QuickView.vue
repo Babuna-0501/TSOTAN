@@ -34,8 +34,11 @@
                         </div>
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <span>${{ product.price }}</span>
+                            <span>{{ product.price }}₮</span>
 <!--                            <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>-->
+                        </div>
+                        <div class="product-details-price text-sm">
+                            <span style="color: rgb(36, 147, 180) !important;">Price : {{ product.usdPrice }}$</span>
                         </div>
 <!--                        <div class="pro-details-rating-wrap">-->
 <!--                            <div class="pro-details-rating" v-if="product.rating == 5">-->
@@ -103,7 +106,7 @@
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Add To Cart</button>
+                                <button @click="addToCart(product)">Сагс руу нэмэх</button>
                             </div>
 <!--                            <div class="pro-details-wishlist">-->
 <!--                                <button @click="addToWishlist(product)"><i class="fa fa-heart-o"></i></button>-->

@@ -31,12 +31,12 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="your-order-bottom">
+                  <!-- <div class="your-order-bottom">
                     <ul>
                       <li class="your-order-shipping">Хүргэлт</li>
                       <li>+5000</li>
                     </ul>
-                  </div>
+                  </div> -->
                   <div class="your-order-total">
                     <ul>
                       <li class="order-total">Нийт</li>
