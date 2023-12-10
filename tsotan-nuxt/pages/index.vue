@@ -20,9 +20,8 @@
             BannerStyleFive: () => import('@/components/banner/BannerStyleFive'),
             DealWithCountdownTwo: () => import('@/components/DealWithCountdownTwo'),
             BlogWrapper: () => import('@/components/unused/BlogWrapper'),
-            FacebookChatbox: () => import("@/components/FacebookChatbox.vue"),
+            Facebook: () => import("@/components/Facebook.vue"),
             TheFooter: () => import('@/components/TheFooter'),
-            Facebook: () => import('@/components/Facebook'),
         },
         head() {
             return {

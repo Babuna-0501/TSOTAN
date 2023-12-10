@@ -42,14 +42,14 @@
                         </div>
                         <form id="ProductMail">
                             <div class="mb-3">
-                            <label for="ProdectOrder" class="form-label">Санал хүсэлт</label>
-                            <input type="text" class="form-control" id="ProdectOrder" aria-describedby="emailHelp">
+                            <label for="Suggest" class="form-label">Санал хүсэлт</label>
+                            <input v-model="suggest" type="text" class="form-control" id="Suggest" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
                                 <label for="PhoneNumber" class="form-label">Утасны дугаар</label>
-                                <input type="tel" class="form-control" id="PhoneNumber" aria-describedby="emailHelp">
+                                <input v-model="phoneNumber" type="tel" class="form-control" id="PhoneNumber" aria-describedby="emailHelp">
                             </div>
-                            <button type="submit" class="btn btn-primary" onclick="submitForm()" value="Submit">Илгээх</button>
+                            <button type="submit" class="btn btn-primary" @click.prevent="submitForm()" value="Submit">Илгээх</button>
                         </form>
                     </div>
                 </div>
@@ -58,11 +58,41 @@
     </div>
 </template>
 
+<script>
+
+import axios from "axios";
+
+export default {
+
+  data() {
+    return {
+      suggest: '',
+      phoneNumber: ''
+    }
+  },
+  methods: {
+    async submitForm() {
+      try {
+        await axios.post("https://rest.tsotan.mn/mail/send",
+            {
+                suggest: this.suggest, 
+                phoneNumber: this.phoneNumber
+            }
+        );
+
+        this.suggest = "",
+        this.phoneNumber = ""
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+  }
+}
+</script>
+
 
 <style>
 .contact-form {
     padding: 130px 110px 86px 110px;
-}
-
-
-</style>
+}</style>

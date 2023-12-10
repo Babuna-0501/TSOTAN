@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-8">
                             <div class="header-right-wrap">
-                                <div class="same-style header-search d-none d-lg-block">
+                                <!-- <div class="same-style header-search d-none d-lg-block">
                                     <button class="search-active" @click="isOpenSearch = !isOpenSearch"><i class="pe-7s-search"></i></button>
                                     <div class="search-content" :class="{ active:isOpenSearch }">
                                         <form>
@@ -42,7 +42,7 @@
                                             <button class="button-search"><i class="pe-7s-search"></i></button>
                                         </form>
                                     </div> 
-                                </div>
+                                </div> -->
                                 <div class="same-style cart-wrap">
                                     <button class="icon-cart" @click="openCart = !openCart">
                                         <i class="pe-7s-shopbag"></i>
@@ -108,3 +108,5 @@
         },
     };
 </script>
+
+
