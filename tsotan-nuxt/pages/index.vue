@@ -6,7 +6,7 @@
         <DealWithCountdownTwo />
         <BrandLogoCarousel/>
         <BlogWrapper />
-        <FacebookChatbox />
+        <Facebook/>
         <TheFooter />
     </div>
 </template>
@@ -22,6 +22,7 @@
             BlogWrapper: () => import('@/components/unused/BlogWrapper'),
             FacebookChatbox: () => import("@/components/FacebookChatbox.vue"),
             TheFooter: () => import('@/components/TheFooter'),
+            Facebook: () => import('@/components/Facebook'),
         },
         head() {
             return {

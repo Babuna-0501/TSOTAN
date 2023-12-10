@@ -18,6 +18,12 @@ export default {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
+        script: [
+            {
+              src: 'https://connect.facebook.net/en_US/sdk.js',
+              async: true,
+            },
+        ],
     },
 
     // Global CSS (https://go.nuxtjs.dev/config-css)

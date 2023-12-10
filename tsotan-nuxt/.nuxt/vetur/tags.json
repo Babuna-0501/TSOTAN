@@ -11,6 +11,9 @@
   "DealWithCountdownTwo": {
     "description": "Auto imported from components/DealWithCountdownTwo.vue"
   },
+  "Facebook": {
+    "description": "Auto imported from components/Facebook.vue"
+  },
   "FacebookChatbox": {
     "description": "Auto imported from components/FacebookChatbox.vue"
   },
@@ -92,21 +95,6 @@
   "HeroSliderTsotan": {
     "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
   },
-  "PolicyServicePolicy": {
-    "description": "Auto imported from components/policy/ServicePolicy.vue"
-  },
-  "PolicyServicePolicyFive": {
-    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
-  },
-  "PolicyServicePolicyFour": {
-    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
-  },
-  "PolicyServicePolicyThree": {
-    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
-  },
-  "PolicyServicePolicyTwo": {
-    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
-  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -148,6 +136,21 @@
   },
   "ProductWrapperTwo": {
     "description": "Auto imported from components/product/ProductWrapperTwo.vue"
+  },
+  "PolicyServicePolicy": {
+    "description": "Auto imported from components/policy/ServicePolicy.vue"
+  },
+  "PolicyServicePolicyFive": {
+    "description": "Auto imported from components/policy/ServicePolicyFive.vue"
+  },
+  "PolicyServicePolicyFour": {
+    "description": "Auto imported from components/policy/ServicePolicyFour.vue"
+  },
+  "PolicyServicePolicyThree": {
+    "description": "Auto imported from components/policy/ServicePolicyThree.vue"
+  },
+  "PolicyServicePolicyTwo": {
+    "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
   },
   "UnusedAboutMission": {
     "description": "Auto imported from components/unused/AboutMission.vue"
