@@ -4,7 +4,7 @@
             <iframe
                 width="560"
                 height="315"
-                :src="embedUrl"
+                :src="banner"
                 frameborder="0"
                 allowfullscreen
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -14,16 +14,21 @@
 </template>
 
 <script>
+    import axios from "axios";
+    
     export default {
         props: {
             videoId: String, // The YouTube video ID
         },
-        computed: {
-            embedUrl() {
-            return `https://www.youtube.com/embed/SdPM8t1h3kY?autoplay=1&loop=1&autopause=0&muted=1`;
-            },
-        },
 
+        data() {
+            return {
+                banner: ""
+            }
+        },
+        mounted() {
+            this.fetchData();
+        },
         methods: {
             slugify(text) {
                 return text
@@ -34,7 +39,18 @@
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text
-            }
+            },
+            async fetchData() {
+                try {
+                    const result = await axios.get('https://rest.tsotan.mn/banner/list', {
+                    params: {type: 'video'}
+                    });
+                    this.banner = result.data[0].url;
+                    console.log(this.banner.url);
+                } catch (error) {
+                    console.error(error);
+                }
+            },
         },
     };
 </script>

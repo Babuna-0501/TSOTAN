@@ -89,12 +89,6 @@
   "BannerStyleTwo": {
     "description": "Auto imported from components/banner/BannerStyleTwo.vue"
   },
-  "HeroSlider": {
-    "description": "Auto imported from components/hero/HeroSlider.vue"
-  },
-  "HeroSliderTsotan": {
-    "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
-  },
   "ProductDetailsWrapper": {
     "description": "Auto imported from components/product/ProductDetailsWrapper.vue"
   },
@@ -151,6 +145,12 @@
   },
   "PolicyServicePolicyTwo": {
     "description": "Auto imported from components/policy/ServicePolicyTwo.vue"
+  },
+  "HeroSlider": {
+    "description": "Auto imported from components/hero/HeroSlider.vue"
+  },
+  "HeroSliderTsotan": {
+    "description": "Auto imported from components/hero/HeroSliderTsotan.vue"
   },
   "UnusedAboutMission": {
     "description": "Auto imported from components/unused/AboutMission.vue"

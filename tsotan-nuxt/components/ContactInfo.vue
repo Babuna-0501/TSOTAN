@@ -57,3 +57,12 @@
         </div>
     </div>
 </template>
+
+
+<style>
+.contact-form {
+    padding: 130px 110px 86px 110px;
+}
+
+
+</style>

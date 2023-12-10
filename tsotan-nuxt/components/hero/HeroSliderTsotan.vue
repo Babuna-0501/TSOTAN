@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="slider-singleimg-hm10 ml-40 mr-40 slider-img-animation">
-                                <img src="../../assets/tsotan/futbolk/mongolia/mongolia04.jpg" alt="image">
+                                <img :src="img1" alt="image">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="slider-singleimg-hm10 ml-40 mr-40 slider-img-animation">
-                                <img src="../../assets/tsotan/aravch/Tavan_nuden_aravch.jpg" alt="image">
+                                <img :src="img2" alt="image">
                             </div>
                         </div>
                     </div>
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+    import axios from "axios";
     export default {
         data() {
             return {
@@ -74,8 +75,28 @@
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
                     },
-                }
+                },
+                img1 : null,
+                img2 : null,
             }
         },
+        methods: {
+            async fetchData() {
+                console.log('fetch data')
+                try {
+                    const result = await axios.get('https://rest.tsotan.mn/banner/list', {
+                    params: { type: 'slider' }
+                    });
+                    this.img1 = result.data[0].url;
+                    this.img2 = result.data[1].url;
+                    console.log(result.data);
+                } catch (error) {
+                    console.error(error);
+                }
+            },
+        },
+        mounted() {
+        this.fetchData();
+  },
     };
 </script>
